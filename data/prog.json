@@ -1,0 +1,156 @@
+{
+  "lundi": [
+    {
+      "streamer": "dch",
+      "title": "",
+      "horaire": "14h00"
+    },
+    {
+      "streamer": "Kyzano",
+      "title": "Titre \u00e9venement54",
+      "horaire": "20h00"
+    },
+    {
+      "streamer": "Boblegob",
+      "title": "Titre \u00e9venement5",
+      "horaire": "22h00"
+    },
+    {
+      "streamer": "Boblegob2",
+      "title": "Titre \u00e9venement",
+      "horaire": "00h00"
+    }
+  ],
+  "mardi": [
+    {
+      "streamer": "Kyzano",
+      "title": "Titre \u00e9venement3",
+      "horaire": "14h00"
+    },
+    {
+      "streamer": "Kyzano",
+      "title": "Titre \u00e9venement",
+      "horaire": "20h00"
+    },
+    {
+      "streamer": "Boblegob",
+      "title": "Titre \u00e9venement",
+      "horaire": "22h00"
+    },
+    {
+      "streamer": "Boblegob",
+      "title": "Titre \u00e9venement",
+      "horaire": "00h00"
+    }
+  ],
+  "mercredi": [
+    {
+      "streamer": "Kyzano",
+      "title": "Titre \u00e9venement3",
+      "horaire": "14h00"
+    },
+    {
+      "streamer": "Kyzano",
+      "title": "Titre \u00e9venement",
+      "horaire": "20h00"
+    },
+    {
+      "streamer": "Boblegob",
+      "title": "Titre \u00e9venement",
+      "horaire": "22h00"
+    },
+    {
+      "streamer": "Boblegob",
+      "title": "Titre \u00e9venement",
+      "horaire": "00h00"
+    }
+  ],
+  "jeudi": [
+    {
+      "streamer": "Kyzano",
+      "title": "Titre \u00e9venement3",
+      "horaire": "14h00"
+    },
+    {
+      "streamer": "",
+      "title": "",
+      "horaire": "20h00"
+    },
+    {
+      "streamer": "Linyuu",
+      "title": "Titre \u00e9venement",
+      "horaire": "22h00"
+    },
+    {
+      "streamer": "Linyuu",
+      "title": "Titre \u00e9venement",
+      "horaire": "00h00"
+    }
+  ],
+  "vendredi": [
+    {
+      "streamer": "Kyzano",
+      "title": "Titre \u00e9venement3",
+      "horaire": "14h00"
+    },
+    {
+      "streamer": "",
+      "title": "",
+      "horaire": "20h00"
+    },
+    {
+      "streamer": "Linyuu",
+      "title": "Titre \u00e9venement",
+      "horaire": "22h00"
+    },
+    {
+      "streamer": "Linyuu",
+      "title": "Titre \u00e9venement",
+      "horaire": "00h00"
+    }
+  ],
+  "samedi": [
+    {
+      "streamer": "Kyzano",
+      "title": "Titre \u00e9venement3",
+      "horaire": "14h00"
+    },
+    {
+      "streamer": "Kyzano",
+      "title": "Titre \u00e9venement",
+      "horaire": "20h00"
+    },
+    {
+      "streamer": "Boblegob",
+      "title": "Titre \u00e9venement",
+      "horaire": "22h00"
+    },
+    {
+      "streamer": "Boblegob",
+      "title": "Titre \u00e9venement",
+      "horaire": "00h00"
+    }
+  ],
+  "dimanche": [
+    {
+      "streamer": "Kyzano",
+      "title": "Titre \u00e9venement3",
+      "horaire": "14h00"
+    },
+    {
+      "streamer": "Kyzano",
+      "title": "Titre \u00e9venement",
+      "horaire": "20h00"
+    },
+    {
+      "streamer": "Boblegob",
+      "title": "Titre \u00e9venement",
+      "horaire": "22h00"
+    },
+    {
+      "streamer": "Boblegob",
+      "title": "Titre \u00e9venement",
+      "horaire": "00h00"
+    }
+  ]
+}
