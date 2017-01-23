@@ -7,6 +7,9 @@ module.exports = function(grunt) {
                 options: {
                     sassDir: 'src/scss',
                     cssDir: 'public/css',
+                    imagesDir: 'public/img',
+                    spriteLoadPath: 'src/img/',
+                    httpGeneratedImagesPath: "img/",
                     specify: 'src/scss/styles.scss'
                 }
             },
@@ -19,12 +22,19 @@ module.exports = function(grunt) {
                 }
             }
         },
+        clean: {
+            dist:[
+                'public/js',
+                'public/css',
+                'public/img'
+            ]
+        },
         copy: {
             dist: {
                 files: [{
                     expand: true,
                     cwd: 'src/img/',
-                    src: ['**'],
+                    src: ['**', '!sprite/**'],
                     dest: 'public/img',
                     filter: 'isFile'
                 }]
@@ -63,6 +73,7 @@ module.exports = function(grunt) {
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compass');

@@ -1,0 +1,10 @@
+$sprite: sprite-map("sprite/*.png", $spacing: 5px, $layout: smart);
+
+@mixin sprite($name) {
+  background-image: sprite-url($sprite);
+  background-position: sprite-position($sprite, $name);
+  background-repeat: no-repeat;
+  display: block;
+  height: image-height(sprite-file($sprite, $name));
+  width: image-width(sprite-file($sprite, $name));
+}
