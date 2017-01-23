@@ -5,6 +5,8 @@ bower_components
 node_modules
 .sass-cache/
 
+src/tmp
 public/css/
 public/img/
+public/js/
 

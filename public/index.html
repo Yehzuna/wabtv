@@ -7,10 +7,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
 </head>
 <body>
 
-<div class="container">
+<div class="container" ng-app="WabTv">
     <div class="header">
         <img src="img/logo.png" alt="" />
         <div class="socials">
@@ -21,7 +23,7 @@
     <div class="menu">
         <a href="#"></a>
     </div>
-    <div class="body">
+    <div class="body" ng-view>
         <div class="player">
 
         </div>
