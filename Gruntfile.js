@@ -9,7 +9,7 @@ module.exports = function(grunt) {
                     cssDir: 'public/css',
                     imagesDir: 'public/img',
                     spriteLoadPath: 'src/img/',
-                    httpGeneratedImagesPath: "img/",
+                    httpGeneratedImagesPath: "../img/",
                     specify: 'src/scss/styles.scss'
                 }
             },
@@ -67,8 +67,11 @@ module.exports = function(grunt) {
         },
         watch: {
             css: {
-                files: '**/*.scss',
-                tasks: ['compass', 'copy']
+                files: [
+                    'src/js/*.js',
+                    'src/scss'
+                ],
+                tasks: ['compass', 'copy', 'ngAnnotate', 'concat']
             }
         }
     });

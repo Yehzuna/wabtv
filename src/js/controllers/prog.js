@@ -1,5 +1,5 @@
-app.controller('homeCtrl', function ($scope, $http, $location, api) {
-    console.log('homeCtrl');
+app.controller('progCtrl', function ($scope, $http, $location, api) {
+    console.log('progCtrl');
 
     $scope.prog = [];
     api.prog().then(function (response) {
@@ -8,4 +8,5 @@ app.controller('homeCtrl', function ($scope, $http, $location, api) {
     }).catch(function () {
         $scope.prog = [];
     });
+
 });
