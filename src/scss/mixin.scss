@@ -8,3 +8,26 @@ $sprite: sprite-map("sprite/*.png", $spacing: 5px, $layout: smart);
   height: image-height(sprite-file($sprite, $name));
   width: image-width(sprite-file($sprite, $name));
 }
+
+
+$mobile-width: 420px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin tablet-only {
+  @media only screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @media only screen and (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin responsive {
+  @media only screen and (min-width: #{$tablet-width}) {
+    @content;
+  }
+}

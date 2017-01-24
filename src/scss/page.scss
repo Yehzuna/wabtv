@@ -18,3 +18,57 @@ body {
 .facebook {
   @include sprite(fb)
 }
+
+.schedule {
+  width: 100%;
+
+  .column {
+    width: 100%;
+    float: left;
+  }
+  .hours {
+    display: none;
+  }
+
+  .day {
+    text-transform: uppercase;
+    background: #f00;
+    font-size: 1.5em;
+  }
+  .hour {
+
+  }
+  .slot {
+
+  }
+
+  .day,
+  .hour,
+  .slot {
+    text-align: center;
+    height: 2em;
+    line-height: 2em;
+    border: 1px solid #fff;
+  }
+
+  @include tablet-only {
+    .column {
+      width: 50%;
+    }
+  }
+
+  @include desktop-only {
+    .column {
+      width: 12.5%;
+    }
+    .hours {
+      display: block;
+    }
+    .hour {
+      height: 4em;
+    }
+    .slot {
+      height: 4em;
+    }
+  }
+}

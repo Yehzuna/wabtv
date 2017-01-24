@@ -1,3 +1,14 @@
-<div class="prog">
-
+<div class="schedule">
+    <div class="column hours">
+        <div class="day"></div>
+        <div class="hour" ng-repeat="hour in hours">{{ hour }}</div>
+    </div>
+    <div ng-repeat="(day,slots) in schedule" class="column">
+        <div class="day">{{ day }}</div>
+        <div class="slot" ng-repeat="slot in slots">
+            {{ slot.horaire }}
+            {{ slot.streamer }}
+            {{ slot.title }}
+        </div>
+    </div>
 </div>
