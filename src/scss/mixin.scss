@@ -31,3 +31,18 @@ $desktop-width: 1024px;
     @content;
   }
 }
+
+
+%clearfix:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+%ellipsis {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

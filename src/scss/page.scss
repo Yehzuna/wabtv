@@ -7,6 +7,7 @@ body {
 .container {
   margin: 0 auto;
   max-width: 1280px;
+  padding: 0 20px;
 }
 
 .player {
@@ -21,6 +22,10 @@ body {
 
 .schedule {
   width: 100%;
+  border: 1px solid #fff;
+  padding: 5px;
+
+  @extend %clearfix;
 
   .column {
     width: 100%;
@@ -33,22 +38,29 @@ body {
   .day {
     text-transform: uppercase;
     background: #f00;
-    font-size: 1.5em;
+    font-size: 1em;
   }
-  .hour {
-
-  }
+  .hour,
   .slot {
-
+    font-size: .7em;
   }
+
+  $slot-height: 2em;
 
   .day,
   .hour,
   .slot {
     text-align: center;
-    height: 2em;
-    line-height: 2em;
+    height: $slot-height;
+    line-height: $slot-height;
+    padding: 10px;
     border: 1px solid #fff;
+    box-sizing: border-box;
+  }
+
+  .slot-large {
+    height: $slot-height * 4;
+    line-height: $slot-height * 4;
   }
 
   @include tablet-only {
@@ -58,17 +70,20 @@ body {
   }
 
   @include desktop-only {
+    $slot-height: 4em;
+
     .column {
       width: 12.5%;
     }
     .hours {
       display: block;
     }
-    .hour {
-      height: 4em;
-    }
+    .hour,
     .slot {
-      height: 4em;
+      height: $slot-height;
+    }
+    .slot-large {
+      height: $slot-height * 4;
     }
   }
 }

@@ -1,156 +1,200 @@
 {
-  "lundi": [
-    {
-      "streamer": "dch",
-      "title": "",
-      "horaire": "14h00"
-    },
-    {
-      "streamer": "Kyzano",
-      "title": "Titre \u00e9venement54",
-      "horaire": "20h00"
-    },
-    {
-      "streamer": "Boblegob",
-      "title": "Titre \u00e9venement5",
-      "horaire": "22h00"
-    },
-    {
-      "streamer": "Boblegob2",
-      "title": "Titre \u00e9venement",
-      "horaire": "00h00"
-    }
-  ],
-  "mardi": [
-    {
-      "streamer": "Kyzano",
-      "title": "Titre \u00e9venement3",
-      "horaire": "14h00"
-    },
-    {
-      "streamer": "Kyzano",
-      "title": "Titre \u00e9venement",
-      "horaire": "20h00"
-    },
-    {
-      "streamer": "Boblegob",
-      "title": "Titre \u00e9venement",
-      "horaire": "22h00"
-    },
-    {
-      "streamer": "Boblegob",
-      "title": "Titre \u00e9venement",
-      "horaire": "00h00"
-    }
-  ],
-  "mercredi": [
-    {
-      "streamer": "Kyzano",
-      "title": "Titre \u00e9venement3",
-      "horaire": "14h00"
-    },
-    {
-      "streamer": "Kyzano",
-      "title": "Titre \u00e9venement",
-      "horaire": "20h00"
-    },
-    {
-      "streamer": "Boblegob",
-      "title": "Titre \u00e9venement",
-      "horaire": "22h00"
-    },
-    {
-      "streamer": "Boblegob",
-      "title": "Titre \u00e9venement",
-      "horaire": "00h00"
-    }
-  ],
-  "jeudi": [
-    {
-      "streamer": "Kyzano",
-      "title": "Titre \u00e9venement3",
-      "horaire": "14h00"
-    },
-    {
-      "streamer": "",
-      "title": "",
-      "horaire": "20h00"
-    },
-    {
-      "streamer": "Linyuu",
-      "title": "Titre \u00e9venement",
-      "horaire": "22h00"
-    },
-    {
-      "streamer": "Linyuu",
-      "title": "Titre \u00e9venement",
-      "horaire": "00h00"
-    }
-  ],
-  "vendredi": [
-    {
-      "streamer": "Kyzano",
-      "title": "Titre \u00e9venement3",
-      "horaire": "14h00"
-    },
-    {
-      "streamer": "",
-      "title": "",
-      "horaire": "20h00"
-    },
-    {
-      "streamer": "Linyuu",
-      "title": "Titre \u00e9venement",
-      "horaire": "22h00"
-    },
-    {
-      "streamer": "Linyuu",
-      "title": "Titre \u00e9venement",
-      "horaire": "00h00"
-    }
-  ],
-  "samedi": [
-    {
-      "streamer": "Kyzano",
-      "title": "Titre \u00e9venement3",
-      "horaire": "14h00"
-    },
-    {
-      "streamer": "Kyzano",
-      "title": "Titre \u00e9venement",
-      "horaire": "20h00"
-    },
-    {
-      "streamer": "Boblegob",
-      "title": "Titre \u00e9venement",
-      "horaire": "22h00"
-    },
-    {
-      "streamer": "Boblegob",
-      "title": "Titre \u00e9venement",
-      "horaire": "00h00"
-    }
-  ],
-  "dimanche": [
-    {
-      "streamer": "Kyzano",
-      "title": "Titre \u00e9venement3",
-      "horaire": "14h00"
-    },
-    {
-      "streamer": "Kyzano",
-      "title": "Titre \u00e9venement",
-      "horaire": "20h00"
-    },
-    {
-      "streamer": "Boblegob",
-      "title": "Titre \u00e9venement",
-      "horaire": "22h00"
-    },
-    {
-      "streamer": "Boblegob",
-      "title": "Titre \u00e9venement",
-      "horaire": "00h00"
-    }
-  ]
+  "lundi": {
+    "day": "Lundi",
+    "allDay": false,
+    "date": "2017-01-23",
+    "slots": [
+      {
+        "streamer": "dch",
+        "show": "",
+        "title": "Titre 1",
+        "hour": "14:00"
+      },
+      {
+        "streamer": "Jean Michel",
+        "show": "",
+        "title": "Titre \u00e9venement54",
+        "hour": "20:00"
+      },
+      {
+        "streamer": "test",
+        "show": "emission",
+        "title": "Titre \u00e9venement5",
+        "hour": "22:00"
+      },
+      {
+        "streamer": "test 2",
+        "show": "emission",
+        "title": "Titre \u00e9venement",
+        "hour": "00:00"
+      }
+    ]
+  },
+  "mardi": {
+    "day": "Mardi",
+    "allDay": false,
+    "date": "2017-01-24",
+    "slots": [
+      {
+        "streamer": "dch",
+        "show": "",
+        "title": "Titre 1",
+        "hour": "14:00"
+      },
+      {
+        "streamer": "Jean Michel",
+        "show": "",
+        "title": "Titre \u00e9venement54",
+        "hour": "20:00"
+      },
+      {
+        "streamer": "test",
+        "show": "emission",
+        "title": "Titre \u00e9venement5",
+        "hour": "22:00"
+      },
+      {
+        "streamer": "test 2",
+        "show": "emission",
+        "title": "Titre \u00e9venement",
+        "hour": "00:00"
+      }
+    ]
+  },
+  "mercredi": {
+    "day": "Mercredi",
+    "allDay": false,
+    "date": "2017-01-25",
+    "slots": [
+      {
+        "streamer": "dch",
+        "show": "",
+        "title": "Titre 1",
+        "hour": "14:00"
+      },
+      {
+        "streamer": "Jean Michel",
+        "show": "",
+        "title": "Titre \u00e9venement54",
+        "hour": "20:00"
+      },
+      {
+        "streamer": "test",
+        "show": "emission",
+        "title": "Titre \u00e9venement5",
+        "hour": "22:00"
+      },
+      {
+        "streamer": "test 2",
+        "show": "emission",
+        "title": "Titre \u00e9venement",
+        "hour": "00:00"
+      }
+    ]
+  },
+  "jeudi": {
+    "day": "Jeudi",
+    "allDay": false,
+    "date": "2017-01-26",
+    "slots": [
+      {
+        "streamer": "dch",
+        "show": "",
+        "title": "Titre 1",
+        "hour": "14:00"
+      },
+      {
+        "streamer": "Jean Michel",
+        "show": "",
+        "title": "Titre \u00e9venement54",
+        "hour": "20:00"
+      },
+      {
+        "streamer": "test",
+        "show": "emission",
+        "title": "Titre \u00e9venement5",
+        "hour": "22:00"
+      },
+      {
+        "streamer": "test 2",
+        "show": "emission",
+        "title": "Titre \u00e9venement",
+        "hour": "00:00"
+      }
+    ]
+  },
+  "vendredi": {
+    "day": "Vendredi",
+    "allDay": false,
+    "date": "2017-01-27",
+    "slots": [
+      {
+        "streamer": "dch",
+        "show": "",
+        "title": "Titre 1",
+        "hour": "14:00"
+      },
+      {
+        "streamer": "Jean Michel",
+        "show": "",
+        "title": "Titre \u00e9venement54",
+        "hour": "20:00"
+      },
+      {
+        "streamer": "test",
+        "show": "emission",
+        "title": "Titre \u00e9venement5",
+        "hour": "22:00"
+      },
+      {
+        "streamer": "test 2",
+        "show": "emission",
+        "title": "Titre \u00e9venement",
+        "hour": "00:00"
+      }
+    ]
+  },
+  "samedi": {
+    "day": "Samedi",
+    "allDay": true,
+    "date": "2017-01-28",
+    "slots": [
+      {
+        "streamer": "",
+        "show": "",
+        "title": "Off"
+      }
+    ]
+  },
+  "dimanche": {
+    "day": "Dimanche",
+    "allDay": false,
+    "date": "2017-01-29",
+    "slots": [
+      {
+        "streamer": "dch",
+        "show": "",
+        "title": "Titre 1",
+        "hour": "14:00"
+      },
+      {
+        "streamer": "Jean Michel",
+        "show": "",
+        "title": "Titre \u00e9venement54",
+        "hour": "20:00"
+      },
+      {
+        "streamer": "test",
+        "show": "emission",
+        "title": "Titre \u00e9venement5",
+        "hour": "22:00"
+      },
+      {
+        "streamer": "test 2",
+        "show": "emission",
+        "title": "Titre \u00e9venement",
+        "hour": "00:00"
+      }
+    ]
+  }
 }
