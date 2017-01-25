@@ -74,14 +74,23 @@ module.exports = function(grunt) {
         },
         watch: {
             css: {
+                files: ['src/**/*.scss'],
+                tasks: [
+                    'copy'
+                ]
+            },
+            img: {
                 files: [
-                    '*.js',
-                    '*.scss'
+                    'src/**/*.jpg',
+                    'src/**/*.png'
                 ],
                 tasks: [
-                    'compass',
-                    'copy',
-                    'ngAnnotate',
+                    'copy'
+                ]
+            },
+            js: {
+                files: ['src/**/*.js',],
+                tasks: [
                     'concat'
                 ]
             }
