@@ -1,3 +1,6 @@
+$img-path: '../img/';
+$fonts-path: '../fonts/';
+
 $sprite: sprite-map("sprite/*.png", $spacing: 5px, $layout: smart);
 
 @mixin sprite($name) {

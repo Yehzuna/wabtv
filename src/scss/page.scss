@@ -1,7 +1,15 @@
+@include font-face("LeagueGothicRegular", font-files(
+  "League_Gothic-webfont.eot",
+  "League_Gothic-webfont.ttf",
+  "League_Gothic-webfont.woff",
+  "League_Gothic-webfont.svg"
+));
+
 body {
   background: #000;
   color: #fff;
-  font-size: 16px;
+  font-size: 1em;
+  font-family: 'LeagueGothicRegular';
 }
 
 .container {
@@ -18,72 +26,4 @@ body {
 
 .facebook {
   @include sprite(fb)
-}
-
-.schedule {
-  width: 100%;
-  border: 1px solid #fff;
-  padding: 5px;
-
-  @extend %clearfix;
-
-  .column {
-    width: 100%;
-    float: left;
-  }
-  .hours {
-    display: none;
-  }
-
-  .day {
-    text-transform: uppercase;
-    background: #f00;
-    font-size: 1em;
-  }
-  .hour,
-  .slot {
-    font-size: .7em;
-  }
-
-  $slot-height: 2em;
-
-  .day,
-  .hour,
-  .slot {
-    text-align: center;
-    height: $slot-height;
-    line-height: $slot-height;
-    padding: 10px;
-    border: 1px solid #fff;
-    box-sizing: border-box;
-  }
-
-  .slot-large {
-    height: $slot-height * 4;
-    line-height: $slot-height * 4;
-  }
-
-  @include tablet-only {
-    .column {
-      width: 50%;
-    }
-  }
-
-  @include desktop-only {
-    $slot-height: 4em;
-
-    .column {
-      width: 12.5%;
-    }
-    .hours {
-      display: block;
-    }
-    .hour,
-    .slot {
-      height: $slot-height;
-    }
-    .slot-large {
-      height: $slot-height * 4;
-    }
-  }
 }

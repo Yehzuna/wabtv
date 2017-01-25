@@ -1,0 +1,72 @@
+.schedule {
+  width: 100%;
+  //border: 1px solid #fff;
+
+  @extend %clearfix;
+
+  .column {
+    width: 100%;
+    float: left;
+    display: table;
+    box-sizing: border-box;
+  }
+  .hours {
+    display: none;
+  }
+
+  .day {
+    text-transform: uppercase;
+    background: #f00;
+    font-size: 2em;
+  }
+  .hour,
+  .slot {
+    font-size: 1em;
+  }
+
+  $slot-height: 4em;
+
+  .day,
+  .hour,
+  .slot {
+    display: table-row;
+    height: $slot-height;
+
+    > div {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      padding: 10px;
+      border: 1px solid #fff;
+
+    }
+  }
+  .slot-large {
+    height: $slot-height * 4;
+  }
+
+  @include tablet-only {
+    .column {
+      width: 50%;
+    }
+  }
+
+  @include desktop-only {
+    $slot-height: 6em;
+
+    .column {
+      width: 12.5%;
+
+    }
+    .hours {
+      display: table-row;
+    }
+    .hour,
+    .slot {
+      height: $slot-height;
+    }
+    .slot-large {
+      height: $slot-height * 4;
+    }
+  }
+}

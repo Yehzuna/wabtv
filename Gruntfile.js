@@ -15,8 +15,10 @@ module.exports = function(grunt) {
                     sassDir: 'src/scss',
                     cssDir: 'public/css',
                     imagesDir: 'public/img',
+                    fontsDir: 'public/fonts',
                     spriteLoadPath: 'src/img/',
                     httpGeneratedImagesPath: "../img/",
+                    httpFontsPath: "../fonts/",
                     specify: 'src/scss/styles.scss'
                 }
             },
@@ -25,8 +27,10 @@ module.exports = function(grunt) {
                     sassDir: 'src/scss',
                     cssDir: 'public/css',
                     imagesDir: 'public/img',
+                    fontsDir: 'public/fonts',
                     spriteLoadPath: 'src/img/',
                     httpGeneratedImagesPath: "../img/",
+                    httpFontsPath: "../fonts/",
                     specify: 'src/scss/styles.scss',
                     environment: 'production'
                 }
@@ -75,24 +79,18 @@ module.exports = function(grunt) {
         watch: {
             css: {
                 files: ['src/**/*.scss'],
-                tasks: [
-                    'copy'
-                ]
+                tasks: ['compass:dev']
             },
             img: {
                 files: [
                     'src/**/*.jpg',
                     'src/**/*.png'
                 ],
-                tasks: [
-                    'copy'
-                ]
+                tasks: ['copy']
             },
             js: {
-                files: ['src/**/*.js',],
-                tasks: [
-                    'concat'
-                ]
+                files: ['src/**/*.js'],
+                tasks: ['concat']
             }
         }
     });

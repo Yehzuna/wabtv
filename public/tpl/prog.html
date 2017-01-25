@@ -5,14 +5,18 @@
     </div>
     <div ng-repeat="schedule in schedules" class="column">
         <div class="day">
-            {{ schedule.day }}
-            {{ schedule.date }}
+            <div>
+                {{ schedule.day }}
+                {{ schedule.date }}
+            </div>
         </div>
         <div class="slot" ng-repeat="slot in schedule.slots" ng-class="{'slot-large': schedule.allDay}">
+            <div>
             {{ slot.hour }}
             {{ slot.streamer }}
             {{ slot.title }}
             {{ slot.show }}
+            </div>
         </div>
     </div>
 </div>
