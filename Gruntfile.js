@@ -2,6 +2,13 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        clean: {
+            dist:[
+                'public/js',
+                'public/css',
+                'public/img'
+            ]
+        },
         compass: {
             dev: {
                 options: {
@@ -17,17 +24,13 @@ module.exports = function(grunt) {
                 options: {
                     sassDir: 'src/scss',
                     cssDir: 'public/css',
+                    imagesDir: 'public/img',
+                    spriteLoadPath: 'src/img/',
+                    httpGeneratedImagesPath: "../img/",
                     specify: 'src/scss/styles.scss',
                     environment: 'production'
                 }
             }
-        },
-        clean: {
-            dist:[
-                'public/js',
-                'public/css',
-                'public/img'
-            ]
         },
         copy: {
             dist: {
@@ -49,7 +52,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src/js/',
                     src: ['**'],
-                    dest: 'src/tmp/js',
+                    dest: 'tmp/js',
                     filter: 'isFile'
                 }]
             }
@@ -57,21 +60,30 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 files: [{
-                    //expand: true,
-                    //cwd: 'src/tmp/js/',
-                    src: ['src/tmp/js/**'],
+                    src: ['tmp/js/**'],
                     dest: 'public/js/app.js',
                     filter: 'isFile'
                 }]
             }
         },
+        uglify: {
+            js: {
+                src: ['public/js/app.js'],
+                dest: 'public/js/app.js'
+            }
+        },
         watch: {
             css: {
                 files: [
-                    'src/js/*.js',
-                    'src/scss'
+                    '*.js',
+                    '*.scss'
                 ],
-                tasks: ['compass', 'copy', 'ngAnnotate', 'concat']
+                tasks: [
+                    'compass',
+                    'copy',
+                    'ngAnnotate',
+                    'concat'
+                ]
             }
         }
     });
@@ -87,9 +99,19 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['watch']);
 
     grunt.registerTask('dev', [
+        'clean',
         'compass:dev',
         'copy',
         'ngAnnotate',
         'concat'
+    ]);
+
+    grunt.registerTask('prod', [
+        'clean',
+        'compass:prod',
+        'copy',
+        'ngAnnotate',
+        'concat',
+        'uglify'
     ]);
 };
