@@ -1,21 +1,17 @@
 <div class="schedule">
-    <div class="column hours">
-        <div class="day"></div>
-        <div class="hour" ng-repeat="hour in hours">{{ hour }}</div>
-    </div>
     <div ng-repeat="schedule in schedules" class="column">
         <div class="day">
             <div>
                 {{ schedule.day }}
-                {{ schedule.date }}
+                <span class="date">{{ schedule.date }}</span>
             </div>
         </div>
         <div class="slot" ng-repeat="slot in schedule.slots" ng-class="{'slot-large': schedule.allDay}">
             <div>
-            {{ slot.hour }}
-            {{ slot.streamer }}
-            {{ slot.title }}
-            {{ slot.show }}
+                <span class="hour">{{ slot.hour }}</span>
+                <span class="streamer">{{ slot.streamer }}</span>
+                <span class="show">{{ slot.show }}</span>
+                <span class="title">{{ slot.title }}</span>
             </div>
         </div>
     </div>

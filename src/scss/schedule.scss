@@ -1,6 +1,5 @@
 .schedule {
   width: 100%;
-  //border: 1px solid #fff;
 
   @extend %clearfix;
 
@@ -9,64 +8,88 @@
     float: left;
     display: table;
     box-sizing: border-box;
+    margin-bottom: 20px;
   }
-  .hours {
-    display: none;
+
+  .day,
+  .slot {
+    display: table-row;
+    > div {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      padding: 20px;
+      border: 1px solid #fff;
+    }
   }
 
   .day {
     text-transform: uppercase;
     background: #f00;
     font-size: 2em;
-  }
-  .hour,
-  .slot {
-    font-size: 1em;
-  }
-
-  $slot-height: 4em;
-
-  .day,
-  .hour,
-  .slot {
-    display: table-row;
-    height: $slot-height;
-
-    > div {
-      display: table-cell;
-      text-align: center;
-      vertical-align: middle;
-      padding: 10px;
-      border: 1px solid #fff;
-
+    .date {
+      display: block;
+      font-size: 0.5em;
     }
   }
-  .slot-large {
-    height: $slot-height * 4;
+
+  .slot {
+    position: relative;
+    .hour {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 0.8em;
+    }
+    .streamer {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      font-size: 0.8em;
+    }
+    .show {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      font-size: 0.8em;
+    }
+    .title {
+      font-size: 1.2em;
+      line-height: 1.3em;
+    }
   }
 
-  @include tablet-only {
+  .slot-large {
+    height: 70px * 4;
+  }
+
+  @include responsive {
     .column {
       width: 50%;
+    }
+
+    .slot {
+      height: 150px;
+      .title {
+        display: inline-block;
+        max-height: 100px;
+        overflow: hidden;
+      }
+      .streamer,
+      .hour,
+      .show {
+        font-size: 1em;
+      }
+    }
+
+    .slot-large {
+      height: 150px * 4;
     }
   }
 
   @include desktop-only {
-    $slot-height: 6em;
-
     .column {
-      width: 12.5%;
-
-    }
-    .hours {
-      display: table-row;
-    }
-    .hour,
-    .slot {
-      height: $slot-height;
-    }
-    .slot-large {
-      height: $slot-height * 4;
+      width: 14.25%;
     }
   }
 }

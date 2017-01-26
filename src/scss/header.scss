@@ -1,6 +1,17 @@
 .menu {
   a {
     padding: 10px;
-    display: inline-block;
+    display: block;
+    font-size: 2em;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    &:hover {
+      text-decoration: underline;
+    }
+    @include desktop-only {
+      display: inline-block;
+    }
   }
 }
