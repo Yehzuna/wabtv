@@ -3,6 +3,13 @@
 
   @extend %clearfix;
 
+  &.export {
+    width: 1280px;
+    .column {
+      width: 14.25%;
+    }
+  }
+
   .column {
     width: 100%;
     float: left;
