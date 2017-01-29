@@ -6,7 +6,7 @@
 ));
 
 body {
-  background: #000;
+  background: url('#{$img-path}background.jpg') #000;
   color: #fff;
   font-family: 'LeagueGothicRegular';
 }

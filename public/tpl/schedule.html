@@ -1,11 +1,11 @@
 <button ng-click="export()">export</button>
 
 <div class="schedule" id="schedule">
-    <div ng-repeat="schedule in schedules" class="column">
+    <div ng-repeat="schedule in schedules" class="column" ng-class="{'current': schedule.currentDay == currentDay}">
         <div class="day">
             <div>
                 {{ schedule.day }}
-                <span class="date">{{ schedule.date }}</span>
+                <span class="date">{{ schedule.date | date:'dd/MM/yyyy' }}</span>
             </div>
         </div>
         <div class="slot" ng-repeat="slot in schedule.slots" ng-class="{'slot-large': schedule.allDay}">

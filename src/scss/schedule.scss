@@ -1,5 +1,6 @@
 .schedule {
   width: 100%;
+  background: #000;
 
   @extend %clearfix;
 
@@ -7,7 +8,14 @@
     width: 1280px;
     .column {
       width: 14.25%;
+      .day {
+        background: #f00 !important;
+      }
     }
+    .slot {
+      height: 150px;
+    }
+
   }
 
   .column {
@@ -15,7 +23,11 @@
     float: left;
     display: table;
     box-sizing: border-box;
-    margin-bottom: 20px;
+    &.current {
+      .day {
+        background: #f00;
+      }
+    }
   }
 
   .day,
@@ -32,7 +44,7 @@
 
   .day {
     text-transform: uppercase;
-    background: #f00;
+    background: #666;
     font-size: 2em;
     .date {
       display: block;

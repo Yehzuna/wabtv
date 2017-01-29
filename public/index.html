@@ -19,21 +19,32 @@
 
 <div class="container" ng-app="WabTv">
     <div class="header">
-        <!--<img src="img/logo.png" alt="" />-->
+        <a href="/"><img src="img/logo.png" alt="Wab TV" /></a>
         <div class="socials">
             <a href="#" class="facebook"></a>
             <a href="#" class="twitter"></a>
+            <a href="#" class="dailymotion"></a>
         </div>
     </div>
     <div class="menu">
-        <a href="/">Live</a>
-        <a ng-href="/prog">Programmation</a>
-        <a ng-href="/show">Emissions</a>
+        <a href="/">Home</a>
+        <a href="/schedule">Programme</a>
+        <a href="/show">Emissions</a>
+        <a href="/replay">Replay</a>
     </div>
     <div class="body" ng-view></div>
     <div class="footer">
-        <div class="donation"></div>
-        <div class="partners"></div>
+        <div class="donations">
+            <div class="title title-donation">Faire un don</div>
+            <a class="donation"><img src="img/paypal.png" alt="Faire un don avec Paypal" /></a>
+        </div>
+        <div class="partners">
+            <div class="title title-partners">Partenaires</div>
+            <a href="#" class="partner"><img src="img/partners/goclecd.png" alt="Go Cle CD" /></a>
+            <a href="#" class="partner"><img src="img/partners/ouikos.png" alt="Ouikos" /></a>
+            <a href="#" class="partner"><img src="img/partners/verygames.png" alt="Very Games" /></a>
+            <a href="#" class="partner"><img src="img/partners/jeuvideo.png" alt="Jeu.Video" /></a>
+        </div>
     </div>
 </div>
 

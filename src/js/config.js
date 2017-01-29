@@ -4,9 +4,9 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'tpl/home.html',
             controller: 'homeCtrl'
         })
-        .when('/prog', {
-            templateUrl: 'tpl/prog.html',
-            controller: 'progCtrl'
+        .when('/schedule', {
+            templateUrl: 'tpl/schedule.html',
+            controller: 'scheduleCtrl'
         })
         .when('/show', {
             templateUrl: 'tpl/show.html',
