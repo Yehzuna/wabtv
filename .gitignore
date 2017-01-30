@@ -1,11 +1,11 @@
-composer.phar
-/vendor/
 .idea
-bower_components
-node_modules
+
+bower_components/
+node_modules/
 .sass-cache/
 
 tmp
+
 public/css/
 public/img/
 public/js/

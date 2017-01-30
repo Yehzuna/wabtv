@@ -1,11 +1,10 @@
 @import "compass";
 
-@import "mixin";
+@import "_settings";
+@import "_mixins";
 
-@import "page";
-@import "header";
 @import "schedule";
 @import "home";
+@import "header";
 @import "footer";
-
-
+@import "page";

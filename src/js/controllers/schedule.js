@@ -4,7 +4,7 @@ app.controller('scheduleCtrl', function ($scope, $http, $location, api) {
     $scope.currentDay = dt.getDate();
 
     $scope.schedules = [];
-    api.prog().then(function (response) {
+    api.schedule().then(function (response) {
         angular.forEach(response.data, function(data) {
 
             var t = data.date.split(/[-]/);

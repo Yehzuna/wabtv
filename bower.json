@@ -1,11 +1,11 @@
 {
   "name": "wabtv",
+  "description": "WAB TV Website",
+  "version": "1.0.0",
   "homepage": "https://github.com/Yehzuna/wabtv",
   "authors": [
-    "Thomas BORUSZEWSKI <t.boruszewski@groupecerise.fr>"
+    "Thomas BORUSZEWSKI <yehzuna@outlook.com>"
   ],
-  "description": "WABTV Website",
-  "main": "",
   "license": "MIT",
   "ignore": [
     "**/.*",
