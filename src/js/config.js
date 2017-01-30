@@ -8,9 +8,9 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'tpl/schedule.html',
             controller: 'scheduleCtrl'
         })
-        .when('/show', {
-            templateUrl: 'tpl/show.html',
-            controller: 'showCtrl'
+        .when('/shows', {
+            templateUrl: 'tpl/shows.html',
+            controller: 'showsCtrl'
         })
     ;
     $locationProvider.html5Mode(true);

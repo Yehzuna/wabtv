@@ -1,4 +1,8 @@
-<button ng-click="export()">export</button>
+<div class="title-block">Programme</div>
+
+<div class="download">
+    <a href="#" ng-click="export()">Télécharger</a>
+</div>
 
 <div class="schedule" id="schedule">
     <div ng-repeat="schedule in schedules" class="column" ng-class="{'current': schedule.currentDay == currentDay}">

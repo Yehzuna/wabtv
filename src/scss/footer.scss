@@ -1,3 +1,21 @@
 .footer {
+  padding-top: 20px;
+}
 
+.donations {
+  text-align: center;
+  margin-bottom: 20px;
+  .donation {
+    display: inline-block;
+    margin: 5px;
+  }
+}
+
+.partners {
+  text-align: center;
+  margin-bottom: 20px;
+  .partner {
+    display: inline-block;
+    margin: 5px;
+  }
 }
