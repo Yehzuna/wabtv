@@ -1,21 +1,63 @@
 .header {
   padding: 20px 0;
 
+  @include responsive {
+    //display: block;
+  }
+
+  .logo {
+    display: inline-block;
+  }
+
+  .logo-txt {
+    display: inline-block;
+    font-size: 6em;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    text-shadow: 4px 1px 2px #7a171e;
+    text-transform: uppercase;
+    span {
+      display: block;
+      font-size: .1em;
+    }
+    &:before {
+      content: 'TV';
+      position: absolute;
+      right: -10;
+      top: -10px;
+      color: #7a171e;
+      font-size: .2em;
+      font-weight: 400;
+    }
+  }
+
+  .menu {
+    display: none;
+    @include responsive {
+      display: block;
+    }
+  }
+
   .socials {
-    float: right;
+    display: block;
+    text-align: right;
+    .social {
+      display: inline-block;
+    }
   }
 }
 
 .menu {
-  margin-bottom: 20px;
   a {
     padding: 10px;
     display: block;
     font-size: 2.2em;
     font-weight: 700;
     color: #fff;
+    text-shadow: 3px 3px 10px #000;
     text-align: center;
-    @include desktop-only {
+    @include responsive {
       display: inline-block;
     }
   }

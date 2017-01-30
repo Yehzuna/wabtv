@@ -6,7 +6,7 @@
 ));
 
 body {
-  background: #2C2C2C;
+  background: url('#{$img-path}background.jpg') #000;
   color: #fff;
   font-family: 'LeagueGothicRegular';
 }
@@ -33,16 +33,28 @@ a {
 }
 
 .facebook {
-  @include sprite(fb)
+  @include sprite(fb);
 }
 
 .title-block {
-  padding: 0 10px;
+  padding: 0 10px 0 60px;
   margin: 10px 0 20px 0;
+  height: .5em;
+  line-height: .5em;
   font-size: 2em;
-  line-height: .1em;
   font-weight: 700;
   text-transform: uppercase;
-  background: #00CAFF;
+  background: #7a171e;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
   text-align: left;
+  text-shadow: 3px 3px 10px #000;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -20px;
+    @include sprite(puce)
+  }
 }

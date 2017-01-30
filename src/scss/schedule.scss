@@ -14,7 +14,7 @@
     .column {
       width: 14.25%;
       .day {
-        background: #00CAFF !important;
+        background: #7a171e !important;
       }
     }
     .slot {
@@ -30,7 +30,7 @@
     background: #000;
     &.current {
       .day {
-        background: #00CAFF;
+        background: #7a171e;
       }
     }
   }
@@ -45,6 +45,8 @@
       padding: 20px;
       border-left: 1px solid #fff;
       border-right: 1px solid #fff;
+      border-top: 1px solid #7a171e;
+      border-bottom: 1px solid #7a171e;
     }
   }
 

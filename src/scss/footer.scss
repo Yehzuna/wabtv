@@ -8,6 +8,9 @@
   .donation {
     display: inline-block;
     margin: 5px;
+    img {
+      width: 100%;
+    }
   }
 }
 
@@ -17,5 +20,8 @@
   .partner {
     display: inline-block;
     margin: 5px;
+    img {
+      width: 100%;
+    }
   }
 }
