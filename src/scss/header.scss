@@ -1,51 +1,112 @@
 .header {
-  padding: 20px 0;
-
-  @include responsive {
-    //display: block;
-  }
+  padding: 20px 0 40px 0;
+  text-align: center;
 
   .logo {
+    position: relative;
     display: inline-block;
-  }
-
-  .logo-txt {
-    display: inline-block;
-    font-size: 6em;
-    font-weight: 500;
+    width: 230px;
+    padding-left: 95px;
+    font-size: 6.5em;
+    font-weight: 400;
     color: #fff;
     text-align: center;
     text-shadow: 4px 1px 2px #7a171e;
     text-transform: uppercase;
+    box-sizing: border-box;
     span {
+      margin-top: -1em;
       display: block;
-      font-size: .1em;
+      font-size: .16em;
+    }
+    img {
+      width: 80px;
+      position: absolute;
+      margin-top: -40px;
+      top: 50%;
+      left: -5px;
+      transform: rotate(-10deg);
+      border: 3px solid #000;
     }
     &:before {
       content: 'TV';
       position: absolute;
-      right: -10;
+      right: -15px;
       top: -10px;
       color: #7a171e;
-      font-size: .2em;
+      font-size: .5em;
       font-weight: 400;
+      text-shadow: 4px 1px 2px #000;
+      transform: rotate(10deg);
+    }
+  }
+
+  .btn-menu {
+    float: left;
+    cursor: pointer;
+    @include sprite(menu);
+    @include responsive {
+      display: none;
+    }
+  }
+  .btn-close {
+    cursor: pointer;
+    @include sprite(close);
+    @include responsive {
+      display: none;
     }
   }
 
   .menu {
     display: none;
-    @include responsive {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .9);
+    z-index: 1;
+    padding: 20px;
+
+    &.open {
       display: block;
+    }
+
+    @include responsive {
+      position: static;
+      display: block;
+      margin-top: 20px;
+      padding: 0;
+      background: none;
     }
   }
 
   .socials {
+    height: 24px;
     display: block;
     text-align: right;
+    margin-bottom: 20px;
     .social {
       display: inline-block;
+      margin-left: 10px;
+    }
+    @include responsive {
+      margin-bottom: 0;
     }
   }
+}
+
+.facebook {
+  @include sprite(facebook);
+}
+.youtube {
+  @include sprite(youtube);
+}
+.twitter {
+  @include sprite(twitter);
+}
+.dailymotion {
+  @include sprite(dailymotion);
 }
 
 .menu {

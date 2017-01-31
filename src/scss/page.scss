@@ -32,13 +32,12 @@ a {
   padding: 0 20px;
 }
 
-.facebook {
-  @include sprite(fb);
-}
+
+
 
 .title-block {
   padding: 0 10px 0 60px;
-  margin: 10px 0 20px 0;
+  margin: 20px 0 30px 0;
   height: .5em;
   line-height: .5em;
   font-size: 2em;
@@ -55,6 +54,25 @@ a {
     position: absolute;
     left: 0;
     top: -20px;
-    @include sprite(puce)
+    @include sprite(puce-default)
+  }
+  &.title-donations {
+    &:before {
+      left: 5px;
+      @include sprite(puce-donations)
+    }
+  }
+  &.title-partners {
+    &:before {
+      left: 5px;
+      @include sprite(puce-partners)
+    }
+  }
+  &.title-schedule {
+    padding-left: 80px;
+    &:before {
+      left: 10px;
+      @include sprite(puce-schedule)
+    }
   }
 }

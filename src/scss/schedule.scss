@@ -20,6 +20,9 @@
     .slot {
       height: 150px;
     }
+    .slot-large {
+      height: 150px * 4;
+    }
   }
 
   .column {
@@ -32,6 +35,9 @@
       .day {
         background: #7a171e;
       }
+      .hour {
+        color: #7a171e;
+      }
     }
   }
 
@@ -43,10 +49,7 @@
       text-align: center;
       vertical-align: middle;
       padding: 20px;
-      border-left: 1px solid #fff;
-      border-right: 1px solid #fff;
-      border-top: 1px solid #7a171e;
-      border-bottom: 1px solid #7a171e;
+      border: 1px solid #fff;
     }
   }
 
@@ -67,6 +70,7 @@
       top: 5px;
       right: 5px;
       font-size: 0.8em;
+      opacity: .8;
     }
     .streamer {
       position: absolute;
