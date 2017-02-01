@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   padding: 20px 0 40px 0;
   text-align: center;
 
@@ -122,4 +123,41 @@
       display: inline-block;
     }
   }
+}
+
+
+.balance {
+  display: none;
+  @include desktop-only {
+    display: block;
+  }
+
+  position: absolute;
+  top: 20px;
+  left: 0;
+
+  height: 200px;
+  width: 172px;
+  background: url('#{$img-path}bob-down.png');
+  .up {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    height: 107px;
+    width: 93px;
+    margin-left: -43px;
+    transform-origin: 50% 100%;
+    animation: balance 1s ease-in-out infinite alternate;
+    background: url('#{$img-path}bob-up.png');
+  }
+}
+
+@keyframes balance {
+  0% { transform:  rotate(5deg); }
+  100% { transform:  rotate(-5deg);}
+}
+
+@keyframes balance2 {
+  0% { transform: translateY(10px); }
+  100% { transform: translateY(0); }
 }
