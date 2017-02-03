@@ -1,20 +1,44 @@
 .download {
-  font-size: 1.2em;
-  padding: 20px 0;
-  text-align: right;
+  font-size: .5em;
+  font-weight: 400;
+  float: right;
+  position: relative;
+  padding-left: 20px;
+  padding-top: 70px;
+  @include responsive {
+    padding-left: 35px;
+    padding-top: 0;
+  }
+  span {
+    display: none;
+    @include responsive {
+      display: block;
+    }
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -12px;
+    @include sprite(save)
+  }
 }
 
 .schedule {
   width: 100%;
+  font-family: "LeagueGothicRegular", sans-serif;
+  margin-bottom: 40px;
 
   @extend %clearfix;
 
   &.export {
     width: 1280px;
+    margin-bottom: 0;
     .column {
       width: 14.25%;
       .day {
-        background: $primary-color !important;
+        background: $schedule-color !important;
       }
     }
     .slot {
@@ -33,10 +57,10 @@
     background: #000;
     &.current {
       .day {
-        background: $primary-color;
+        background: $schedule-color;
       }
       .hour {
-        color: $primary-color;
+        color: $schedule-color;
       }
     }
   }

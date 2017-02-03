@@ -1,27 +1,24 @@
 .footer {
-  padding-top: 20px;
-}
-
-.donations {
-  text-align: center;
   margin-bottom: 20px;
-  .donation {
-    display: inline-block;
-    margin: 5px;
-    img {
-      width: 100%;
-    }
-  }
 }
 
+.donations,
 .partners {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  .donation,
   .partner {
     display: inline-block;
     margin: 5px;
+    transition: opacity .2s;
+    &:hover {
+      opacity: .7;
+    }
     img {
       width: 100%;
+    }
+    @include responsive {
+      margin: 20px;
     }
   }
 }

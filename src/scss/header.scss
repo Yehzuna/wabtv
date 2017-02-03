@@ -1,43 +1,55 @@
 .header {
   position: relative;
-  padding: 20px 0 40px 0;
+  padding-top: 20px;
+  margin-bottom: 60px;
   text-align: center;
+
+  @include responsive {
+    margin: 0;
+  }
 
   .logo {
     position: relative;
     display: inline-block;
-    width: 230px;
-    padding-left: 95px;
-    font-size: 6.5em;
+    width: 300px;
+    padding-left: 70px;
+    font-size: 7em;
     font-weight: 400;
-    color: #fff;
+    color: $font-color;
     text-align: center;
-    text-shadow: 4px 1px 2px #7a171e;
     text-transform: uppercase;
     box-sizing: border-box;
+    font-family: "LeagueGothicRegular", sans-serif;
+
+
+    @include responsive {
+      width: 360px;
+      font-size: 10em;
+    }
+
     span {
       margin-top: -1em;
       display: block;
       font-size: .16em;
     }
+
     img {
-      width: 80px;
+      width: 90px;
       position: absolute;
       margin-top: -40px;
       top: 50%;
-      left: -5px;
+      left: 0;
       transform: rotate(-10deg);
       border: 3px solid #000;
     }
+
     &:before {
       content: 'TV';
       position: absolute;
       right: -15px;
       top: -10px;
-      color: #7a171e;
       font-size: .5em;
       font-weight: 400;
-      text-shadow: 4px 1px 2px #000;
       transform: rotate(10deg);
     }
   }
@@ -69,14 +81,32 @@
     z-index: 1;
     padding: 20px;
 
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+
     &.open {
       display: block;
+    }
+
+    a {
+      padding: 10px;
+      display: block;
+      font-size: 2.5em;
+      font-weight: 700;
+      text-align: center;
+      transition: opacity .2s;
+      &:hover {
+        opacity: .6;
+      }
+      @include responsive {
+        display: inline-block;
+      }
     }
 
     @include responsive {
       position: static;
       display: block;
-      margin-top: 20px;
+      margin: 40px 0;
       padding: 0;
       background: none;
     }
@@ -86,13 +116,21 @@
     height: 24px;
     display: block;
     text-align: right;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     .social {
       display: inline-block;
       margin-left: 10px;
+      transition: opacity .2s;
+      &:hover {
+        opacity: .6;
+      }
     }
     @include responsive {
-      margin-bottom: 0;
+      height: auto;
+      margin-bottom: 20px;
+      .social {
+        margin: 10px;
+      }
     }
   }
 }
@@ -109,22 +147,9 @@
 .dailymotion {
   @include sprite(dailymotion);
 }
-
-.menu {
-  a {
-    padding: 10px;
-    display: block;
-    font-size: 2.2em;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 3px 3px 10px $shadow-color;
-    text-align: center;
-    @include responsive {
-      display: inline-block;
-    }
-  }
+.twitch {
+  @include sprite(twitch);
 }
-
 
 .balance {
   display: none;
