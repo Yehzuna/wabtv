@@ -14,7 +14,7 @@
     .column {
       width: 14.25%;
       .day {
-        background: #7a171e !important;
+        background: $primary-color !important;
       }
     }
     .slot {
@@ -33,10 +33,10 @@
     background: #000;
     &.current {
       .day {
-        background: #7a171e;
+        background: $primary-color;
       }
       .hour {
-        color: #7a171e;
+        color: $primary-color;
       }
     }
   }
