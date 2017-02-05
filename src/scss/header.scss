@@ -1,46 +1,37 @@
 .header {
   position: relative;
-  padding-top: 20px;
-  margin-bottom: 60px;
-  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $border-color;
 
+  /*
   @include responsive {
     margin: 0;
   }
+  */
 
   .logo {
     position: relative;
     display: inline-block;
-    width: 300px;
-    padding-left: 70px;
-    font-size: 7em;
+    width: 115px;
+    padding-left: 55px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 3em;
     font-weight: 400;
-    color: $font-color;
+    color: $primary-color;
     text-align: center;
     text-transform: uppercase;
     box-sizing: border-box;
     font-family: "LeagueGothicRegular", sans-serif;
 
-
-    @include responsive {
-      width: 360px;
-      font-size: 10em;
-    }
-
-    span {
-      margin-top: -1em;
-      display: block;
-      font-size: .16em;
-    }
-
     img {
-      width: 90px;
+      width: 40px;
       position: absolute;
-      margin-top: -40px;
+      margin-top: -20px;
       top: 50%;
       left: 0;
       transform: rotate(-10deg);
-      border: 3px solid #000;
+      border: 2px solid #000;
     }
 
     &:before {
@@ -55,7 +46,9 @@
   }
 
   .btn-menu {
-    float: left;
+    position: absolute;
+    right: 0;
+    top: 5px;
     cursor: pointer;
     @include sprite(menu);
     @include responsive {
@@ -63,6 +56,9 @@
     }
   }
   .btn-close {
+    position: absolute;
+    right: 0;
+    top: 20px;
     cursor: pointer;
     @include sprite(close);
     @include responsive {
@@ -79,24 +75,23 @@
     bottom: 0;
     background: rgba(0, 0, 0, .9);
     z-index: 1;
-    padding: 20px;
-
-    border-top: 1px solid rgba(255, 255, 255, .2);
-    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    padding: 20px 0;
+    border-top: 1px solid $border-color;
 
     &.open {
       display: block;
     }
 
     a {
-      padding: 10px;
       display: block;
-      font-size: 2.5em;
-      font-weight: 700;
+      padding: 5px;
       text-align: center;
-      transition: opacity .2s;
+      font-size: 1em;
+      font-weight: 400;
+      transition: color .3s;
+      color: $font-color;
       &:hover {
-        opacity: .6;
+        color: $primary-color;
       }
       @include responsive {
         display: inline-block;
@@ -106,48 +101,50 @@
     @include responsive {
       position: static;
       display: block;
-      margin: 40px 0;
+      margin: 0;
       padding: 0;
       background: none;
     }
   }
 
   .socials {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
     height: 24px;
-    display: block;
-    text-align: right;
-    margin-bottom: 50px;
     .social {
       display: inline-block;
-      margin-left: 10px;
-      transition: opacity .2s;
+      margin-left: 5px;
+      transition: opacity .3s;
+      opacity: 1;
       &:hover {
-        opacity: .6;
+        opacity: .8;
       }
     }
     @include responsive {
-      height: auto;
-      margin-bottom: 20px;
-      .social {
-        margin: 10px;
-      }
+      bottom: 40px;
     }
   }
 }
 
 .facebook {
+  background-color: #3b5998;
   @include sprite(facebook);
 }
 .youtube {
+  background-color: #cd201f;
   @include sprite(youtube);
 }
 .twitter {
+  background-color: #1da1f2;
   @include sprite(twitter);
 }
 .dailymotion {
+  background-color: #0064dc;
   @include sprite(dailymotion);
 }
 .twitch {
+  background-color: #6441a5;
   @include sprite(twitch);
 }
 
