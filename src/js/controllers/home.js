@@ -1,24 +1,9 @@
-app.controller('homeCtrl', function ($scope, $http, $location, api) {
-    console.log('homeCtrl');
+app.controller('homeCtrl', function ($scope) {
+    document.getElementById('chat').src = "http://www.twitch.tv/weareb0b/chat";
 
     var options = {
-        channel: "jvtv"
-        //video: "{VIDEO_ID}"
+        channel: "weareb0b"
     };
     var player = new Twitch.Player("player", options);
     player.setVolume(0.5);
-
-    $scope.$watch(function() {
-        return angular.element('player').is(':visible')
-    }, function(status) {
-        console.debug(status);
-        console.debug("player");
-    });
-
-    $scope.$watch(function() {
-        return angular.element('#chat').is(':visible')
-    }, function(status) {
-        console.debug(status);
-        console.debug("chat");
-    });
 });

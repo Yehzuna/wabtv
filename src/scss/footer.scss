@@ -3,6 +3,53 @@
   margin-bottom: 20px;
 }
 
+.donations {
+  text-align: center;
+  .donation {
+    position: relative;
+    font-size: .8em;
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+    margin: 10px 5px;
+    padding: 0 10px;
+    background: $primary-color;
+    color: #fff;
+    opacity: 1;
+    transition: opacity .3s;
+    &:hover {
+      opacity: .8;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 7px;
+    }
+    &.paypal {
+      padding-left: 38px;
+      &:before {
+        @include sprite(paypal);
+      }
+    }
+    &.flooz {
+      padding-left: 38px;
+      &:before {
+        @include sprite(flooz);
+      }
+    }
+    &.subscribe {
+      padding-left: 38px;
+      &:before {
+        @include sprite(subscribe);
+      }
+    }
+  }
+}
+
+
+
+
 /*
 .donations,
 .partners {

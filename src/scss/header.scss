@@ -77,6 +77,7 @@
     z-index: 1;
     padding: 20px 0;
     border-top: 1px solid $border-color;
+    font-family: "GilroyExtraBold", sans-serif;
 
     &.open {
       display: block;
@@ -112,42 +113,73 @@
     bottom: 5px;
     right: 0;
     height: 24px;
-    .social {
-      display: inline-block;
-      margin-left: 5px;
-      transition: opacity .3s;
-      opacity: 1;
-      &:hover {
-        opacity: .8;
-      }
-    }
     @include responsive {
       bottom: 40px;
     }
+    .social {
+      position: relative;
+      display: inline-block;
+      height: 26px;
+      width: 26px;
+      margin-left: 5px;
+      transition: background-color .2s;
+      background-color: $primary-color;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 3px;
+      }
+    }
+    .facebook {
+      &:hover {
+        background-color: #3b5998;
+      }
+      &:before {
+        @include sprite(facebook);
+      }
+    }
+    .youtube {
+      &:hover {
+        background-color: #cd201f;
+      }
+      &:before {
+        @include sprite(youtube);
+      }
+    }
+    .twitter {
+      &:hover {
+        background-color: #1da1f2;
+      }
+      &:before {
+        @include sprite(twitter);
+      }
+    }
+    .dailymotion {
+      &:hover {
+        background-color: #0064dc;
+      }
+      &:before {
+        @include sprite(dailymotion);
+      }
+    }
+    .twitch {
+      &:hover {
+        background-color: #6441a5;
+      }
+      &:before {
+        @include sprite(twitch);
+      }
+    }
+
   }
 }
 
-.facebook {
-  background-color: #3b5998;
-  @include sprite(facebook);
-}
-.youtube {
-  background-color: #cd201f;
-  @include sprite(youtube);
-}
-.twitter {
-  background-color: #1da1f2;
-  @include sprite(twitter);
-}
-.dailymotion {
-  background-color: #0064dc;
-  @include sprite(dailymotion);
-}
-.twitch {
-  background-color: #6441a5;
-  @include sprite(twitch);
-}
 
+
+
+/*
 .balance {
   display: none;
   @include desktop-only {
@@ -183,3 +215,4 @@
   0% { transform: translateY(10px); }
   100% { transform: translateY(0); }
 }
+*/
