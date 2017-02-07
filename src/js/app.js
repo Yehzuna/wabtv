@@ -1,7 +1,14 @@
 var app = angular.module('WabTv', ['ngRoute']);
 
-app.run(function ($rootScope, $location) {
-    $rootScope.$on("$routeChangeStart", function () {
-        console.log($location.path());
+app.run(function ($rootScope) {
+
+    $rootScope.titlePage = "";
+    $rootScope.cssPage = "";
+
+    $rootScope.$on("$routeChangeStart", function (event, current, next) {
+        if(current) {
+            $rootScope.titlePage = current.$$route.data.title;
+            $rootScope.cssPage = current.$$route.data.css;
+        }
     });
 });

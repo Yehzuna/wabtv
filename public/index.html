@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" ng-app="WabTv">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title ng-bind="titlePage"></title>
     <meta name="description" content="">
     <base href="/">
 
@@ -12,36 +12,19 @@
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/dom-to-image/dist/dom-to-image.min.js"></script>
     <script src="http://player.twitch.tv/js/embed/v1.js"></script>
 </head>
-<body>
+<body ng-class="cssPage">
 
-<div class="container" ng-app="WabTv">
-    <div header></div>
+<div class="container">
+    <header></header>
+
     <div class="body" ng-view></div>
 
-    <div class="footer">
-
-        <div class="donations">
-            <a href="#" class="donation paypal">Faire un don avec Paypal</a>
-            <a href="#" class="donation flooz">Faire un don avec Flooz</a>
-            <a href="#" class="donation subscribe">S'abonner à la chaine</a>
-        </div>
-        <!--
-        <div class="partners">
-            <div class="title-block title-partners">Partenaires</div>
-            <a href="#" class="partner"><img src="img/partners/goclecd.png" alt="Go Cle CD" /></a>
-            <a href="#" class="partner"><img src="img/partners/ouikos.png" alt="Ouikos" /></a>
-            <a href="#" class="partner"><img src="img/partners/verygames.png" alt="Very Games" /></a>
-            <a href="#" class="partner"><img src="img/partners/jeuvideo.png" alt="Jeu.Video" /></a>
-            <a href="#" class="partner"><img src="img/partners/dailymotion.png" alt="Dailymotion" /></a>
-        </div>
--->
-    </div>
+    <footer></footer>
 </div>
 
 <script src="js/app.js"></script>
