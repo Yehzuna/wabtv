@@ -14,15 +14,15 @@
         <a href="#" class="social twitch"></a>
     </div>
 
+    <div ng-click="switchTheme()" ng-class="{sun: night}" class="btn-night" title="Mode nuit"></div>
+
     <div class="menu" ng-class="{open: menu}">
         <div class="btn-close" ng-click="open(false)"></div>
-        <a href="/">Home</a>
-        <a href="/schedule">Programme</a>
-        <a href="/shows">Emissions</a>
+        <a href="/" ng-class="{selected: cssPage == 'home'}">Home</a>
+        <a href="/schedule" ng-class="{selected: cssPage == 'schedule'}">Programme</a>
+        <a href="/shows" ng-class="{selected: cssPage == 'shows'}">Emissions</a>
         <a href="/streamers">Streamers</a>
         <a href="/replay">Replay</a>
         <a href="/partners">Partenaires</a>
     </div>
-
-    <div ng-click="switchTheme()">Theme nuit</div>
 </div>

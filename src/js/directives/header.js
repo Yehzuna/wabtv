@@ -9,9 +9,8 @@ app.directive('header', function () {
                 $scope.menu = status;
             };
 
-            $rootScope.night = false;
             $scope.switchTheme = function () {
-                if ($rootScope.night) {
+                if (!$rootScope.night) {
                     $rootScope.night = true;
                 } else {
                     $rootScope.night = false;

@@ -21,6 +21,9 @@ body {
     .menu a {
       color: $font-color-night;
     }
+    .logo:before {
+      color: $font-color-night;
+    }
   }
 }
 
@@ -46,6 +49,7 @@ a {
   @extend %clearfix;
 
   .button {
+    cursor: pointer;
     position: relative;
     display: inline-block;
     height: 32px;
@@ -64,7 +68,14 @@ a {
       position: absolute;
       left: 5px;
       top: 50%;
-      margin-top: -12px;
+      margin-top: -10px;
+    }
+  }
+
+  .fullscreen {
+    padding-left: 35px;
+    &:before {
+      @include sprite(fullscreen);
     }
   }
 

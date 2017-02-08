@@ -9,14 +9,15 @@ $desktop-width: 1024px;
 
 $background-color: #f0f0f0;
 $font-color: #000;
-$border-color: rgba(107, 3, 40, .2);
-$primary-color: #6B0328;
+$border-color: rgba(50, 0, 74, .4);
+$primary-color: #32004a;
+$secondary-color: #5b3f68;
 
-$background-color-night: #232127;
+$background-color-night: #17141f;
 $font-color-night: #fff;
 
 $schedule-font: #fff;
 $schedule-background: #000;
 $schedule-border: $border-color;
-$schedule-header: #333;
+$schedule-header: $secondary-color;
 $schedule-special: $primary-color;
