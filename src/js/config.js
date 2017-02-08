@@ -8,7 +8,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'homeCtrl',
             data: {
                 title: title,
-                css: "home"
+                css: "page-home"
             }
         })
         .when('/schedule', {
@@ -16,7 +16,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'scheduleCtrl',
             data: {
                 title: "Programme - " + title,
-                css: "schedule"
+                css: "page-schedule"
             }
         })
         .when('/shows', {
@@ -24,7 +24,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'showsCtrl',
             data: {
                 title: "Emissions - " + title,
-                css: "shows"
+                css: "page-shows"
             }
         })
         .when('/partners', {
@@ -32,7 +32,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'partnersCtrl',
             data: {
                 title: "Partenaires - " + title,
-                css: "partners"
+                css: "page-partners"
             }
         })
     ;

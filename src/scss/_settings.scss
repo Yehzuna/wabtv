@@ -12,5 +12,11 @@ $font-color: #000;
 $border-color: rgba(107, 3, 40, .2);
 $primary-color: #6B0328;
 
-$schedule-color: #fff;
-$schedule-background: #446CB3;
+$background-color-night: #232127;
+$font-color-night: #fff;
+
+$schedule-font: #fff;
+$schedule-background: #000;
+$schedule-border: $border-color;
+$schedule-header: #333;
+$schedule-special: $primary-color;

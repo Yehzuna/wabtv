@@ -1,33 +1,8 @@
-.download {
-  font-size: .5em;
-  font-weight: 400;
-  float: right;
-  position: relative;
-  padding-left: 20px;
-  padding-top: 70px;
-  @include responsive {
-    padding-left: 35px;
-    padding-top: 0;
-  }
-  span {
-    display: none;
-    @include responsive {
-      display: block;
-    }
-  }
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    margin-top: -12px;
-    @include sprite(save)
-  }
-}
 
 .schedule {
   width: 100%;
   font-family: "LeagueGothicRegular", sans-serif;
+  color: $schedule-font;
   margin-bottom: 40px;
 
   @extend %clearfix;
@@ -38,7 +13,7 @@
     .column {
       width: 14.25%;
       .day {
-        background: $schedule-color !important;
+        background: $schedule-special !important;
       }
     }
     .slot {
@@ -54,13 +29,13 @@
     float: left;
     display: table;
     box-sizing: border-box;
-    background: #000;
+    background: $schedule-background;
     &.current {
       .day {
-        background: $schedule-color;
+        background: $schedule-special;
       }
       .hour {
-        color: $schedule-color;
+        color: $schedule-special;
       }
     }
   }
@@ -73,13 +48,13 @@
       text-align: center;
       vertical-align: middle;
       padding: 20px;
-      border: 1px solid #fff;
+      border: 1px solid $schedule-border;
     }
   }
 
   .day {
     text-transform: uppercase;
-    background: #666;
+    background: $schedule-header;
     font-size: 2em;
     .date {
       display: block;

@@ -54,23 +54,9 @@
     position: absolute;
     bottom: -32px;
     width: 100%;
+    text-align: right;
     @include responsive {
       width: 75%;
-    }
-    text-align: right;
-    .button {
-      font-size: .8em;
-      display: inline-block;
-      height: 32px;
-      line-height: 32px;
-      padding: 0 10px;
-      background: #666;
-      color: #fff;
-      opacity: 1;
-      transition: opacity .3s;
-      &:hover {
-        opacity: .8;
-      }
     }
   }
 }

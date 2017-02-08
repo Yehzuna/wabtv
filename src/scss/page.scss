@@ -13,6 +13,15 @@ body {
   background: $background-color;
   color: $font-color;
   font-family: sans-serif;
+  transition: all .2s;
+
+  &.night {
+    background: $background-color-night;
+    color: $font-color-night;
+    .menu a {
+      color: $font-color-night;
+    }
+  }
 }
 
 a {
@@ -31,3 +40,50 @@ a {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+
+.buttons {
+  @extend %clearfix;
+
+  .button {
+    position: relative;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+    font-size: .8em;
+    background: #666;
+    color: #fff;
+    opacity: 1;
+    transition: opacity .3s;
+    &:hover {
+      opacity: .8;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      margin-top: -12px;
+    }
+  }
+
+  .download {
+    padding: 0;
+    width: 34px;
+    @include responsive {
+      padding: 0 10px 0 35px;
+      width: auto;
+    }
+    span {
+      display: none;
+      @include responsive {
+        display: block;
+      }
+    }
+    &:before {
+      @include sprite(save)
+    }
+  }
+}
+

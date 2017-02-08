@@ -42,7 +42,7 @@
   .btn-menu {
     position: absolute;
     right: 0;
-    top: 5px;
+    top: 10px;
     cursor: pointer;
     @include sprite(menu);
     @include responsive {
@@ -51,8 +51,8 @@
   }
   .btn-close {
     position: absolute;
-    right: 0;
-    top: 20px;
+    right: 10px;
+    top: 10px;
     cursor: pointer;
     @include sprite(close);
     @include responsive {
@@ -75,16 +75,17 @@
 
     &.open {
       display: block;
+      padding-top: 50px;
     }
 
     a {
       display: block;
-      padding: 5px;
+      padding: 20px 0;
       text-align: center;
-      font-size: 1em;
+      font-size: 2em;
       font-weight: 400;
       transition: color .3s;
-      color: $font-color;
+      color: #fff;
       &:hover {
         color: $primary-color;
       }
@@ -99,17 +100,26 @@
       margin: 0;
       padding: 0;
       background: none;
+      a {
+        padding: 5px;
+        font-size: 1em;
+        color: $font-color;
+      }
     }
   }
 
   .socials {
-    position: absolute;
-    bottom: 5px;
-    right: 0;
-    height: 24px;
+    margin: 10px 0;
+    text-align: center;
+
     @include responsive {
+      position: absolute;
+      right: 0;
+      height: 24px;
       bottom: 40px;
+      margin: 0;
     }
+
     .social {
       position: relative;
       display: inline-block;
@@ -126,6 +136,7 @@
         top: 3px;
       }
     }
+
     .facebook {
       &:hover {
         background-color: #3b5998;
