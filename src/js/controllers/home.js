@@ -6,4 +6,13 @@ app.controller('homeCtrl', function ($scope) {
     };
     var player = new Twitch.Player("player", options);
     player.setVolume(0.5);
+
+    $scope.theater = false;
+    $scope.fullscreen = function () {
+        if (!$scope.theater) {
+            $scope.theater = true;
+        } else {
+            $scope.theater = false;
+        }
+    };
 });

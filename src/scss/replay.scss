@@ -1,0 +1,20 @@
+.items {
+  width: 100%;
+
+  @extend %clearfix;
+
+  .item {
+    display: block;
+    height: 200px;
+    width: 33.33333%;
+    float: left;
+    background: #000;
+    box-sizing: border-box;
+    padding: 10px;
+    clear: left;
+
+    img {
+      width: 100%;
+    }
+  }
+}

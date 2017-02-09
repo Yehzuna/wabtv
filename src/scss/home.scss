@@ -5,6 +5,31 @@
   margin-bottom: 52px;
   box-sizing: border-box;
 
+  &.theater {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    .buttons {
+      top: 0;
+      width: 100%;
+      .button {
+        display: none;
+      }
+      .fullscreen {
+        display: inline-block;
+        float: none;
+      }
+    }
+  }
+
   @include responsive {
     padding-bottom: 42.33%;
   }
@@ -54,9 +79,11 @@
     position: absolute;
     bottom: -32px;
     width: 100%;
-    text-align: right;
     @include responsive {
       width: 75%;
+    }
+    .fullscreen {
+      float: right;
     }
   }
 }

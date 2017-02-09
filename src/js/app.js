@@ -4,12 +4,12 @@ app.run(function ($rootScope) {
 
     $rootScope.night = false;
     $rootScope.titlePage = "";
-    $rootScope.cssPage = "";
+    $rootScope.slugPage = "";
 
     $rootScope.$on("$routeChangeStart", function (event, current, next) {
         if(current) {
             $rootScope.titlePage = current.$$route.data.title;
-            $rootScope.cssPage = current.$$route.data.css;
+            $rootScope.slugPage = current.$$route.data.slug;
         }
     });
 });

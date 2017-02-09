@@ -47,28 +47,14 @@
   }
 }
 
-
-
-
-/*
-.donations,
 .partners {
   text-align: center;
-  margin-bottom: 40px;
-  .donation,
+  margin-bottom: 20px;
   .partner {
-    display: inline-block;
-    margin: 5px;
-    transition: opacity .2s;
-    &:hover {
-      opacity: .7;
-    }
     img {
-      width: 100%;
-    }
-    @include responsive {
-      margin: 20px;
+      display: inline-block;
+      height: 50px;
+      filter: grayscale(100%) brightness(135%) contrast(120%);
     }
   }
 }
-*/

@@ -1,9 +1,11 @@
-<div class="embed">
+<div class="embed" ng-class="{theater: theater}">
     <div class="player" id="player"></div>
     <div class="chat">
         <iframe frameborder="0" scrolling="no" id="chat"></iframe>
     </div>
     <div class="buttons">
-        <div class="button fullscreen">Mode Theatre</div>
+        <a href="#" class="button">Extension Chrome</a>
+        <a href="#" class="button">Extension Firefox</a>
+        <div class="button fullscreen" ng-click="fullscreen()">Mode Theatre</div>
     </div>
 </div>
