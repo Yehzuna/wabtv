@@ -60,7 +60,7 @@
   .btn-close {
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: 10px;
     cursor: pointer;
     @include sprite(close);
     @include responsive {

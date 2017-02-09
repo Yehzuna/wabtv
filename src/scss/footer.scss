@@ -47,7 +47,7 @@
   }
 }
 
-.partners {
+.partners2 {
   text-align: center;
   margin: 30px 0;
   .partner {
@@ -59,6 +59,18 @@
       &:hover {
         filter: brightness(70%);
       }
+    }
+  }
+}
+
+.partners {
+  text-align: center;
+  margin: 30px 0;
+  .partner {
+    margin: 5px;
+    img {
+      display: inline-block;
+      height: 50px;
     }
   }
 }
