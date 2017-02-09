@@ -1,7 +1,11 @@
 .header {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-bottom: 1px solid $border-color;
+
+  @include responsive {
+    margin-bottom: 20px;
+  }
 
   .logo {
     position: relative;
@@ -55,8 +59,8 @@
   }
   .btn-close {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 20px;
+    top: 20px;
     cursor: pointer;
     @include sprite(close);
     @include responsive {
@@ -66,8 +70,13 @@
 
   .btn-night {
     position: absolute;
-    bottom: 2px;
+    bottom: -14px;
     right: 0;
+
+    @include responsive {
+      bottom: 2px;
+    }
+
     display: block;
     height: 26px;
     width: 26px;
@@ -207,6 +216,14 @@
       }
       &:before {
         @include sprite(twitch);
+      }
+    }
+    .discord {
+      &:hover {
+        background-color: #7289da;
+      }
+      &:before {
+        @include sprite(discord);
       }
     }
   }

@@ -49,12 +49,16 @@
 
 .partners {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 30px 0;
   .partner {
+    margin: 5px;
     img {
       display: inline-block;
       height: 50px;
-      filter: grayscale(100%) brightness(135%) contrast(120%);
+      filter: grayscale(100%) brightness(50%) contrast(120%);
+      &:hover {
+        filter: brightness(70%);
+      }
     }
   }
 }

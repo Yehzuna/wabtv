@@ -19,6 +19,12 @@
   }
 }
 
+@mixin large-only {
+  @media only screen and (min-width: #{$large-width}) {
+    @content;
+  }
+}
+
 @mixin responsive {
   @media only screen and (min-width: #{$tablet-width}) {
     @content;
