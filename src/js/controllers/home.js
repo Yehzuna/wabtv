@@ -7,6 +7,14 @@ app.controller('homeCtrl', function ($scope) {
     var player = new Twitch.Player("player", options);
     player.setVolume(0.5);
 
+    //document.getElementById('player').addEventListener('Twitch.Player.PLAY', function (e) {
+    player.addEventListener(Twitch.Player.PLAY, function (e) {
+        console.debug(e);
+        console.debug(player.getEnded());
+        console.debug(player.getPlaybackStats());
+        console.debug(player.getChannel());
+    }).
+
     $scope.theater = false;
     $scope.fullscreen = function () {
         if (!$scope.theater) {
