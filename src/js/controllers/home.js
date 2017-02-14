@@ -1,11 +1,27 @@
-app.controller('homeCtrl', function ($scope, twitch) {
+app.controller('homeCtrl', function ($rootScope, $scope, twitch) {
+
+    $scope.loading = true;
+    $scope.player = false;
+    $scope.highlight = false;
+    $scope.data = {};
 
     twitch.online().then(function (response) {
-        console.log(response.data);
+        $scope.loading = false;
+        console.debug(response.data);
+        if (response.data.stream) {
+            $scope.player = true;
+            $scope.data = {
+                viewers: response.data.stream.viewers,
+                title: response.data.stream.channel.status
+            };
 
-        //loadPlayer();
-    }).catch(function() {
-        console.log(response.data);
+            loadPlayer();
+        } else {
+            $scope.highlight = true;
+        }
+    }).catch(function () {
+        $scope.loading = false;
+        $scope.highlight = true;
     });
 
 
@@ -24,11 +40,20 @@ app.controller('homeCtrl', function ($scope, twitch) {
     }
 
     $scope.theater = false;
-    $scope.fullscreen = function () {
+    $scope.fullScreen = function () {
         if (!$scope.theater) {
             $scope.theater = true;
         } else {
             $scope.theater = false;
         }
     };
+
+    $scope.nightMode = function () {
+        if (!$rootScope.night) {
+            $rootScope.night = true;
+        } else {
+            $rootScope.night = false;
+        }
+    };
+
 });

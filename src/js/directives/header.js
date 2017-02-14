@@ -8,14 +8,6 @@ app.directive('header', function () {
             $scope.open = function (status) {
                 $scope.menu = status;
             };
-
-            $scope.switchTheme = function () {
-                if (!$rootScope.night) {
-                    $rootScope.night = true;
-                } else {
-                    $rootScope.night = false;
-                }
-            };
         }
     }
 });

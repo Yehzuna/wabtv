@@ -68,37 +68,6 @@
     }
   }
 
-  .btn-night {
-    position: absolute;
-    bottom: -14px;
-    right: 0;
-
-    @include responsive {
-      bottom: 2px;
-    }
-
-    display: block;
-    height: 26px;
-    width: 26px;
-    cursor: pointer;
-    background: #000;
-    border-radius: 2px;
-    transition: all .2s;
-    &:before {
-      content: '';
-      display: block;
-      margin: 3px;
-      @include sprite(moon);
-    }
-
-    &.sun {
-      background: #fff;
-      &:before {
-        @include sprite(sun);
-      }
-    }
-  }
-
   .menu {
     display: none;
     position: fixed;

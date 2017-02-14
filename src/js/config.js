@@ -19,28 +19,28 @@ app.config(function ($routeProvider, $locationProvider) {
                 slug: "schedule"
             }
         })
-        .when('/shows', {
-            templateUrl: 'tpl/shows.html',
-            controller: 'showsCtrl',
-            data: {
-                title: "Emissions - " + title,
-                slug: "shows"
-            }
-        })
-        .when('/partners', {
-            templateUrl: 'tpl/partners.html',
-            controller: 'partnersCtrl',
-            data: {
-                title: "Partenaires - " + title,
-                slug: "partners"
-            }
-        })
         .when('/replay', {
             templateUrl: 'tpl/replay.html',
             controller: 'replayCtrl',
             data: {
                 title: "Replay - " + title,
                 slug: "replay"
+            }
+        })
+        .when('/shop', {
+            templateUrl: 'tpl/shop.html',
+            controller: 'shopCtrl',
+            data: {
+                title: "Boutique - " + title,
+                slug: "shop"
+            }
+        })
+        .when('/gamer', {
+            templateUrl: 'tpl/gamer.html',
+            controller: 'gamerCtrl',
+            data: {
+                title: "Les Recettes du Gamer - " + title,
+                slug: "gamer"
             }
         })
     ;
