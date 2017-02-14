@@ -1,19 +1,27 @@
-app.controller('homeCtrl', function ($scope) {
-    document.getElementById('chat').src = "http://www.twitch.tv/weareb0b/chat";
+app.controller('homeCtrl', function ($scope, twitch) {
 
-    var options = {
-        channel: "weareb0b"
-    };
-    var player = new Twitch.Player("player", options);
-    player.setVolume(0.5);
+    twitch.online().then(function (response) {
+        console.log(response.data);
 
-    //document.getElementById('player').addEventListener('Twitch.Player.PLAY', function (e) {
-    player.addEventListener(Twitch.Player.PLAY, function (e) {
-        console.debug(e);
-        console.debug(player.getEnded());
-        console.debug(player.getPlaybackStats());
-        console.debug(player.getChannel());
-    }).
+        //loadPlayer();
+    }).catch(function() {
+        console.log(response.data);
+    });
+
+
+    function loadPlayer() {
+        document.getElementById('chat').src = "http://www.twitch.tv/weareb0b/chat";
+
+        var options = {
+            channel: "weareb0b"
+        };
+        var player = new Twitch.Player("player", options);
+        player.setVolume(0.5);
+    }
+
+    function loadHighlight() {
+
+    }
 
     $scope.theater = false;
     $scope.fullscreen = function () {
