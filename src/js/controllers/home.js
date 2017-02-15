@@ -39,12 +39,11 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch) {
 
     }
 
-    $scope.theater = false;
     $scope.fullScreen = function () {
-        if (!$scope.theater) {
-            $scope.theater = true;
+        if (!$rootScope.theater) {
+            $rootScope.theater = true;
         } else {
-            $scope.theater = false;
+            $rootScope.theater = false;
         }
     };
 

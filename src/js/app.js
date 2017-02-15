@@ -3,6 +3,7 @@ var app = angular.module('WabTv', ['ngRoute']);
 app.run(function ($rootScope) {
 
     $rootScope.night = false;
+    $rootScope.theater = false;
     $rootScope.titlePage = "";
     $rootScope.slugPage = "";
 

@@ -21,8 +21,8 @@
     width: 100%;
     background: #000;
     .buttons {
-      top: 0;
-      width: 100%;
+      top: auto;
+      bottom: 0;
       .button {
         display: none;
       }
@@ -91,6 +91,7 @@
     position: absolute;
     bottom: 100%;
     width: 100%;
+    padding-bottom: 10px;
     @include responsive {
       width: 70%;
     }
@@ -101,6 +102,7 @@
       font-size: 1.5em;
       color: $primary-color;
       font-family: "GilroyExtraBold", sans-serif;
+      @extend %ellipsis;
       .span {
         font-size: 1em;
       }
@@ -163,12 +165,12 @@
   position: relative;
   height: 0;
   padding-bottom: 56.25%;
-  margin-top: 52px;
+  margin-top: 60px;
   margin-bottom: 30px;
   box-sizing: border-box;
   @include responsive {
     padding-bottom: 42.33%;
-    margin-bottom: 52px;
+    margin-bottom: 60px;
   }
 }
 
