@@ -1,50 +1,11 @@
 .header {
   position: relative;
   margin-bottom: 30px;
-  border-bottom: 1px solid $border-color;
+  border-top: 2px solid $border-color;
+  border-bottom: 2px solid $border-color;
 
   @include responsive {
     margin-bottom: 20px;
-  }
-
-  .logo {
-    position: relative;
-    display: inline-block;
-    width: 160px;
-    padding-left: 55px;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-size: 3em;
-    font-weight: 400;
-    text-align: center;
-    text-transform: uppercase;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
-    letter-spacing: -4px;
-    color: $primary-color;
-
-    img {
-      width: 40px;
-      position: absolute;
-      margin-top: -20px;
-      top: 50%;
-      left: 0;
-      transform: rotate(-10deg);
-      border: 2px solid #000;
-    }
-
-    &:before {
-      content: 'TV';
-      position: absolute;
-      right: -15px;
-      top: -10px;
-      font-size: .5em;
-      font-weight: 400;
-      transform: rotate(10deg);
-      font-family: 'GilroyExtraBold', sans-serif;
-      color: $font-color;
-      transition: color .2s;
-    }
   }
 
   .btn-menu {
@@ -68,6 +29,12 @@
     }
   }
 
+  .logo {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+  }
+
   .menu {
     display: none;
     position: fixed;
@@ -77,16 +44,13 @@
     bottom: 0;
     background: rgba(0, 0, 0, .9);
     z-index: 1;
-    padding: 20px 0;
-    border-top: 1px solid $border-color;
-    font-family: "GilroyExtraBold", sans-serif;
 
     @include responsive {
       position: static;
       display: block;
-      margin: 0;
-      padding: 0;
-      background: none;
+      padding: 20px 0;
+      text-align: center;
+      background: linear-gradient(to right, $background-color 0%, #dadada 20%, #dadada 80%, $background-color 100%);
     }
 
     &.open {
@@ -101,96 +65,16 @@
       font-size: 2em;
       font-weight: 400;
       transition: color .3s;
-      color: #fff;
       &.selected,
       &:hover {
         color: $primary-color;
       }
       @include responsive {
         display: inline-block;
-        padding: 5px;
+        padding: 5px 20px;
+        border-left: 2px solid $border-color;
         font-size: 1.1em;
         color: $font-color;
-      }
-    }
-  }
-
-  .socials {
-    margin: 10px 0;
-    text-align: center;
-
-    @include responsive {
-      position: absolute;
-      right: 0;
-      height: 24px;
-      bottom: 40px;
-      margin: 0;
-    }
-
-    .social {
-      position: relative;
-      display: inline-block;
-      height: 26px;
-      width: 26px;
-      margin-left: 5px;
-      transition: background-color .2s;
-      background-color: $primary-color;
-      border-radius: 2px;
-
-      &:before {
-        content: "";
-        position: absolute;
-        left: 3px;
-        top: 3px;
-      }
-    }
-
-    .facebook {
-      &:hover {
-        background-color: #3b5998;
-      }
-      &:before {
-        @include sprite(facebook);
-      }
-    }
-    .youtube {
-      &:hover {
-        background-color: #cd201f;
-      }
-      &:before {
-        @include sprite(youtube);
-      }
-    }
-    .twitter {
-      &:hover {
-        background-color: #1da1f2;
-      }
-      &:before {
-        @include sprite(twitter);
-      }
-    }
-    .dailymotion {
-      &:hover {
-        background-color: #0064dc;
-      }
-      &:before {
-        @include sprite(dailymotion);
-      }
-    }
-    .twitch {
-      &:hover {
-        background-color: #6441a5;
-      }
-      &:before {
-        @include sprite(twitch);
-      }
-    }
-    .discord {
-      &:hover {
-        background-color: #7289da;
-      }
-      &:before {
-        @include sprite(discord);
       }
     }
   }
