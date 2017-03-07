@@ -1,18 +1,13 @@
-@include font-face("LeagueGothicRegular", font-files(
-  "League_Gothic-webfont.eot",
-  "League_Gothic-webfont.ttf",
-  "League_Gothic-webfont.woff",
-  "League_Gothic-webfont.svg"
-));
-
-@include font-face("GilroyExtraBold", font-files(
-  "Gilroy-ExtraBold.otf"
+@include font-face("gothambold1", font-files(
+  "gothambold1.eot",
+  "gothambold1.ttf",
+  "gothambold1.woff"
 ));
 
 body {
   background: $background-color;
   color: $font-color;
-  font-family: sans-serif;
+  font-family: 'gothambold1', sans-serif;
   transition: all .2s;
 
   &.fixed {
