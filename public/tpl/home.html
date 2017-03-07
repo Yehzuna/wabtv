@@ -8,13 +8,24 @@
         <div class="chat">
             <iframe frameborder="0" scrolling="no" id="chat"></iframe>
         </div>
-        <div class="buttons">
-            <a href="#" class="button chrome">Extension Chrome</a>
-            <div class="button nightmode" ng-class="{active: night}" ng-click="nightMode()">Mode Nuit</div>
-            <div class="button fullscreen" ng-click="fullScreen()">Mode Théâtre</div>
+
+        <div class="bar top">
+            <div class="stream">
+                <div class="title">{{ data.title }} <span>({{ data.viewers }} spectateurs)</span></div>
+            </div>
+            <div class="buttons">
+                <div class="button nightmode" ng-class="{active: night}" ng-click="nightMode()">Mode Nuit</div>
+                <div class="button fullscreen" ng-click="fullScreen()">Mode Théâtre</div>
+            </div>
         </div>
-        <div class="stream">
-            <div class="title">{{ data.title }} <span>({{ data.viewers }} spectateurs)</span></div>
+
+        <div class="bar bottom">
+            <div class="buttons">
+                <a href="#" class="button chrome">Extension Chrome</a>
+                <a href="#" class="button paypal">Faire un don avec Paypal</a>
+                <a href="#" class="button flooz">Faire un don avec Flooz</a>
+                <a href="#" class="button subscribe">S'abonner à la chaine</a>
+            </div>
         </div>
     </div>
 
@@ -23,9 +34,5 @@
         <div class="first"></div>
     </div>
 
-    <div class="donations">
-        <a href="#" class="donation paypal">Faire un don avec Paypal</a>
-        <a href="#" class="donation flooz">Faire un don avec Flooz</a>
-        <a href="#" class="donation subscribe">S'abonner à la chaine</a>
-    </div>
+
 </div>

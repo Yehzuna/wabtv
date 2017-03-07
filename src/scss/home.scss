@@ -87,51 +87,41 @@
     }
   }
 
-  .stream {
+  .top,
+  .bottom {
     position: absolute;
-    bottom: 100%;
     width: 100%;
-    padding-bottom: 10px;
+
     @include responsive {
       width: 70%;
     }
     @include large-only {
       width: 75%;
-    }
-    .title {
-      font-size: 1.5em;
-      color: $primary-color;
-      @extend %ellipsis;
-      .span {
-        font-size: 1em;
-      }
     }
   }
 
-  .buttons {
-    position: absolute;
-    top: 100%;
-    width: 100%;
+  .top {
+    bottom: 100%;
 
-    @include responsive {
-      width: 70%;
-    }
-    @include large-only {
-      width: 75%;
-    }
-
-    .button {
-      display: none;
-      @include responsive {
-        display: inline-block;
+    .stream {
+      max-width: 70%;
+      .title {
+        font-size: 1.5em;
+        @extend %ellipsis;
+        .span {
+          font-size: 1em;
+        }
       }
     }
-
-    .nightmode,
-    .fullscreen {
-      float: right;
-      margin-left: 10px;
+    .buttons {
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
+  }
+
+  .bottom {
+    top: 100%;
   }
 }
 
@@ -172,13 +162,3 @@
     margin-bottom: 60px;
   }
 }
-
-.home-partners {
-  padding-bottom: 20px;
-  border-bottom: 1px solid $border-color;
-  .partners {
-    margin: 0;
-  }
-}
-
-

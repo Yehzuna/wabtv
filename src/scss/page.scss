@@ -17,11 +17,12 @@ body {
   &.night {
     background: $background-color-night;
     color: $font-color-night;
-    .menu a {
-      color: $font-color-night;
-    }
-    .logo:before {
-      color: $font-color-night;
+    .menu {
+      //background: linear-gradient(to right, $background-color-night 0%, #dadada 20%, #dadada 80%, $background-color-night 100%);
+      background: none;
+      a {
+        color: $font-color-night;
+      }
     }
     .partner img {
         filter: grayscale(100%) brightness(70%) contrast(170%);
@@ -62,7 +63,7 @@ a {
     line-height: 32px;
     padding: 0 10px;
     font-size: .8em;
-    background: #666;
+    background: $primary-color;
     color: #fff;
     opacity: 1;
     transition: opacity .3s;
@@ -105,7 +106,7 @@ a {
 
   .nightmode {
     padding-left: 35px;
-    background: #000;
+    //background: #000;
     color: #fff;
 
     &:before {
@@ -113,11 +114,32 @@ a {
     }
 
     &.active {
-      background: #fff;
+      //background: #fff;
       color: #000;
       &:before {
         @include sprite(sun);
       }
+    }
+  }
+
+  .paypal {
+    padding-left: 30px;
+    &:before {
+      @include sprite(paypal);
+    }
+  }
+
+  .flooz {
+    padding-left: 30px;
+    &:before {
+      @include sprite(flooz);
+    }
+  }
+
+  .subscribe {
+    padding-left: 32px;
+    &:before {
+      @include sprite(subscribe);
     }
   }
 }

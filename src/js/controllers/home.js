@@ -7,7 +7,9 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch) {
 
     twitch.online().then(function (response) {
         $scope.loading = false;
-        console.debug(response.data);
+        $scope.player = true;
+        return true;
+        //console.debug(response.data);
         if (response.data.stream) {
             $scope.player = true;
             $scope.data = {
@@ -15,7 +17,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch) {
                 title: response.data.stream.channel.status
             };
 
-            loadPlayer();
+            //loadPlayer();
         } else {
             $scope.highlight = true;
         }
