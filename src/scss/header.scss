@@ -3,6 +3,8 @@
   margin-bottom: 30px;
   border-top: 2px solid $border-color;
   border-bottom: 2px solid $border-color;
+  background: linear-gradient(to right, $background-color 0%, #dadada 20%, #dadada 80%, $background-color 100%);
+  @extend %clearfix;
 
   @include responsive {
     margin-bottom: 20px;
@@ -10,8 +12,9 @@
 
   .btn-menu {
     position: absolute;
-    right: 0;
-    top: 10px;
+    right: 10px;
+    top: 50%;
+    margin-top: -16px;
     cursor: pointer;
     @include sprite(menu);
     @include responsive {
@@ -30,9 +33,16 @@
   }
 
   .logo {
-    position: absolute;
-    top: 5px;
-    left: 10px;
+    display: block;
+    float: left;
+    margin: 10px 0;
+    @include responsive {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      margin-top: -30px;
+      margin-bottom: 0;
+    }
   }
 
   .menu {
@@ -43,28 +53,30 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, .9);
+    border-left: 2px solid $border-color;
     z-index: 1;
+    overflow-x: auto;
 
     @include responsive {
       position: static;
       display: block;
-      padding: 20px 0;
-      text-align: center;
-      background: linear-gradient(to right, $background-color 0%, #dadada 20%, #dadada 80%, $background-color 100%);
+      margin: 20px 0 20px 170px;
+      background: none;
+      border-left: none;
     }
 
     &.open {
       display: block;
-      padding-top: 50px;
+      padding-top: 40px;
     }
 
     a {
       display: block;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 2em;
+      padding: 20px 0 20px 20px;
+      font-size: 1.8em;
       font-weight: 400;
       transition: color .3s;
+      color: #fff;
       &.selected,
       &:hover {
         color: $primary-color;
@@ -75,6 +87,9 @@
         border-left: 2px solid $border-color;
         font-size: 1.2em;
         color: $font-color;
+      }
+      @include tablet-only {
+        font-size: 1em;
       }
     }
   }

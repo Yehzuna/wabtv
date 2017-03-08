@@ -122,6 +122,13 @@ a {
     }
   }
 
+  .chrome {
+    padding-left: 30px;
+    &:before {
+      @include sprite(chrome);
+    }
+  }
+
   .paypal {
     padding-left: 30px;
     &:before {
