@@ -39,7 +39,7 @@
     @include responsive {
       position: absolute;
       top: 50%;
-      left: 10px;
+      left: 15px;
       margin-top: -30px;
       margin-bottom: 0;
     }
@@ -82,14 +82,22 @@
         color: $primary-color;
       }
       @include responsive {
-        display: inline-block;
-        padding: 5px 20px;
+        float: left;
         border-left: 2px solid $border-color;
-        font-size: 1.2em;
+        font-size: 0.9em;
         color: $font-color;
       }
       @include tablet-only {
+        font-size: .9em;
+        padding: 5px 10px;
+      }
+      @include desktop-only {
         font-size: 1em;
+        padding: 5px 20px;
+      }
+      @include large-only {
+        font-size: 1.2em;
+        padding: 5px 30px;
       }
     }
   }
@@ -99,15 +107,20 @@
   text-align: center;
   margin: 10px 0;
   .partner {
-    margin: 15px;
+    display: inline-block;
+    margin: 10px;
     img {
-      display: inline-block;
-      height: 40px;
+      display: block;
+      height: 44px;
       transition: all .2s;
       filter: grayscale(100%) brightness(70%) contrast(110%);
     }
     @include responsive {
-      margin: 10px;
+      img {
+        height: 60px;
+      }
+    }
+    @include large-only {
       img {
         height: 75px;
       }

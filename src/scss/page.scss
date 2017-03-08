@@ -67,6 +67,8 @@ a {
     color: #fff;
     opacity: 1;
     transition: opacity .3s;
+    box-sizing: border-box;
+    overflow: hidden;
     &:hover {
       opacity: .8;
     }

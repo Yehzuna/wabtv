@@ -1,38 +1,39 @@
 <div class="home-container">
-    <div class="loading" ng-class="{hide: !loading}">
-        <span>Chargement...</span>
-    </div>
 
-    <div class="embed" ng-class="{theater: theater, show: player}">
-        <div class="player" id="player"></div>
-        <div class="chat">
-            <iframe frameborder="0" scrolling="no" id="chat"></iframe>
+    <div class="embed-top" ng-class="{show: player}">
+        <div class="stream">
+            <div class="title">{{ data.title }} <span>({{ data.viewers }} spectateurs)</span></div>
         </div>
-
-        <div class="bar top">
-            <div class="stream">
-                <div class="title">{{ data.title }} <span>({{ data.viewers }} spectateurs)</span></div>
-            </div>
-            <div class="buttons">
-                <div class="button nightmode" ng-class="{active: night}" ng-click="nightMode()">Mode Nuit</div>
-                <div class="button fullscreen" ng-click="fullScreen()">Mode Théâtre</div>
-            </div>
-        </div>
-
-        <div class="bar bottom">
-            <div class="buttons">
-                <a href="#" class="button chrome">Extension Chrome</a>
-                <a href="#" class="button paypal">Faire un don avec Paypal</a>
-                <a href="#" class="button flooz">Faire un don avec Flooz</a>
-                <a href="#" class="button subscribe">S'abonner à la chaine</a>
-            </div>
+        <div class="buttons">
+            <div class="button nightmode" ng-class="{active: night}" ng-click="nightMode()">Mode Nuit</div>
+            <div class="button fullscreen" ng-click="fullScreen()">Mode Théâtre</div>
         </div>
     </div>
 
-    <div class="highlight" ng-class="{show: highlight}">
-        highlight
-        <div class="first"></div>
+    <div class="embed-placeholder">
+        <div class="loading" ng-class="{hide: !loading}">
+            <span>Chargement...</span>
+        </div>
+
+        <div class="embed-container" ng-class="{theater: theater, show: player}">
+            <div class="player" id="player"></div>
+            <div class="chat">
+                <iframe frameborder="0" scrolling="no" id="chat"></iframe>
+            </div>
+        </div>
+
+        <div class="highlight" ng-class="{show: highlight}">
+            highlight
+            <div class="first"></div>
+        </div>
     </div>
 
-
+    <div class="embed-bottom" ng-class="{show: player}">
+        <div class="buttons">
+            <a href="#" class="button paypal">Faire un don avec Paypal</a>
+            <a href="#" class="button flooz">Faire un don avec Flooz</a>
+            <a href="#" class="button subscribe">S'abonner à la chaine</a>
+            <a href="#" class="button chrome">Extension Chrome</a>
+        </div>
+    </div>
 </div>

@@ -1,4 +1,18 @@
-.embed {
+.home-container {
+  margin-bottom: 20px;
+}
+
+.embed-placeholder {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+  box-sizing: border-box;
+  @include responsive {
+    padding-bottom: 42.33%;
+  }
+}
+
+.embed-container {
   display: none;
   position: absolute;
   width: 100%;
@@ -86,42 +100,68 @@
       height: 100%;
     }
   }
+}
 
-  .top,
-  .bottom {
-    position: absolute;
-    width: 100%;
-
-    @include responsive {
-      width: 70%;
-    }
-    @include large-only {
-      width: 75%;
-    }
+.embed-top,
+.embed-bottom {
+  &.show {
+    display: block;
   }
 
-  .top {
-    bottom: 100%;
-
-    .stream {
+  width: 100%;
+  @include responsive {
+    width: 70%;
+  }
+  @include large-only {
+    width: 75%;
+  }
+}
+.embed-top {
+  .stream {
+    max-width: 100%;
+    padding: 10px 0;
+    .title {
+      font-size: 1.5em;
+      @extend %ellipsis;
+      .span {
+        font-size: 1em;
+      }
+    }
+    @include responsive {
+      padding: 0;
       max-width: 70%;
-      .title {
-        font-size: 1.5em;
-        @extend %ellipsis;
-        .span {
-          font-size: 1em;
+    }
+  }
+  .buttons {
+    text-align: right;
+  }
+}
+.embed-bottom {
+  .buttons {
+    margin: 5px 0;
+    @include mobile {
+      text-align: center;
+    }
+    @include large {
+      text-align: right;
+    }
+    .button{
+      display: block;
+      margin: 5px 0;
+      @include mobile {
+        display: inline-block;
+        width: 45%;
+        margin: 2.5px;
+        text-align: left;
+      }
+      @include large {
+        width: auto;
+        margin: 0;
+        &.chrome {
+          float: left;
         }
       }
     }
-    .buttons {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
-  }
-
-  .bottom {
-    top: 100%;
   }
 }
 
@@ -147,18 +187,5 @@
   height: 100%;
   &.show {
     display: block;
-  }
-}
-
-.home-container {
-  position: relative;
-  height: 0;
-  padding-bottom: 56.25%;
-  margin-top: 60px;
-  margin-bottom: 30px;
-  box-sizing: border-box;
-  @include responsive {
-    padding-bottom: 42.33%;
-    margin-bottom: 60px;
   }
 }
