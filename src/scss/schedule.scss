@@ -92,7 +92,7 @@
     height: 70px * 4;
   }
 
-  @include responsive {
+  @media #{$medium-up} {
     .column {
       width: 50%;
     }
@@ -116,7 +116,7 @@
     }
   }
 
-  @include desktop-only {
+  @media #{$large-up} {
     .column {
       width: 14.25%;
     }

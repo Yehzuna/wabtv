@@ -7,58 +7,6 @@
   width: image-width(sprite-file($sprite, $name));
 }
 
-@mixin tablet-only {
-  @media only screen and (min-width: #{$tablet-width + 1px}) and (max-width: #{$desktop-width - 1px}) {
-    @content;
-  }
-}
-
-@mixin desktop-only {
-  @media only screen and (min-width: #{$desktop-width}) {
-    @content;
-  }
-}
-
-@mixin large-only {
-  @media only screen and (min-width: #{$large-width}) {
-    @content;
-  }
-}
-
-
-@mixin responsive {
-  @media only screen and (min-width: #{$tablet-width + 1px}) {
-    @content;
-  }
-}
-
-
-
-@mixin mobile {
-  @media only screen and (min-width: #{$mobile-width + 1px}) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media only screen and (min-width: #{$tablet-width + 1px}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media only screen and (min-width: #{$desktop-width}) {
-    @content;
-  }
-}
-
-@mixin large {
-  @media only screen and (min-width: #{$large-width}) {
-    @content;
-  }
-}
-
-
 %clearfix:after {
   content: " ";
   display: table;

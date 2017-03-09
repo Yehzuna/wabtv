@@ -1,13 +1,37 @@
+// images
 $img-path: '../img/';
 $fonts-path: '../fonts/';
 
 $sprite: sprite-map("sprite/*.png", $spacing: 5px, $layout: smart);
 
-$mobile-width: 420px;
-$tablet-width: 768px;
-$desktop-width: 1024px;
-$large-width: 1280px;
+// dimensions
+$site-width: 1280px;
 
+// responsive
+$micro-screen: 300px;
+$small-screen: 400px;
+$medium-screen: 800px;
+$large-screen: 1000px;
+$xlarge-screen: 1200px;
+
+$screen: "only screen";
+
+$micro-up: $screen;
+$micro-only: "#{$screen} and (max-width: #{$micro-screen})";
+
+$small-up: "#{$screen} and (min-width:#{$small-screen + 1})";
+$small-only: "#{$screen} and (min-width:#{$micro-screen + 1}) and (max-width:#{$small-screen})";
+
+$medium-up: "#{$screen} and (min-width:#{$medium-screen + 1})";
+$medium-only: "#{$screen} and (min-width:#{$small-screen + 1}) and (max-width:#{$medium-screen})";
+
+$large-up: "#{$screen} and (min-width:#{$large-screen + 1})";
+$large-only: "#{$screen} and (min-width:#{$medium-screen + 1}) and (max-width:#{$large-screen})";
+
+$xlarge-up: "#{$screen} and (min-width:#{$xlarge-screen + 1})";
+$xlarge-only: "#{$screen} and (min-width:#{$large-screen})";
+
+// colors
 $background-color: #efeef1;
 $font-color: #333;
 $border-color: #d5a940;

@@ -8,16 +8,15 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch) {
     twitch.online().then(function (response) {
         $scope.loading = false;
         $scope.player = true;
-        return true;
         //console.debug(response.data);
         if (response.data.stream) {
             $scope.player = true;
             $scope.data = {
-                viewers: response.data.stream.viewers,
+                viewers: response.data.stream.viewers + ' spectateur(s)',
                 title: response.data.stream.channel.status
             };
 
-            //loadPlayer();
+            loadPlayer();
         } else {
             $scope.highlight = true;
         }

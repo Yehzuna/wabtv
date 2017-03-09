@@ -42,11 +42,11 @@ a {
 }
 
 .container {
-  max-width: 1280px;
+  max-width: $site-width;
   margin: 0 auto;
   padding: 0 20px;
   .body {
-    @include responsive {
+    @media #{$medium-up} {
       min-height: 400px;
     }
   }
@@ -89,18 +89,7 @@ a {
   }
 
   .download {
-    padding: 0;
-    width: 34px;
-    @include responsive {
-      padding: 0 10px 0 35px;
-      width: auto;
-    }
-    span {
-      display: none;
-      @include responsive {
-        display: block;
-      }
-    }
+    padding-left: 35px;
     &:before {
       @include sprite(save)
     }
@@ -108,15 +97,11 @@ a {
 
   .nightmode {
     padding-left: 35px;
-    //background: #000;
     color: #fff;
-
     &:before {
       @include sprite(moon);
     }
-
     &.active {
-      //background: #fff;
       color: #000;
       &:before {
         @include sprite(sun);
@@ -155,7 +140,7 @@ a {
 
 .balance {
   display: none;
-  @include desktop-only {
+  @media #{$xlarge-only} {
     display: block;
   }
   position: absolute;

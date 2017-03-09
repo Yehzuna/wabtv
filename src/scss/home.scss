@@ -7,7 +7,7 @@
   height: 0;
   padding-bottom: 56.25%;
   box-sizing: border-box;
-  @include responsive {
+  @media #{$medium-up} {
     padding-bottom: 42.33%;
   }
 }
@@ -64,10 +64,10 @@
       height: 100%;
     }
 
-    @include responsive {
+    @media #{$medium-up} {
       width: 70%;
     }
-    @include large-only {
+    @media #{$xlarge-up} {
       width: 75%;
     }
   }
@@ -81,12 +81,12 @@
     display: none;
     background: $background-color;
 
-    @include responsive {
+    @media #{$medium-up} {
       display: block;
       width: 30%;
     }
 
-    @include large-only {
+    @media #{$xlarge-up} {
       display: block;
       width: 25%;
     }
@@ -109,52 +109,82 @@
   }
 
   width: 100%;
-  @include responsive {
+  @media #{$medium-up} {
     width: 70%;
   }
-  @include large-only {
+  @media #{$xlarge-up} {
     width: 75%;
   }
 }
 .embed-top {
+  @extend %clearfix;
   .stream {
-    max-width: 100%;
-    padding: 10px 0;
+    margin-bottom: 5px;
+    @media #{$medium-up} {
+      width: 50%;
+      margin-bottom: 0;
+      float: left;
+    }
+    @media #{$large-up} {
+      width: 60%;
+    }
+    @media #{$xlarge-up} {
+      width: 70%;
+    }
     .title {
-      font-size: 1.5em;
+      font-size: 1.3em;
+      text-transform: uppercase;
       @extend %ellipsis;
-      .span {
-        font-size: 1em;
+      @media #{$medium-up} {
+
+        font-size: 1.1em;
+      }
+      @media #{$large-up} {
+        font-size: 1.3em;
       }
     }
-    @include responsive {
-      padding: 0;
-      max-width: 70%;
+    .viewers {
+      font-size: .75em;
     }
   }
   .buttons {
-    text-align: right;
+    display: none;
+    @media #{$medium-up} {
+      display: block;
+      width: 50%;
+      float: left;
+    }
+    @media #{$large-up} {
+      width: 40%;
+    }
+    @media #{$xlarge-up} {
+      width: 30%;
+    }
+    .button {
+      float: right;
+      margin-left: 5px;
+    }
   }
 }
 .embed-bottom {
   .buttons {
     margin: 5px 0;
-    @include mobile {
+    @media #{$small-up} {
       text-align: center;
     }
-    @include large {
+    @media #{$xlarge-up} {
       text-align: right;
     }
     .button{
       display: block;
       margin: 5px 0;
-      @include mobile {
+      @media #{$small-up} {
         display: inline-block;
         width: 45%;
         margin: 2.5px;
         text-align: left;
       }
-      @include large {
+      @media #{$xlarge-up} {
         width: auto;
         margin: 0;
         &.chrome {

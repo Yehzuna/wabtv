@@ -6,7 +6,7 @@
   background: linear-gradient(to right, $background-color 0%, #dadada 20%, #dadada 80%, $background-color 100%);
   @extend %clearfix;
 
-  @include responsive {
+  @media #{$medium-up} {
     margin-bottom: 20px;
   }
 
@@ -17,7 +17,7 @@
     margin-top: -16px;
     cursor: pointer;
     @include sprite(menu);
-    @include responsive {
+    @media #{$medium-up} {
       display: none;
     }
   }
@@ -27,7 +27,7 @@
     top: 10px;
     cursor: pointer;
     @include sprite(close);
-    @include responsive {
+    @media #{$medium-up} {
       display: none;
     }
   }
@@ -36,7 +36,7 @@
     display: block;
     float: left;
     margin: 10px 0;
-    @include responsive {
+    @media #{$medium-up} {
       position: absolute;
       top: 50%;
       left: 15px;
@@ -57,7 +57,7 @@
     z-index: 1;
     overflow-x: auto;
 
-    @include responsive {
+    @media #{$medium-up} {
       position: static;
       display: block;
       margin: 20px 0 20px 170px;
@@ -81,23 +81,20 @@
       &:hover {
         color: $primary-color;
       }
-      @include responsive {
+      @media #{$medium-up} {
+        padding: 5px 8px;
         float: left;
+        font-size: .9em;
         border-left: 2px solid $border-color;
-        font-size: 0.9em;
         color: $font-color;
       }
-      @include tablet-only {
-        font-size: .9em;
-        padding: 5px 10px;
-      }
-      @include desktop-only {
+      @media #{$large-up} {
+        padding: 5px 18px;
         font-size: 1em;
-        padding: 5px 20px;
       }
-      @include large-only {
+      @media #{$xlarge-up} {
+        padding: 5px 26px;
         font-size: 1.2em;
-        padding: 5px 30px;
       }
     }
   }
@@ -115,12 +112,12 @@
       transition: all .2s;
       filter: grayscale(100%) brightness(70%) contrast(110%);
     }
-    @include responsive {
+    @media #{$medium-up} {
       img {
         height: 60px;
       }
     }
-    @include large-only {
+    @media #{$xlarge-up} {
       img {
         height: 75px;
       }
