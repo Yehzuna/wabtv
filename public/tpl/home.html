@@ -6,7 +6,7 @@
             <div class="viewers">{{ data.viewers }}</div>
         </div>
         <div class="buttons">
-            <div class="button fullscreen" ng-click="fullScreen()">Mode Théâtre</div>
+            <div class="button fullscreen" ng-class="{theater: theater}" ng-click="fullScreen()">Mode Théâtre</div>
             <div class="button nightmode" ng-class="{active: night}" ng-click="nightMode()">Mode Nuit</div>
         </div>
     </div>

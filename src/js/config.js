@@ -43,6 +43,14 @@ app.config(function ($routeProvider, $locationProvider) {
                 slug: "gamer"
             }
         })
+        .when('/highlight', {
+            templateUrl: 'tpl/highlight.html',
+            controller: 'highlightCtrl',
+            data: {
+                title: "Highlight - " + title,
+                slug: "highlight"
+            }
+        })
     ;
     $locationProvider.html5Mode(true);
 });

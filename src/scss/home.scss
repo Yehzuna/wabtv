@@ -34,18 +34,6 @@
     height: 100%;
     width: 100%;
     background: #000;
-    .buttons {
-      top: auto;
-      bottom: 0;
-      .button {
-        display: none;
-      }
-      .fullscreen {
-        margin: 0;
-        display: inline-block;
-        float: none;
-      }
-    }
   }
 
   .player {
@@ -119,10 +107,10 @@
 .embed-top {
   @extend %clearfix;
   .stream {
-    margin-bottom: 5px;
+    margin: 0 10px 5px 10px;
     @media #{$medium-up} {
       width: 50%;
-      margin-bottom: 0;
+      margin: 0;
       float: left;
     }
     @media #{$large-up} {
@@ -132,11 +120,10 @@
       width: 70%;
     }
     .title {
-      font-size: 1.3em;
+      font-size: 1em;
       text-transform: uppercase;
       @extend %ellipsis;
       @media #{$medium-up} {
-
         font-size: 1.1em;
       }
       @media #{$large-up} {
@@ -144,7 +131,10 @@
       }
     }
     .viewers {
-      font-size: .75em;
+      font-size: .65em;
+      @media #{$medium-up} {
+        font-size: .75em;
+      }
     }
   }
   .buttons {
@@ -163,6 +153,13 @@
     .button {
       float: right;
       margin-left: 5px;
+      &.theater {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        z-index: 15;
+      }
     }
   }
 }
@@ -196,17 +193,13 @@
 }
 
 .loading {
-  display: block;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 40%;
+  left: 0;
+  right: 0;
+  text-align: center;
   &.hide {
     display: none;
-  }
-  span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
   }
 }
 

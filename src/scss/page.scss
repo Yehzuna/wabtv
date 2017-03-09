@@ -17,9 +17,10 @@ body {
   &.night {
     background: $background-color-night;
     color: $font-color-night;
-    .menu {
-      //background: linear-gradient(to right, $background-color-night 0%, #dadada 20%, #dadada 80%, $background-color-night 100%);
+    .header {
       background: none;
+    }
+    .menu {
       a {
         color: $font-color-night;
       }
@@ -44,7 +45,9 @@ a {
 .container {
   max-width: $site-width;
   margin: 0 auto;
-  padding: 0 20px;
+  @media #{$medium-up} {
+    padding: 0 20px;
+  }
   .body {
     @media #{$medium-up} {
       min-height: 400px;
