@@ -63,28 +63,31 @@
 
   .slot {
     position: relative;
-    .hour {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      font-size: 0.8em;
-      opacity: .8;
-    }
-    .streamer {
-      position: absolute;
-      bottom: 5px;
-      right: 5px;
-      font-size: 0.8em;
-    }
-    .show {
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      font-size: 0.8em;
-    }
+
     .title {
       font-size: 1.2em;
       line-height: 1.3em;
+    }
+
+    .hour,
+    .streamer,
+    .show {
+      position: absolute;
+      font-size: 0.8em;
+    }
+
+    .hour {
+      top: 5px;
+      right: 5px;
+      opacity: .8;
+    }
+    .streamer {
+      bottom: 5px;
+      right: 5px;
+    }
+    .show {
+      top: 5px;
+      left: 5px;
     }
   }
 
@@ -103,11 +106,20 @@
         display: inline-block;
         max-height: 100px;
         overflow: hidden;
+        font-size: 1em;
+        line-height: 1.2em;
       }
       .streamer,
       .hour,
       .show {
-        font-size: 1em;
+        font-size: .7em;
+      }
+    }
+
+    .day,
+    .slot {
+      > div {
+        padding: 10px;
       }
     }
 
@@ -119,6 +131,43 @@
   @media #{$large-up} {
     .column {
       width: 14.25%;
+    }
+    .day {
+      font-size: 1em;
+    }
+    .slot {
+      .title {
+        font-size: .9em;
+        line-height: 1.1em;
+      }
+      .streamer,
+      .hour,
+      .show {
+        font-size: .7em;
+      }
+    }
+  }
+
+  @media #{$xlarge-up} {
+    .day,
+    .slot {
+      > div {
+        padding: 20px;
+      }
+    }
+    .day {
+      font-size: 1.4em;
+    }
+    .slot {
+      .title {
+        font-size: 1em;
+        line-height: 1.2em;
+      }
+      .streamer,
+      .hour,
+      .show {
+        font-size: .7em;
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-app.config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider, $locationProvider, $sceDelegateProvider) {
 
     var title = "We Are Bob Television";
 
@@ -52,5 +52,11 @@ app.config(function ($routeProvider, $locationProvider) {
             }
         })
     ;
+
     $locationProvider.html5Mode(true);
+
+    /*$sceDelegateProvider.resourceUrlWhitelist([
+        'self',
+        'https://www.dailymotion.com/services/oembed'
+    ]);*/
 });

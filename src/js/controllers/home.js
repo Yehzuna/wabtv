@@ -1,4 +1,4 @@
-app.controller('homeCtrl', function ($rootScope, $scope, twitch) {
+app.controller('homeCtrl', function ($rootScope, $scope, $sce, twitch, dailymotion, api) {
 
     $scope.loading = true;
     $scope.player = false;
@@ -7,8 +7,8 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch) {
 
     twitch.online().then(function (response) {
         $scope.loading = false;
-        $scope.player = true;
-        //console.debug(response.data);
+
+        //console.debug(response.data.stream);
         if (response.data.stream) {
             $scope.player = true;
             $scope.data = {
@@ -19,6 +19,8 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch) {
             loadPlayer();
         } else {
             $scope.highlight = true;
+
+            loadHighlight();
         }
     }).catch(function () {
         $scope.loading = false;
@@ -37,6 +39,22 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch) {
     }
 
     function loadHighlight() {
+
+        var player = DM.player(document.getElementById("highlight"), {
+            video: "xwr14q"
+        });
+
+        api.highlight().then(function (response) {
+            angular.forEach(response.data, function(id) {
+
+                console.log(id);
+                dailymotion.embed(id).then(function (response) {
+                    //console.log();
+
+                    $sce.trustAsResourceUrl(response.data);
+                });
+            })
+        });
 
     }
 
