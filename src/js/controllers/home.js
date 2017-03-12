@@ -16,19 +16,18 @@ app.controller('homeCtrl', function ($rootScope, $scope, $sce, twitch, dailymoti
                 title: response.data.stream.channel.status
             };
 
-            loadPlayer();
+            loadTwitch();
         } else {
             $scope.highlight = true;
 
-            loadHighlight();
+            initDailymotion();
         }
     }).catch(function () {
         $scope.loading = false;
         $scope.highlight = true;
     });
 
-
-    function loadPlayer() {
+    function loadTwitch() {
         document.getElementById('chat').src = "http://www.twitch.tv/weareb0b/chat";
 
         var options = {
@@ -38,24 +37,39 @@ app.controller('homeCtrl', function ($rootScope, $scope, $sce, twitch, dailymoti
         player.setVolume(0.5);
     }
 
-    function loadHighlight() {
-
-        var player = DM.player(document.getElementById("highlight"), {
-            video: "xwr14q"
-        });
+    function initDailymotion() {
+        $scope.data = {
+            viewers: false,
+            title: 'test',
+            playlist: []
+        };
 
         api.highlight().then(function (response) {
-            angular.forEach(response.data, function(id) {
-
+            angular.forEach(response.data, function(id, index) {
                 console.log(id);
-                dailymotion.embed(id).then(function (response) {
-                    //console.log();
+                console.log(index);
 
-                    $sce.trustAsResourceUrl(response.data);
+                dailymotion.video(id).then(function (response) {
+                    console.log(response.data);
+
+                    if (index == 0) {
+                        $scope.data.title = response.data.title;
+                        loadDailymotion(id);
+                    }
+
+                    $scope.data.playlist.push({
+                        title: response.data.title,
+                        img: response.data.thumbnail_120_url
+                    })
                 });
             })
         });
+    }
 
+    function loadDailymotion(id) {
+        DM.player(document.getElementById("player"), {
+            video: id
+        });
     }
 
     $scope.fullScreen = function () {

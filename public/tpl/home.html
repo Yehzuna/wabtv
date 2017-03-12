@@ -16,15 +16,17 @@
             <span>Chargement...</span>
         </div>
 
-        <div class="embed-container" ng-class="{theater: theater, show: player}">
+        <div class="embed-container" ng-class="{theater: theater, show: !loading}">
             <div class="player" id="player"></div>
-            <div class="chat">
+            <div class="sidebar" ng-class="{show: player}">
                 <iframe frameborder="0" scrolling="no" id="chat"></iframe>
             </div>
-        </div>
-
-        <div class="highlight" ng-class="{show: highlight}">
-            <div class="player" id="highlight"></div>
+            <div class="sidebar playlist" ng-class="{show: highlight}">
+                <div class="video" ng-repeat="video in data.playlist">
+                    <img src="{{ video.img }}" alt="{{ video.title }}" />
+                    <span>{{ video.title }}</span>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -54,9 +54,4 @@ app.config(function ($routeProvider, $locationProvider, $sceDelegateProvider) {
     ;
 
     $locationProvider.html5Mode(true);
-
-    /*$sceDelegateProvider.resourceUrlWhitelist([
-        'self',
-        'https://www.dailymotion.com/services/oembed'
-    ]);*/
 });

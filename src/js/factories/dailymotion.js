@@ -1,10 +1,25 @@
 app.factory('dailymotion', function ($http) {
     var data = {};
+    var fields = "?fields=id,title,duration,thumbnail_120_url"
 
-    data.embed = function (id) {
+    data.video = function (id) {
         return $http({
-            method: "JSONP",
-            url: "https://www.dailymotion.com/services/oembed?url=http://www.dailymotion.com/embed/video/" + id + "&callback=JSON_CALLBACK"
+            method: "GET",
+            url: "https://api.dailymotion.com/video/" + id + fields
+        });
+    };
+
+    data.playlist = function (id) {
+        return $http({
+            method: "GET",
+            url: "https://api.dailymotion.com/playlist/x4u9ct/videos" + fields
+        });
+    };
+
+    data.replay = function (page) {
+        return $http({
+            method: "GET",
+            url: "https://api.dailymotion.com/user/x1vvl9i/videos" + fields + "&page=" + page
         });
     };
 
