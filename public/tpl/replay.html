@@ -1,6 +1,11 @@
-<div class="replay"></div>
+<div class="items">
+    <div class="item" ng-repeat="video in data">
+        <img src="{{ video.img }}" alt="{{ video.title }}" />
+        <span>{{ video.title }}</span>
+    </div>
+</div>
 
-<div class="balance">
+<div class="character character-relay">
     <div class="up"></div>
     <div class="down"></div>
 </div>

@@ -141,17 +141,27 @@ a {
   }
 }
 
-.balance {
-  display: none;
-  @media #{$xlarge-only} {
-    display: block;
+
+
+.character-relay {
+  background: url('#{$img-path}bob-down.png');
+  .up {
+    animation: balance 1s ease-in-out infinite alternate;
+    background: url('#{$img-path}bob-up.png');
   }
+}
+
+.character {
+  display: none;
   position: absolute;
   top: 20px;
   left: 0;
   height: 200px;
   width: 172px;
-  background: url('#{$img-path}bob-down.png');
+
+  @media #{$large-only} {
+    display: block;
+  }
 
   .up {
     position: absolute;
@@ -161,8 +171,6 @@ a {
     width: 93px;
     margin-left: -43px;
     transform-origin: 50% 100%;
-    animation: balance 1s ease-in-out infinite alternate;
-    background: url('#{$img-path}bob-up.png');
   }
 }
 
