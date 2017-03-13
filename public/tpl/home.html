@@ -1,7 +1,7 @@
 <div class="home-container">
 
-    <div class="embed-top" ng-class="{show: player}">
-        <div class="stream">
+    <div class="embed-top" ng-class="{show: !loading}">
+        <div class="stream" ng-class="{large: !data.viewers}">
             <div class="title" title="{{ data.title }}">{{ data.title }}</div>
             <div class="viewers">{{ data.viewers }}</div>
         </div>
@@ -22,7 +22,7 @@
                 <iframe frameborder="0" scrolling="no" id="chat"></iframe>
             </div>
             <div class="sidebar playlist" ng-class="{show: highlight}">
-                <div class="video" ng-repeat="video in data.playlist">
+                <div class="video" ng-repeat="video in data.playlist" ng-class="{active: data.id == video.id}" ng-click="loadDailymotion(video.id)">
                     <img src="{{ video.img }}" alt="{{ video.title }}" />
                     <span>{{ video.title }}</span>
                 </div>

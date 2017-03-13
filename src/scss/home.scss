@@ -99,6 +99,7 @@
       cursor: pointer;
       margin-bottom: 5px;
       opacity: .8;
+      &.active,
       &:hover {
         opacity: 1;
       }
@@ -147,9 +148,13 @@
   .stream {
     margin: 0 10px 5px 10px;
     @media #{$medium-up} {
+      height: 36px;
       width: 50%;
       margin: 0;
       float: left;
+      &.large .title {
+        line-height: 36px;
+      }
     }
     @media #{$large-up} {
       width: 60%;

@@ -16,18 +16,18 @@ app.controller('homeCtrl', function ($rootScope, $scope, $sce, twitch, dailymoti
                 title: response.data.stream.channel.status
             };
 
-            loadTwitch();
+            $scope.loadTwitch();
         } else {
             $scope.highlight = true;
 
-            initDailymotion();
+            $scope.initDailymotion();
         }
     }).catch(function () {
         $scope.loading = false;
         $scope.highlight = true;
     });
 
-    function loadTwitch() {
+    $scope.loadTwitch = function () {
         document.getElementById('chat').src = "http://www.twitch.tv/weareb0b/chat";
 
         var options = {
@@ -35,42 +35,50 @@ app.controller('homeCtrl', function ($rootScope, $scope, $sce, twitch, dailymoti
         };
         var player = new Twitch.Player("player", options);
         player.setVolume(0.5);
-    }
+    };
 
-    function initDailymotion() {
+    $scope.loadDailymotion = function (id) {
+        $scope.data.id = id;
+
+        DM.player(document.getElementById("player"), {
+            video: id
+        });
+    };
+
+    $scope.initDailymotion = function () {
         $scope.data = {
             viewers: false,
-            title: 'test',
+            title: "La vidéo du jour",
+            id: false,
             playlist: []
         };
 
         api.highlight().then(function (response) {
             angular.forEach(response.data, function(id, index) {
-                console.log(id);
-                console.log(index);
-
                 dailymotion.video(id).then(function (response) {
                     console.log(response.data);
 
                     if (index == 0) {
-                        $scope.data.title = response.data.title;
-                        loadDailymotion(id);
+                        $scope.loadDailymotion(response.data.id);
                     }
 
                     $scope.data.playlist.push({
+                        id: response.data.id,
                         title: response.data.title,
                         img: response.data.thumbnail_120_url
                     })
                 });
             })
         });
-    }
+    };
 
-    function loadDailymotion(id) {
-        DM.player(document.getElementById("player"), {
-            video: id
-        });
-    }
+    $scope.play = function () {
+        if (!$rootScope.theater) {
+            $rootScope.theater = true;
+        } else {
+            $rootScope.theater = false;
+        }
+    };
 
     $scope.fullScreen = function () {
         if (!$rootScope.theater) {
