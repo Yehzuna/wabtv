@@ -18,10 +18,10 @@
 
         <div class="embed-container" ng-class="{theater: theater, show: !loading}">
             <div class="player" id="player"></div>
-            <div class="sidebar" ng-class="{show: player}">
+            <div class="sidebar" ng-class="{show: player, hide: highlight}">
                 <iframe frameborder="0" scrolling="no" id="chat"></iframe>
             </div>
-            <div class="sidebar playlist" ng-class="{show: highlight}">
+            <div class="sidebar playlist" ng-class="{show: highlight, hide: player}">
                 <div class="video" ng-repeat="video in data.playlist" ng-class="{active: data.id == video.id}" ng-click="loadDailymotion(video.id)">
                     <img src="{{ video.img }}" alt="{{ video.title }}" />
                     <span>{{ video.title }}</span>

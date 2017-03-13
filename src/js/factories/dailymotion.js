@@ -1,6 +1,6 @@
 app.factory('dailymotion', function ($http) {
     var data = {};
-    var fields = "?fields=id,title,duration,thumbnail_120_url"
+    var fields = "?fields=id,title,duration,thumbnail_120_url,thumbnail_360_url"
 
     data.video = function (id) {
         return $http({

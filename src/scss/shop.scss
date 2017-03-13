@@ -1,0 +1,72 @@
+.character-shop {
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+  padding-bottom: 60%;
+
+  background: url('#{$img-path}shop.png');
+  background-size: 100% 100%;
+
+  @media #{$xlarge-only} {
+    padding-bottom: 40%;
+  }
+
+  .move {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    height: 40%;
+    width: 26%;
+    margin-left: -13%;
+    transform-origin: 100% 0;
+    animation: balance4 1.5s ease-in-out infinite alternate;
+    background: url('#{$img-path}shop-move.png');
+    background-size: 100% 100%;
+    z-index: -1;
+  }
+}
+
+@keyframes balance4 {
+  0%   {
+    transform: rotateX(-15deg) ;
+  }
+  100%  {
+    transform: rotateX(15deg) ;
+  }
+}
+
+@keyframes balance3 {
+  0%   {
+    transform: rotate(0, 0, 1, 18deg);
+  }
+  10%  {
+    transform: rotate3d(0, 0, 1, 20deg);
+  }
+  20%  {
+    transform: rotate3d(0, 0, 1, 19deg);
+  }
+  30% {
+    transform: rotate3d(0, 0, 1, 20deg);
+  }
+  40% {
+    transform: rotate3d(0, 0, 1, 18deg);
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 21deg);
+  }
+  60% {
+    transform: rotate3d(0, 0, 1, 19deg);
+  }
+  70% {
+    transform: rotate3d(0, 0, 1, 21deg);
+  }
+  80% {
+    transform: rotate3d(0, 0, 1, 20deg);
+  }
+  90% {
+    transform: rotate3d(0, 0, 1, 18deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 1, 20deg);
+  }
+}

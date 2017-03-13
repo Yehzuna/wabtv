@@ -67,7 +67,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, $sce, twitch, dailymoti
                         img: response.data.thumbnail_120_url
                     })
                 });
-            })
+            });
         });
     };
 
@@ -94,5 +94,4 @@ app.controller('homeCtrl', function ($rootScope, $scope, $sce, twitch, dailymoti
             $rootScope.night = false;
         }
     };
-
 });

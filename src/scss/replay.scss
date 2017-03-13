@@ -1,20 +1,43 @@
+
+
 .items {
   width: 100%;
+  background: $sidebar-color;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 
   @extend %clearfix;
 
   .item {
     display: block;
-    height: 200px;
-    width: 33.33333%;
+    width: 100%;
     float: left;
-    background: #000;
     box-sizing: border-box;
-    padding: 10px;
-    clear: left;
+    padding: 10px 10px 0 10px;
+    cursor: pointer;
+    transition: all .2s;
+    opacity: .8;
+    &.active,
+    &:hover {
+      opacity: 1;
+    }
+
+    @media #{$small-up} {
+      width: 50%;
+    }
+    @media #{$large-up} {
+      width: 33.33333%;
+    }
 
     img {
       width: 100%;
+    }
+
+    span {
+      display: block;
+      line-height: 18px;
+      height: 36px;
+      overflow: hidden;
     }
   }
 }

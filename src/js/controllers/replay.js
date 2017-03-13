@@ -6,10 +6,12 @@ app.controller('replayCtrl', function ($rootScope, $scope, $sce, dailymotion) {
     dailymotion.replay($scope.page).then(function (response) {
         console.log(response.data);
 
-        $scope.data.push({
-            id: response.data.id,
-            title: response.data.title,
-            img: response.data.thumbnail_120_url
-        })
+        angular.forEach(response.data.list, function(data) {
+            $scope.data.push({
+                id: data.id,
+                title: data.title,
+                img: data.thumbnail_360_url
+            })
+        });
     });
 });
