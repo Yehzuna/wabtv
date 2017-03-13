@@ -147,6 +147,9 @@
   @extend %clearfix;
   .stream {
     margin: 0 10px 5px 10px;
+    &.large .viewers {
+      display: none;
+    }
     @media #{$medium-up} {
       height: 36px;
       width: 50%;
