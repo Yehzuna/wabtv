@@ -30,10 +30,9 @@ app.controller('homeCtrl', function ($rootScope, $scope, $sce, twitch, dailymoti
     $scope.loadTwitch = function () {
         document.getElementById('chat').src = "http://www.twitch.tv/weareb0b/chat";
 
-        var options = {
+        var player = new Twitch.Player("player", {
             channel: "weareb0b"
-        };
-        var player = new Twitch.Player("player", options);
+        });
         player.setVolume(0.5);
     };
 

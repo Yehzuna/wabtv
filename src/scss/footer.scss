@@ -73,4 +73,12 @@
       @include sprite(discord);
     }
   }
+  .teamspeak {
+    &:hover {
+      background-color: #465674;
+    }
+    &:before {
+      @include sprite(teamspeak);
+    }
+  }
 }

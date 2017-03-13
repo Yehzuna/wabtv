@@ -177,6 +177,7 @@
       }
     }
     .viewers {
+      margin-top: -2px;
       font-size: .65em;
       @media #{$medium-up} {
         font-size: .75em;
