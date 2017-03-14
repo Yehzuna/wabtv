@@ -1,3 +1,7 @@
+.shop {
+  margin-bottom: 20px;
+}
+
 .character-shop {
   position: relative;
   margin: 0 auto;
@@ -17,56 +21,20 @@
     left: 50%;
     height: 40%;
     width: 26%;
-    margin-left: -13%;
-    transform-origin: 100% 0;
-    animation: balance4 1.5s ease-in-out infinite alternate;
+    margin-left: -15%;
+    animation: shop 1.5s ease-in-out infinite alternate;
+    transform-origin: 50% 0;
     background: url('#{$img-path}shop-move.png');
     background-size: 100% 100%;
     z-index: -1;
   }
 }
 
-@keyframes balance4 {
-  0%   {
-    transform: rotateX(-15deg) ;
-  }
-  100%  {
-    transform: rotateX(15deg) ;
-  }
-}
-
-@keyframes balance3 {
-  0%   {
-    transform: rotate(0, 0, 1, 18deg);
-  }
-  10%  {
-    transform: rotate3d(0, 0, 1, 20deg);
-  }
-  20%  {
-    transform: rotate3d(0, 0, 1, 19deg);
-  }
-  30% {
-    transform: rotate3d(0, 0, 1, 20deg);
-  }
-  40% {
-    transform: rotate3d(0, 0, 1, 18deg);
-  }
-  50% {
-    transform: rotate3d(0, 0, 1, 21deg);
-  }
-  60% {
-    transform: rotate3d(0, 0, 1, 19deg);
-  }
-  70% {
-    transform: rotate3d(0, 0, 1, 21deg);
-  }
-  80% {
-    transform: rotate3d(0, 0, 1, 20deg);
-  }
-  90% {
-    transform: rotate3d(0, 0, 1, 18deg);
+@keyframes shop {
+  0% {
+    transform: rotate3d(1, 1, 0, 30deg);
   }
   100% {
-    transform: rotate3d(0, 0, 1, 20deg);
+    transform: rotate3d(-1, 1, 0, 30deg);
   }
 }

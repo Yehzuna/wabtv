@@ -145,16 +145,13 @@ a {
 .character-relay {
   background: url('#{$img-path}bob-down.png');
   .up {
-    animation: balance 1s ease-in-out infinite alternate;
+    animation: balance2 1s ease-in-out infinite alternate;
     background: url('#{$img-path}bob-up.png');
   }
 }
 
 .character {
-  display: none;
-  position: absolute;
-  top: 20px;
-  left: 0;
+  position: relative;
   height: 200px;
   width: 172px;
 
@@ -181,4 +178,52 @@ a {
 @keyframes balance2 {
   0% { transform: translateY(10px); }
   100% { transform: translateY(0); }
+}
+
+@keyframes balance3 {
+  0%   {
+    transform: rotate3d(0, 0, 1, 18deg);
+  }
+  10%  {
+    transform: rotate3d(0, 0, 1, 20deg);
+  }
+  20%  {
+    transform: rotate3d(0, 0, 1, 19deg);
+  }
+  30% {
+    transform: rotate3d(0, 0, 1, 20deg);
+  }
+  40% {
+    transform: rotate3d(0, 0, 1, 18deg);
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 21deg);
+  }
+  60% {
+    transform: rotate3d(0, 0, 1, 19deg);
+  }
+  70% {
+    transform: rotate3d(0, 0, 1, 21deg);
+  }
+  80% {
+    transform: rotate3d(0, 0, 1, 20deg);
+  }
+  90% {
+    transform: rotate3d(0, 0, 1, 18deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 1, 20deg);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }
