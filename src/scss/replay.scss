@@ -1,11 +1,15 @@
-
+.replay {
+  margin-bottom: 20px;
+  .embed-container {
+    display: block;
+  }
+}
 
 .items {
   width: 100%;
   background: $sidebar-color;
   padding-bottom: 10px;
   margin-bottom: 20px;
-
   @extend %clearfix;
 
   .item {
@@ -24,20 +28,26 @@
 
     @media #{$small-up} {
       width: 50%;
+      span {
+        height: 40px;
+      }
+    }
+    @media #{$medium-up} {
+      width: 33.33333%;
     }
     @media #{$large-up} {
-      width: 33.33333%;
+      width: 25%;
     }
 
     img {
       width: 100%;
     }
-
     span {
       display: block;
-      line-height: 18px;
-      height: 36px;
+      line-height: 14px;
       overflow: hidden;
+      font-size: .8em;
+      text-transform: uppercase;
     }
   }
 }

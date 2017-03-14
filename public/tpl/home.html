@@ -22,7 +22,7 @@
                 <iframe frameborder="0" scrolling="no" id="chat"></iframe>
             </div>
             <div class="sidebar playlist" ng-class="{show: highlight, hide: player}">
-                <div class="video" ng-repeat="video in data.playlist" ng-class="{active: data.id == video.id}" ng-click="loadDailymotion(video.id)">
+                <div class="video" ng-repeat="video in data.playlist" ng-class="{active: data.id == video.id}" ng-click="loadDailymotion(video.id, true)">
                     <img src="{{ video.img }}" alt="{{ video.title }}" />
                     <span>{{ video.title }}</span>
                 </div>

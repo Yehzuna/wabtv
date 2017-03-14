@@ -1,4 +1,4 @@
-var app = angular.module('WabTv', ['ngRoute']);
+var app = angular.module('WabTv', ['ngRoute', 'duScroll']);
 
 app.run(function ($rootScope) {
 

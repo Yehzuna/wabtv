@@ -48,6 +48,7 @@
       vertical-align: middle;
       padding: 20px;
       border: 1px solid $schedule-border;
+      box-sizing: border-box;
     }
   }
 
@@ -119,7 +120,7 @@
     .day,
     .slot {
       > div {
-        padding: 10px;
+        padding: 10px 5px;
       }
     }
 
@@ -152,7 +153,7 @@
     .day,
     .slot {
       > div {
-        padding: 20px;
+        padding: 20px 5px;
       }
     }
     .day {

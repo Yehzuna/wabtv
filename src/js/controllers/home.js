@@ -1,4 +1,4 @@
-app.controller('homeCtrl', function ($rootScope, $scope, $sce, twitch, dailymotion, api) {
+app.controller('homeCtrl', function ($rootScope, $scope, twitch, dailymotion, api) {
 
     $scope.loading = true;
     $scope.player = false;
@@ -36,12 +36,17 @@ app.controller('homeCtrl', function ($rootScope, $scope, $sce, twitch, dailymoti
         player.setVolume(0.5);
     };
 
-    $scope.loadDailymotion = function (id) {
+    $scope.loadDailymotion = function (id, scroll) {
         $scope.data.id = id;
 
         DM.player(document.getElementById("player"), {
             video: id
         });
+
+        if(scroll) {
+            var element = angular.element(document.getElementById('replay'));
+            $document.scrollToElement(element, 10, 1000);
+        }
     };
 
     $scope.initDailymotion = function () {
@@ -55,16 +60,16 @@ app.controller('homeCtrl', function ($rootScope, $scope, $sce, twitch, dailymoti
         api.highlight().then(function (response) {
             angular.forEach(response.data, function(id, index) {
                 dailymotion.video(id).then(function (response) {
-                    console.log(response.data);
+                    //console.log(response.data);
 
                     if (index == 0) {
-                        $scope.loadDailymotion(response.data.id);
+                        $scope.loadDailymotion(response.data.id, false);
                     }
 
                     $scope.data.playlist.push({
                         id: response.data.id,
                         title: response.data.title,
-                        img: response.data.thumbnail_120_url
+                        img: response.data.thumbnail_180_url
                     })
                 });
             });

@@ -1,4 +1,4 @@
-app.config(function ($routeProvider, $locationProvider, $sceDelegateProvider) {
+app.config(function ($routeProvider, $locationProvider) {
 
     var title = "We Are Bob Television";
 
