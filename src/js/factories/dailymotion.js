@@ -12,14 +12,14 @@ app.factory('dailymotion', function ($http) {
     data.playlist = function (id) {
         return $http({
             method: "GET",
-            url: "https://api.dailymotion.com/playlist/x4u9ct/videos" + fields
+            url: "https://api.dailymotion.com/playlist/x4u9ct/videos" + fields + "&limit=12"
         });
     };
 
     data.replay = function (page) {
         return $http({
             method: "GET",
-            url: "https://api.dailymotion.com/user/x1vvl9i/videos" + fields + "&page=" + page
+            url: "https://api.dailymotion.com/user/x1vvl9i/videos" + fields + "&page=" + page + "&limit=12"
         });
     };
 
