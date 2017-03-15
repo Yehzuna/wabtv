@@ -1,25 +1,38 @@
-<div class="embed-placeholder replay" id="replay">
-    <div class="embed-container">
-        <div class="player" id="player"></div>
-        <div class="sidebar">
-            <div class="character character-relay">
-                <div class="up"></div>
-                <div class="down"></div>
+<div class="replay">
+
+    <h1 ng-show="title">{{ title }}</h1>
+
+    <div class="embed-placeholder" id="replay">
+        <div class="embed-container">
+            <div class="player" id="player"></div>
+            <div class="sidebar">
+                <div class="character character-relay">
+                    <div class="up"></div>
+                    <div class="down"></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div>Dernières replay - {{ nb }} vidéo(s)</div>
+    <h2>Derniers replays - {{ nb }} vidéo(s)</h2>
 
-<div class="items">
-    <div class="item" ng-repeat="video in data" ng-class="{active: active == video.id}" ng-click="loadDailymotion(video.id, true)">
-        <img src="{{ video.img }}" alt="{{ video.title }}" />
-        <span>{{ video.title }}</span>
-        <span>{{ video.date }} {{ video.duration }}</span>
+    <div ng-show="message">
+        {{ message }}
     </div>
-</div>
 
-<div class="buttons" ng-show="more">
-    <div class="button" ng-click="next()">Afficher plus</div>
+    <div class="items" ng-show="!message">
+        <div class="item" ng-repeat="video in data" ng-class="{active: active == video.id}" ng-click="loadDailymotion(video.id, video.title, true)">
+            <div class="img">
+                <img src="{{ video.img }}" alt="{{ video.title }}" />
+                <div class="date">{{ video.date }}</div>
+                <div class="duration">{{ video.duration }}</div>
+            </div>
+            <div class="title">{{ video.title }}</div>
+        </div>
+    </div>
+
+    <div class="buttons" ng-show="more">
+        <div class="button" ng-click="next()">Afficher plus</div>
+    </div>
+
 </div>

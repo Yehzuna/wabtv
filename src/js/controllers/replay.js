@@ -5,49 +5,42 @@ app.controller('replayCtrl', function ($rootScope, $scope, $document, $filter, d
     $scope.page = 1;
     $scope.active = 0;
     $scope.more = false;
+    $scope.message = false;
+    $scope.title = false;
 
-    dailymotion.replay($scope.page).then(function (response) {
-        console.log(response.data);
-        $scope.nb = response.data.total;
-        $scope.more = response.data.has_more;
-
-        angular.forEach(response.data.list, function (data, index) {
-            if (index == 0) {
-                $scope.loadDailymotion(data.id, false);
-            }
-
-            $scope.data.push({
-                id: data.id,
-                date: $filter('date')(data.updated_time*1000, 'dd/MM/yyyy'),
-                duration: data.duration,
-                title: data.title,
-                img: data.thumbnail_360_url
-            })
-        });
-    });
-
-    $scope.next = function () {
-        $scope.page = $scope.page + 1;
-        //console.log($scope.page);
-
-        dailymotion.replay($scope.page, $scope.search).then(function (response) {
+    $scope.getData = function (init) {
+        dailymotion.replay($scope.page).then(function (response) {
+            console.log(response.data);
             $scope.nb = response.data.total;
             $scope.more = response.data.has_more;
 
-            angular.forEach(response.data.list, function (data) {
+            angular.forEach(response.data.list, function (data, index) {
+                if (index == 0 && init) {
+                    $scope.loadDailymotion(data.id, data.title, false);
+                }
+
                 $scope.data.push({
                     id: data.id,
                     date: $filter('date')(data.updated_time*1000, 'dd/MM/yyyy'),
-                    duration: data.duration,
+                    duration: $filter('duration')(data.duration * 1000),
                     title: data.title,
                     img: data.thumbnail_360_url
                 })
             });
+        }).catch(function () {
+            $scope.message = "Pas de résultats disponible.";
         });
     };
 
-    $scope.loadDailymotion = function (id, scroll) {
+    $scope.next = function () {
+        $scope.page = $scope.page + 1;
+
+        $scope.getData(false);
+    };
+
+    $scope.loadDailymotion = function (id, title, scroll) {
         $scope.active = id;
+        $scope.title = title;
 
         DM.player(document.getElementById("player"), {
             video: id
@@ -58,4 +51,7 @@ app.controller('replayCtrl', function ($rootScope, $scope, $document, $filter, d
             $document.scrollToElement(element, 10, 1000);
         }
     };
+
+    // init
+    $scope.getData(true);
 });
