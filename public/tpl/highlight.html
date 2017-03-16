@@ -2,7 +2,6 @@
 
     <h1 ng-show="title">{{ title }}</h1>
 
-
     <div class="embed-placeholder">
         <div class="embed-container">
             <div class="player">
@@ -17,14 +16,17 @@
         </div>
     </div>
 
-    <h2>Derniers replays - {{ nb }} vidéo(s)</h2>
+    <h2>
+        Meilleurs clips <span>{{ periods[period] }}</span>
+        <span>Voir les meilleurs clips <span ng-repeat="(key, value) in periods" ng-click="period = key">{{ value }}</span></span>
+    </h2>
 
     <div ng-show="message">
         {{ message }}
     </div>
 
     <div class="items" ng-show="!message">
-        <div class="item" ng-repeat="video in data" ng-class="{active: active == video.id}" ng-click="loadDailymotion(video.id, video.title, true)">
+        <div class="item" ng-repeat="video in data" ng-class="{active: active == video.url}" ng-click="loadTwitch(video.url, video.title, true)">
             <div class="img">
                 <img src="{{ video.img }}" alt="{{ video.title }}" />
                 <div class="date">{{ video.date }}</div>
@@ -35,7 +37,6 @@
     </div>
 
     <div class="buttons">
-        <a class="button" href="#">Afficher plus</a>
+        <a href="https://www.twitch.tv/weareb0b/clips" target="_blank" class="button">Afficher plus</a>
     </div>
-
 </div>

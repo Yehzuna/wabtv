@@ -1,4 +1,4 @@
-app.controller('replayCtrl', function ($rootScope, $scope, $document, $filter, dailymotion) {
+app.controller('replayCtrl', function ($scope, $document, $filter, dailymotion) {
 
     $scope.data = [];
     $scope.nb = 0;
@@ -47,7 +47,7 @@ app.controller('replayCtrl', function ($rootScope, $scope, $document, $filter, d
         });
 
         if (scroll) {
-            var element = angular.element(document.getElementById('replay'));
+            var element = angular.element(document.getElementById('player'));
             $document.scrollToElement(element, 10, 1000);
         }
     };

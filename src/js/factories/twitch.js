@@ -13,10 +13,10 @@ app.factory('twitch', function ($http) {
         });
     };
 
-    data.clip = function () {
+    data.clip = function (period) {
         return $http({
             method: "GET",
-            url: "https://api.twitch.tv/kraken/clips/top?channel=weareb0b&period=all&limit=12",
+            url: "https://api.twitch.tv/kraken/clips/top?channel=weareb0b&limit=12&period=" + period,
             headers: {
                 'Accept': 'application/vnd.twitchtv.v4+json',
                 'Client-ID': 'u2t1qbp3fv8ipbrs7nrq050bwhyc0u'
