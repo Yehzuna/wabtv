@@ -17,8 +17,8 @@
     </div>
 
     <h2>
-        Meilleurs clips <span>{{ periods[period] }}</span>
-        <span>Voir les meilleurs clips <span ng-repeat="(key, value) in periods" ng-click="period = key">{{ value }}</span></span>
+        {{ periods[period] }}
+        <div class="filters">Voir <span ng-repeat="(key, value) in periods" ng-click="setPeriod(key)"> {{ value }}</span></div>
     </h2>
 
     <div ng-show="message">

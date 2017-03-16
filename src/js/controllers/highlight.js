@@ -7,9 +7,9 @@ app.controller('highlightCtrl', function ($scope, $document, $filter, twitch) {
 
     $scope.period = "week";
     $scope.periods = {
-        week: 'de la semaine',
-        month: 'du mois',
-        all: 'tous'
+        week: 'les clips de la semaine',
+        month: 'les clips du mois',
+        all: 'tous les clips'
     };
 
     $scope.getData = function () {
@@ -35,6 +35,13 @@ app.controller('highlightCtrl', function ($scope, $document, $filter, twitch) {
         });
     };
 
+    $scope.setPeriod = function (period) {
+        $scope.period = period;
+        $scope.data = [];
+
+        $scope.getData();
+    };
+
     $scope.loadTwitch = function (url, title, scroll) {
         $scope.title = title;
         $scope.active = url;
@@ -48,5 +55,5 @@ app.controller('highlightCtrl', function ($scope, $document, $filter, twitch) {
     };
 
     // init
-    $scope.getData(true);
+    $scope.getData();
 });
