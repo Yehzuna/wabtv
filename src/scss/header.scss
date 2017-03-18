@@ -34,8 +34,11 @@
 
   .logo {
     display: block;
+    width: 173px;
+    height: 82px;
     float: left;
     margin: 10px;
+    background: url('#{$img-path}logo.png') center center no-repeat;
     img {
       height: 60px;
     }
