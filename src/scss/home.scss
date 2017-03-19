@@ -90,11 +90,13 @@
     }
 
     &.playlist {
+      border: 2px solid transparent;
       border-left: 2px solid $primary-color;
       background: $sidebar-color;
-      padding: 5px;
+      padding: 3px 3px 3px 5px;
       overflow: auto;
       box-sizing: border-box;
+      transition: all .3s;
     }
 
     .video {

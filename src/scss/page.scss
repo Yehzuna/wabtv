@@ -37,6 +37,14 @@ body {
       }
     }
 
+    .sidebar.playlist {
+      background: transparent;
+      border: 2px solid $border-color-night;
+      .video {
+        color: $font-color-night;
+      }
+    }
+
     .buttons {
       .button {
         background: none;
@@ -90,7 +98,7 @@ a {
     position: relative;
     display: inline-block;
     height: 30px;
-    line-height: 30px;
+    line-height: 26px;
     padding: 0 10px;
     font-size: .8em;
     background: $primary-color;

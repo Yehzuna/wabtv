@@ -1,8 +1,7 @@
-
 .schedule {
   width: 100%;
   color: $schedule-font;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   @extend %clearfix;
 
   &.export {
@@ -106,6 +105,7 @@
       .hour {
         top: 5px;
         left: 8px;
+        display: none;
       }
       .streamer {
         bottom: 5px;
@@ -115,6 +115,15 @@
         top: 5px;
         left: 5px;
         display: none;
+      }
+    }
+
+    &:first-child {
+      .slot {
+        .hour,
+        .streamer {
+          display: block;
+        }
       }
     }
 
@@ -135,20 +144,19 @@
           border-left: none;
         }
       }
-    }
-
-    .slot {
-      .title {
-        display: inline-block;
-        max-height: 100px;
-        overflow: hidden;
-        font-size: 1em;
-        line-height: 1.2em;
-      }
-      .streamer,
-      .hour,
-      .show {
-        font-size: .7em;
+      .slot {
+        .title {
+          display: inline-block;
+          max-height: 100px;
+          overflow: hidden;
+          font-size: 1em;
+          line-height: 1.2em;
+        }
+        .streamer,
+        .hour,
+        .show {
+          font-size: .7em;
+        }
       }
     }
   }
