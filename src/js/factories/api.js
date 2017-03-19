@@ -9,5 +9,9 @@ app.factory('api', function ($http) {
         return $http.get("data/highlight.json");
     };
 
+    api.gamer = function () {
+        return $http.get("data/gamer.json");
+    };
+
     return api;
 });
