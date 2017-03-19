@@ -1,4 +1,5 @@
-app.controller('replayCtrl', function ($scope, $document, $filter, dailymotion) {
+app.controller('replayCtrl', function ($rootScope, $scope, $document, $filter, dailymotion) {
+    $rootScope.night = false;
 
     $scope.data = [];
     $scope.nb = 0;
@@ -7,10 +8,10 @@ app.controller('replayCtrl', function ($scope, $document, $filter, dailymotion) 
     $scope.more = false;
     $scope.message = false;
     $scope.title = false;
+    $scope.loading = true;
 
     $scope.getData = function (init) {
         dailymotion.replay($scope.page).then(function (response) {
-            console.log(response.data);
             $scope.nb = response.data.total;
             $scope.more = response.data.has_more;
 
@@ -27,13 +28,17 @@ app.controller('replayCtrl', function ($scope, $document, $filter, dailymotion) 
                     img: data.thumbnail_360_url
                 })
             });
+
+            $scope.loading = false;
         }).catch(function () {
             $scope.message = "Pas de résultats disponible.";
+            $scope.loading = false;
         });
     };
 
     $scope.next = function () {
         $scope.page = $scope.page + 1;
+        $scope.loading = true;
 
         $scope.getData(false);
     };

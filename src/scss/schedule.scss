@@ -3,106 +3,141 @@
   width: 100%;
   color: $schedule-font;
   margin-bottom: 40px;
-
   @extend %clearfix;
 
   &.export {
-    width: 1280px;
-    margin-bottom: 0;
+    width: 1260px;
+    margin: 0;
     .column {
-      width: 14.25%;
-      .day {
-        background: $schedule-special !important;
+      width: 180px;
+      .slot,
+      .day .placeholder {
+        border-left: 3px solid $border-color;
+        border-right: 0;
       }
-    }
-    .slot {
-      height: 150px;
-    }
-    .slot-large {
-      height: 150px * 4;
+      &:nth-child(2n) {
+        .slot,
+        .day .placeholder {
+          border-left: 3px solid $border-color;
+          border-right: 0;
+        }
+      }
+      &:first-child {
+        .slot,
+        .day .placeholder {
+          border-left: 0;
+        }
+      }
+
+      .slot {
+        height: 150px;
+      }
+      .day {
+        font-size: 1.4em;
+      }
+      .slot-large {
+        height: 150px * 4;
+      }
     }
   }
 
   .column {
     width: 100%;
     float: left;
-    display: table;
+    padding: 2px 0;
     box-sizing: border-box;
     background: $schedule-background;
-    &.current {
-      .day {
-        background: $schedule-special;
+
+    .day {
+      padding: 10px 0;
+      text-transform: uppercase;
+      color: $schedule-header-font;
+      font-size: 2em;
+      .date {
+        display: block;
+        font-size: 0.5em;
       }
-      .hour {
-        color: $schedule-special;
+      .placeholder {
+        border-left: 3px solid $border-color;
+        border-right: 3px solid $border-color;
+
+        padding: 10px 0;
+        text-align: center;
       }
-    }
-  }
-
-  .day,
-  .slot {
-    display: table-row;
-    > div {
-      display: table-cell;
-      text-align: center;
-      vertical-align: middle;
-      padding: 20px;
-      border: 1px solid $schedule-border;
-      box-sizing: border-box;
-    }
-  }
-
-  .day {
-    text-transform: uppercase;
-    background: $schedule-header;
-    font-size: 2em;
-    .date {
-      display: block;
-      font-size: 0.5em;
-    }
-  }
-
-  .slot {
-    position: relative;
-
-    .title {
-      font-size: 1.2em;
-      line-height: 1.3em;
-    }
-
-    .hour,
-    .streamer,
-    .show {
-      position: absolute;
-      font-size: 0.8em;
-    }
-
-    .hour {
-      top: 5px;
-      right: 5px;
-      opacity: .8;
-    }
-    .streamer {
-      bottom: 5px;
-      right: 5px;
-    }
-    .show {
-      top: 5px;
-      left: 5px;
-    }
-  }
-
-  .slot-large {
-    height: 70px * 4;
-  }
-
-  @media #{$medium-up} {
-    .column {
-      width: 50%;
     }
 
     .slot {
+      border-left: 3px solid $border-color;
+      border-right: 3px solid $border-color;
+
+      position: relative;
       height: 150px;
+      padding: 2px 4px;
+      box-sizing: border-box;
+      .placeholder {
+        display: table;
+        height: 146px;
+        width: 100%;
+        border-radius: 10px;
+        background: $schedule-slot-background;
+      }
+
+      .table-row {
+        display: table-row;
+        .table-cell {
+          display: table-cell;
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+
+      .title {
+        font-size: 1.2em;
+        line-height: 1.3em;
+      }
+
+      .hour,
+      .streamer,
+      .show {
+        position: absolute;
+        font-size: 0.8em;
+      }
+
+      .hour {
+        top: 5px;
+        left: 8px;
+      }
+      .streamer {
+        bottom: 5px;
+        right: 8px;
+      }
+      .show {
+        top: 5px;
+        left: 5px;
+        display: none;
+      }
+    }
+
+    .slot-large {
+      height: 600px;
+      .placeholder {
+        height: 596px;
+      }
+    }
+  }
+
+  @media #{$small-up} {
+    .column {
+      width: 50%;
+      &:nth-child(2n) {
+        .slot,
+        .day .placeholder {
+          border-left: none;
+        }
+      }
+    }
+
+    .slot {
       .title {
         display: inline-block;
         max-height: 100px;
@@ -116,58 +151,60 @@
         font-size: .7em;
       }
     }
-
-    .day,
-    .slot {
-      > div {
-        padding: 10px 5px;
-      }
-    }
-
-    .slot-large {
-      height: 150px * 4;
-    }
   }
 
   @media #{$large-up} {
     .column {
       width: 14.25%;
-    }
-    .day {
-      font-size: 1em;
-    }
-    .slot {
-      .title {
-        font-size: .9em;
-        line-height: 1.1em;
+      &:first-child {
+        .slot,
+        .day .placeholder {
+          border-left: none;
+          border-right: none;
+        }
       }
-      .streamer,
-      .hour,
-      .show {
-        font-size: .7em;
+      &:nth-child(2n) {
+        .slot,
+        .day .placeholder {
+          border-left: 3px solid $border-color;
+        }
+      }
+      .day {
+        font-size: 1em;
+        .placeholder {
+          border-right: none;
+        }
+      }
+      .slot {
+        border-right: none;
+        .title {
+          font-size: .9em;
+          line-height: 1.1em;
+        }
+        .streamer,
+        .hour,
+        .show {
+          font-size: .7em;
+        }
       }
     }
   }
 
   @media #{$xlarge-up} {
-    .day,
-    .slot {
-      > div {
-        padding: 20px 5px;
+    .column {
+      .day {
+        font-size: 1.4em;
       }
-    }
-    .day {
-      font-size: 1.4em;
-    }
-    .slot {
-      .title {
-        font-size: 1em;
-        line-height: 1.2em;
-      }
-      .streamer,
-      .hour,
-      .show {
-        font-size: .7em;
+      .slot {
+        .title {
+          font-size: 1em;
+          line-height: 1.2em;
+        }
+        .streamer,
+        .hour,
+        .show {
+          font-size: .7em;
+        }
       }
     }
   }

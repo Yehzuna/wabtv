@@ -42,7 +42,7 @@ body {
         background: none;
         border-color: $border-color-night;
         &:hover {
-          background: rgba(255, 255, 255, .5);
+          background: rgba(255, 255, 255, .3);
         }
       }
     }
@@ -50,9 +50,11 @@ body {
        .social {
          background-color: transparent;
          border-color: $primary-color;
+         &:hover {
+           background: rgba(255, 255, 255, .2);
+         }
        }
     }
-
   }
 }
 
@@ -168,6 +170,9 @@ a {
 
 .message {
   margin-bottom: 20px;
+  padding: 20px 0;
+  text-align: center;
+  background: $sidebar-color;
 }
 
 .loading {
@@ -205,24 +210,18 @@ a {
   to { transform:  rotate(360deg);}
 }
 
-.character-relay {
-  background: url('#{$img-path}bob-down.png');
-  .up {
-    animation: balance2 1s ease-in-out infinite alternate;
-    background: url('#{$img-path}bob-up.png');
-  }
-}
-
-.character {
+.character-highlight {
   position: relative;
+  margin: 0 auto;
   height: 200px;
   width: 172px;
+  background: url('#{$img-path}bob-highlight.png');
 
   @media #{$large-only} {
     display: block;
   }
 
-  .up {
+  .move {
     position: absolute;
     top: 10px;
     left: 50%;
@@ -230,6 +229,15 @@ a {
     width: 93px;
     margin-left: -43px;
     transform-origin: 50% 100%;
+    animation: scale 1s ease-in-out infinite alternate;
+    background: url('#{$img-path}bob-highlight-head.png');
+  }
+}
+.character-replay {
+  margin: 0 auto;
+  max-width: 300px;
+  img {
+    max-width: 100%;
   }
 }
 

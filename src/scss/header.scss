@@ -34,11 +34,13 @@
 
   .logo {
     display: block;
-    width: 173px;
-    height: 82px;
+    width: 125px;
+    height: 60px;
     float: left;
     margin: 10px;
     background: url('#{$img-path}logo.png') center center no-repeat;
+    background-size: 100% 100%;
+    transition: all .3s;
     img {
       height: 60px;
     }

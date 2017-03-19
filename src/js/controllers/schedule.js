@@ -1,4 +1,5 @@
-app.controller('scheduleCtrl', function ($scope, api) {
+app.controller('scheduleCtrl', function ($rootScope, $scope, api) {
+    $rootScope.night = false;
 
     var dt = new Date();
     $scope.currentDay = dt.getDate();

@@ -1,9 +1,11 @@
-app.controller('highlightCtrl', function ($scope, $document, $filter, twitch) {
+app.controller('highlightCtrl', function ($rootScope, $scope, $document, $filter, twitch) {
+    $rootScope.night = false;
 
     $scope.data = [];
     $scope.message = false;
     $scope.title = false;
     $scope.active = false;
+    $scope.loading = true;
 
     $scope.period = "week";
     $scope.periods = {
@@ -14,8 +16,6 @@ app.controller('highlightCtrl', function ($scope, $document, $filter, twitch) {
 
     $scope.getData = function () {
         twitch.clip($scope.period).then(function (response) {
-            console.log(response.data);
-
             angular.forEach(response.data.clips, function (data, index) {
                  if (index == 0) {
                     $scope.loadTwitch(data.embed_url, data.title, false);
@@ -29,15 +29,17 @@ app.controller('highlightCtrl', function ($scope, $document, $filter, twitch) {
                      img: data.thumbnails.medium
                  })
              });
-
+            $scope.loading = false;
         }).catch(function () {
             $scope.message = "Pas de résultats disponible.";
+            $scope.loading = false;
         });
     };
 
     $scope.setPeriod = function (period) {
         $scope.period = period;
         $scope.data = [];
+        $scope.loading = true;
 
         $scope.getData();
     };

@@ -3,12 +3,15 @@
     <h1 ng-show="title">{{ title }}</h1>
 
     <div class="embed-placeholder">
-        <div class="embed-container">
+        <div class="loading" ng-class="{hide: !loading}">
+            <span>Chargement...</span>
+        </div>
+
+        <div class="embed-container" ng-class="{show: !loading}">
             <div class="player" id="player"></div>
             <div class="sidebar">
-                <div class="character character-relay">
-                    <div class="up"></div>
-                    <div class="down"></div>
+                <div class="character-replay">
+                    <img src="img/bob-replay.png" alt="Replay" />
                 </div>
             </div>
         </div>
@@ -16,7 +19,7 @@
 
     <h2>Derniers replays - {{ nb }} vidéo(s)</h2>
 
-    <div ng-show="message">
+    <div class="message" ng-show="message">
         {{ message }}
     </div>
 

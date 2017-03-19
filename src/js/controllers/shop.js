@@ -1,3 +1,3 @@
-app.controller('shopCtrl', function ($scope) {
-
+app.controller('shopCtrl', function ($rootScope, $scope) {
+    $rootScope.night = false;
 });

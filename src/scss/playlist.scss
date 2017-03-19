@@ -37,7 +37,6 @@
   }
 
   .embed-container {
-    display: block;
     margin-bottom: 20px;
   }
 
@@ -49,6 +48,7 @@
 
 .items {
   width: 100%;
+  min-height: 300px;
   background: $sidebar-color;
   padding: 5px;
   box-sizing: border-box;
@@ -64,6 +64,7 @@
     cursor: pointer;
     transition: all .2s;
     opacity: .8;
+    color: $font-color;
     &.active,
     &:hover {
       opacity: 1;

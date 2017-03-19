@@ -1,5 +1,4 @@
 app.controller('homeCtrl', function ($rootScope, $scope, twitch, dailymotion, api) {
-
     $scope.loading = true;
     $scope.player = false;
     $scope.highlight = false;
@@ -7,8 +6,6 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch, dailymotion, ap
 
     twitch.online().then(function (response) {
         $scope.loading = false;
-
-        //console.debug(response.data.stream);
         if (response.data.stream) {
             $scope.player = true;
             $scope.data = {
@@ -25,6 +22,8 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch, dailymotion, ap
     }).catch(function () {
         $scope.loading = false;
         $scope.highlight = true;
+
+        $scope.initDailymotion();
     });
 
     $scope.loadTwitch = function () {

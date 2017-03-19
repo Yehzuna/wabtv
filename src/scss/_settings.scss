@@ -37,14 +37,13 @@ $sidebar-color: #dadada;
 $font-color: #333;
 $border-color: #d5a940;
 $primary-color: #d5a940;
-$secondary-color: #d5a940;
 
 $background-color-night: #17141f;
 $border-color-night: #fff;
 $font-color-night: #fff;
 
-$schedule-font: #fff;
+$schedule-font: #333;
 $schedule-background: #000;
-$schedule-border: $border-color;
-$schedule-header: $secondary-color;
-$schedule-special: $primary-color;
+$schedule-border: $primary-color;
+$schedule-slot-background: #fff;
+$schedule-header-font: $primary-color;

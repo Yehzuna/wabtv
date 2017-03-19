@@ -3,14 +3,17 @@
     <h1 ng-show="title">{{ title }}</h1>
 
     <div class="embed-placeholder">
-        <div class="embed-container">
+        <div class="loading" ng-class="{hide: !loading}">
+            <span>Chargement...</span>
+        </div>
+
+        <div class="embed-container" ng-class="{show: !loading}">
             <div class="player">
                 <iframe height="360" width="640" frameborder="0" scrolling="no" allowfullscreen="true" id="player"></iframe>
             </div>
             <div class="sidebar">
-                <div class="character character-relay">
-                    <div class="up"></div>
-                    <div class="down"></div>
+                <div class="character-highlight">
+                    <div class="move"></div>
                 </div>
             </div>
         </div>
@@ -21,7 +24,7 @@
         <div class="filters">Voir <span ng-repeat="(key, value) in periods" ng-click="setPeriod(key)"> {{ value }}</span></div>
     </h2>
 
-    <div ng-show="message">
+    <div class="message" ng-show="message">
         {{ message }}
     </div>
 
