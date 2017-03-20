@@ -1,27 +1,25 @@
 app.controller('gamerCtrl', function ($rootScope, $scope, $sce, api) {
     $rootScope.night = false;
 
-    $scope.articles = [];
+    $scope.data = [];
     api.gamer().then(function (response) {
 
-        var i = 0;
-        var j = 0;
+        var row = [];
         angular.forEach(response.data, function(data) {
             data.txt = $sce.trustAsHtml(data.txt);
 
-            if($scope.articles[j]) {
-                $scope.articles.push({j: []});
-            }
-            $scope.articles[j].push(data);
-
-            i++;
-            if(i > 1) {
-                i = 0;
-                j++;
+            row.push(data);
+            if(row.length == 2) {
+                $scope.data.push(row);
+                row = [];
             }
         });
 
-        console.log($scope.articles);
+        if(row.length > 0) {
+            $scope.data.push(row);
+        }
+
+        console.log($scope.data);
 
     });
 });
