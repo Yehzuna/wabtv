@@ -1,0 +1,21 @@
+<div>
+    <select ng-model="current">
+        <option ng-repeat="schedule in schedules" ng-value="schedule">{{ schedule.day }}</option>
+    </select>
+
+    <input type="date" ng-model="current.date" />
+    <input type="checkbox" ng-model="current.allDay" />
+
+    <div ng-repeat="slot in current.slots">
+        <select ng-model="slot.hour">
+            <option ng-repeat="hour in hours" ng-value="hour">{{ hour }}</option>
+        </select>
+        <select ng-model="slot.show">
+            <option ng-repeat="(slug,show) in shows" ng-value="slug">{{ show }}</option>
+        </select>
+        <input type="text" ng-model="slot.title" />
+        <input type="text" ng-model="slot.streamer" />
+    </div>
+
+    <input type="button" value="Valider" ng-click="submit()" />
+</div>

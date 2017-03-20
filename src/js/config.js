@@ -51,6 +51,14 @@ app.config(function ($routeProvider, $locationProvider) {
                 slug: "highlight"
             }
         })
+        .when('/admin', {
+            templateUrl: 'tpl/admin.html',
+            controller: 'adminCtrl',
+            data: {
+                title: "Admin - " + title,
+                slug: "admin"
+            }
+        })
     ;
 
     $locationProvider.html5Mode(true);
