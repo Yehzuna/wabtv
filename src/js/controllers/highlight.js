@@ -11,7 +11,7 @@ app.controller('highlightCtrl', function ($rootScope, $scope, $document, $filter
     $scope.periods = {
         week: 'les clips de la semaine',
         month: 'les clips du mois',
-        all: 'tous les clips'
+        all: 'les meilleurs clips'
     };
 
     $scope.getData = function () {
@@ -23,7 +23,7 @@ app.controller('highlightCtrl', function ($rootScope, $scope, $document, $filter
 
                  $scope.data.push({
                      url: data.embed_url,
-                     date: $filter('date')(data.created_at, 'dd/MM/yyyy hh:mm'),
+                     date: $filter('date')(data.created_at, 'dd/MM/yyyy HH:mm'),
                      duration: $filter('duration')(data.duration * 1000),
                      title: data.title,
                      img: data.thumbnails.medium

@@ -1,13 +1,19 @@
-@include font-face("gothambold1", font-files(
-  "gothambold1.eot",
-  "gothambold1.ttf",
-  "gothambold1.woff"
+@include font-face("gothambold", font-files(
+  "gothambold.eot",
+  "gothambold.ttf",
+  "gothambold.woff"
+));
+
+@include font-face("gothamlight", font-files(
+  "gothamlight.eot",
+  "gothamlight.ttf",
+  "gothamlight.woff"
 ));
 
 body {
   background: $background-color;
   color: $font-color;
-  font-family: 'gothambold1', sans-serif;
+  font-family: 'gothambold', sans-serif;
   transition: all .2s;
 
   &.fixed {

@@ -2,6 +2,20 @@
   margin-bottom: 20px;
 }
 
+.articles {
+  .row {
+    @extend %clearfix;
+  }
+  .article {
+    margin: 0 10px 20px 10px;
+    @media #{$medium-up} {
+      width: 50%;
+      margin: 0 0 20px 0;
+      float: left;
+    }
+  }
+}
+
 .character-gamer {
   position: relative;
   margin: 0 auto;
@@ -11,7 +25,7 @@
   background: url('#{$img-path}bob-cuistot.png');
   background-size: 100% 100%;
 
-  @media #{$xlarge-only} {
+  @media #{$xlarge-up} {
     padding-bottom: 40%;
   }
 
