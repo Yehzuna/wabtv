@@ -59,6 +59,9 @@ app.config(function ($routeProvider, $locationProvider) {
                 slug: "admin"
             }
         })
+        .otherwise({
+            template:'<div class="notFound"><span>La page demandée n\'existe pas !</span><div class="character-highlight"> <div class="move"></div></div></div>'
+        })
     ;
 
     $locationProvider.html5Mode(true);
