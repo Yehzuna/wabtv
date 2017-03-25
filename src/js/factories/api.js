@@ -13,5 +13,9 @@ app.factory('api', function ($http) {
         return $http.get("data/gamer.json");
     };
 
+    api.admin = function (data) {
+        return $http.post("api.php", data);
+    };
+
     return api;
 });

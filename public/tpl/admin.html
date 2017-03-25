@@ -1,21 +1,46 @@
-<div>
+<div class="admin">
+    <div class="message" ng-show="message">{{ message }}</div>
+
+    <h1>Programme</h1>
+
     <select ng-model="current">
         <option ng-repeat="schedule in schedules" ng-value="schedule">{{ schedule.day }}</option>
     </select>
+    <datepicker>
+        <input type="date" placeholder="Date" ng-model="current.date" />
+    </datepicker>
+    <label>Toute la journée ?</label>
+    <input type="checkbox" ng-model="current.allDay" ng-change="slot()" />
 
-    <input type="date" ng-model="current.date" />
-    <input type="checkbox" ng-model="current.allDay" />
+    <table>
+        <tr ng-hide="current.allDay">
+            <th>Heure</th>
+            <th>Emission</th>
+            <th>Titre</th>
+            <th>Streamer</th>
+        </tr>
+        <tr ng-repeat="slot in current.slots">
+            <td ng-hide="current.allDay">
+                <select ng-model="slot.hour">
+                    <option ng-repeat="hour in hours" ng-value="hour">{{ hour }}</option>
+                </select>
+            </td>
+            <td ng-hide="current.allDay">
+                <select ng-model="slot.show">
+                    <option ng-repeat="(slug,show) in shows" ng-value="slug">{{ show }}</option>
+                </select>
+            </td>
+            <td>
+                <input type="text" placeholder="Titre" ng-model="slot.title" />
+            </td>
+            <td ng-hide="current.allDay">
+                <input type="text" placeholder="Streamer" ng-model="slot.streamer" />
+            </td>
+        </tr>
+    </table>
 
-    <div ng-repeat="slot in current.slots">
-        <select ng-model="slot.hour">
-            <option ng-repeat="hour in hours" ng-value="hour">{{ hour }}</option>
-        </select>
-        <select ng-model="slot.show">
-            <option ng-repeat="(slug,show) in shows" ng-value="slug">{{ show }}</option>
-        </select>
-        <input type="text" ng-model="slot.title" />
-        <input type="text" ng-model="slot.streamer" />
-    </div>
+    <input type="button" value="Valider" class="button" ng-click="submit()" />
 
-    <input type="button" value="Valider" ng-click="submit()" />
+    <h2>Aperçu</h2>
+    <div ng-include="'tpl/schedule.html'"></div>
 </div>

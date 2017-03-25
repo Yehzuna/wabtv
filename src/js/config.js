@@ -51,6 +51,14 @@ app.config(function ($routeProvider, $locationProvider) {
                 slug: "highlight"
             }
         })
+        .when('/login', {
+            templateUrl: 'tpl/login.html',
+            controller: 'loginCtrl',
+            data: {
+                title: "Admin - " + title,
+                slug: "login"
+            }
+        })
         .when('/admin', {
             templateUrl: 'tpl/admin.html',
             controller: 'adminCtrl',

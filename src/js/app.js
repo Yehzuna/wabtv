@@ -1,4 +1,4 @@
-var app = angular.module('WabTv', ['ngRoute', 'duScroll']);
+var app = angular.module('WabTv', ['ngRoute', 'duScroll', '720kb.datepicker']);
 
 app.run(function ($rootScope) {
 
