@@ -196,6 +196,8 @@ a {
   width: 200px;
   margin-left: -100px;
   text-align: center;
+  font-family: 'gothamlight', sans-serif;
+  font-weight: 700;
   &.hide {
     display: none;
   }
@@ -261,6 +263,7 @@ a {
     background: url('#{$img-path}bob-highlight-head.png');
   }
 }
+
 .character-replay {
   margin: 0 auto;
   max-width: 300px;
