@@ -1,16 +1,23 @@
 <div class="admin">
+    <div class="buttons">
+        <input type="button" value="Déconnexion" class="button" ng-click="logout()" />
+    </div>
+
+    <h1>Administration</h1>
+    <h2>Programme</h2>
     <div class="message" ng-show="message">{{ message }}</div>
-
-    <h1>Programme</h1>
-
-    <select ng-model="current">
-        <option ng-repeat="schedule in schedules" ng-value="schedule">{{ schedule.day }}</option>
-    </select>
-    <datepicker>
-        <input type="date" placeholder="Date" ng-model="current.date" />
-    </datepicker>
-    <label>Toute la journée ?</label>
-    <input type="checkbox" ng-model="current.allDay" ng-change="slot()" />
+    <div class="form">
+        <select ng-model="current">
+            <option ng-repeat="schedule in schedules" ng-value="schedule">{{ schedule.day }}</option>
+        </select>
+        <div class="datepicker">
+            <datepicker><input type="date" placeholder="Date" ng-model="current.date" /></datepicker>
+        </div>
+        <div class="allDay">
+            <label>Toute la journée ?</label>
+            <input type="checkbox" ng-model="current.allDay" ng-change="slot()" />
+        </div>
+    </div>
 
     <table>
         <tr ng-hide="current.allDay">
@@ -39,7 +46,9 @@
         </tr>
     </table>
 
-    <input type="button" value="Valider" class="button" ng-click="submit()" />
+    <div class="buttons">
+        <input type="button" value="Valider" class="button" ng-click="submit()" />
+    </div>
 
     <h2>Aperçu</h2>
     <div ng-include="'tpl/schedule.html'"></div>

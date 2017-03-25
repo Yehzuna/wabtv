@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 $hash = md5(md5("test") . ':WabTvHash:' . md5("test"));
 var_dump($hash);
 

@@ -1,6 +1,6 @@
 app.controller('loginCtrl', function ($rootScope, $scope, $location, api) {
     $rootScope.night = false;
-    $rootScope.night = false;
+    $scope.message = false;
 
     $scope.submit = function () {
         var hash = CryptoJS.MD5(CryptoJS.MD5($scope.login) + ':WabTvHash:' + CryptoJS.MD5($scope.password));
@@ -12,7 +12,7 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, api) {
             sessionStorage.setItem('WabTvHash', hash);
             $location.path('admin');
         }).catch(function() {
-
+            $scope.message = "Unauthorized";
         });
     };
 });
@@ -23,6 +23,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
     var hash = sessionStorage.getItem('WabTvHash');
     if(!hash) {
         $location.path('login');
+        return false;
     }
 
     $scope.message = false;
@@ -53,7 +54,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
 
     $scope.$watch('schedules', function (newValue, oldValue, scope){
         if (!angular.equals(scope.schedules, scope.confirmation)) {
-            scope.message = "Sauvegarde";
+            scope.message = "Modification non sauvegardé.";
         } else {
             scope.message = false;
         }
@@ -71,12 +72,24 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
             $scope.schedules.push(data);
         });
         angular.copy($scope.schedules, $scope.confirmation);
+    }).catch(function() {
+        $scope.message = "Unauthorized";
     });
+
+    $scope.logout = function () {
+        sessionStorage.removeItem('WabTvHash');
+        $location.path('login');
+    };
 
     $scope.submit = function () {
         api.admin({
             hash: hash,
             schedule: $scope.schedules
+        }).then(function() {
+            $scope.message = false;
+            angular.copy($scope.schedules, $scope.confirmation);
+        }).catch(function() {
+            $scope.message = "Unauthorized";
         });
     };
 

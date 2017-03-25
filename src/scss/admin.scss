@@ -1,0 +1,43 @@
+.login {
+  width: 400px;
+  margin: 20px auto;
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+.admin {
+  .form {
+    margin-bottom: 20px;
+    @extend %clearfix;
+
+    .datepicker {
+      width: 200px;
+      margin: 0 5px;
+      input {
+        box-sizing: border-box;
+        width: 100%;
+      }
+    }
+    .allDay,
+    select {
+      float: left;
+      margin: 0 5px;
+    }
+  }
+  table {
+    width: 100%;
+    margin-bottom: 20px;
+    th, td {
+      padding: 2px;
+      border-collapse: collapse;
+      select,
+      input {
+        box-sizing: border-box;
+        width: 100%;
+      }
+    }
+  }
+}
