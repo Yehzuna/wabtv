@@ -1,6 +1,6 @@
 var app = angular.module('WabTv', ['ngRoute', 'duScroll']);
 
-app.run(function ($rootScope) {
+app.run(function ($rootScope, $location) {
 
     $rootScope.night = false;
     $rootScope.theater = false;
@@ -14,5 +14,9 @@ app.run(function ($rootScope) {
         } else {
             $rootScope.titlePage = "We Are Bob Television";
         }
+    });
+
+    $rootScope.$on('$routeChangeSuccess', function() {
+        ga('send', 'pageview', $location.path());
     });
 });
