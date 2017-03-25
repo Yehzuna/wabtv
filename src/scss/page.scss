@@ -196,6 +196,8 @@ a {
   width: 200px;
   margin-left: -100px;
   text-align: center;
+  font-family: 'gothamlight', sans-serif;
+  font-weight: 700;
   &.hide {
     display: none;
   }
@@ -224,6 +226,20 @@ a {
   to { transform:  rotate(360deg);}
 }
 
+
+.notFound {
+  text-align: center;
+  span {
+    display: block;
+    padding: 20px 0;
+  }
+  .character-highlight {
+    .move {
+      animation: bug 1s ease-in-out infinite alternate;
+    }
+  }
+}
+
 .character-highlight {
   position: relative;
   margin: 0 auto;
@@ -247,6 +263,7 @@ a {
     background: url('#{$img-path}bob-highlight-head.png');
   }
 }
+
 .character-replay {
   margin: 0 auto;
   max-width: 300px;
@@ -260,12 +277,12 @@ a {
   100% { transform:  rotate(-5deg);}
 }
 
-@keyframes balance2 {
+@keyframes updown {
   0% { transform: translateY(10px); }
   100% { transform: translateY(0); }
 }
 
-@keyframes balance3 {
+@keyframes bug {
   0%   {
     transform: rotate3d(0, 0, 1, 18deg);
   }

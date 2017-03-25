@@ -59,8 +59,6 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch, dailymotion, ap
         api.highlight().then(function (response) {
             angular.forEach(response.data, function(id, index) {
                 dailymotion.video(id).then(function (response) {
-                    //console.log(response.data);
-
                     if (index == 0) {
                         $scope.loadDailymotion(response.data.id, false);
                     }

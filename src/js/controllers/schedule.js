@@ -14,7 +14,7 @@ app.controller('scheduleCtrl', function ($rootScope, $scope, api) {
             data.currentDay = d.getDate();
 
             $scope.schedules.push(data);
-        })
+        });
     });
     
     $scope.export = function () {
