@@ -7,11 +7,8 @@ app.controller('scheduleCtrl', function ($rootScope, $scope, api) {
     $scope.schedules = [];
     api.schedule().then(function (response) {
         angular.forEach(response.data, function(data) {
-
-            var t = data.date.split(/[-]/);
-            var d = new Date(Date.UTC(t[0], t[1]-1, t[2]));
-            data.date = d;
-            data.currentDay = d.getDate();
+            data.date = new Date(data.date);
+            data.currentDay = data.date.getDate();
 
             $scope.schedules.push(data);
         });
