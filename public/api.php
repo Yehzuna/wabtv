@@ -1,10 +1,8 @@
 <?php
 
-$hash = md5(md5("test") . ':WabTvHash:' . md5("test"));
-var_dump($hash);
-
 $hashs = [
-    "f08b3edec66d1683968b17e74f6c3224"
+    "1d6d8e73586dd01799515673e1c0ff0f",
+    "5b27a498ffbed9a31dff1dc1701e3eff",
 ];
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {

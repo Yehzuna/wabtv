@@ -106,7 +106,6 @@
       .hour {
         top: 5px;
         left: 8px;
-        display: none;
         font-family: 'gothamlight', sans-serif;
       }
       .streamer {
@@ -119,15 +118,6 @@
         left: 5px;
         display: none;
         font-family: 'gothamlight', sans-serif;
-      }
-    }
-
-    &:first-child {
-      .slot {
-        .hour,
-        .streamer {
-          display: block;
-        }
       }
     }
 
@@ -197,6 +187,19 @@
         .hour,
         .show {
           font-size: .7em;
+        }
+        .hour,
+        .show {
+          display: none;
+        }
+      }
+
+      &:hover {
+        .slot {
+          .hour,
+          .streamer {
+            display: block;
+          }
         }
       }
     }
