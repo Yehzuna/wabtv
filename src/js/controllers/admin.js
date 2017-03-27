@@ -87,8 +87,8 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         }).then(function() {
             $scope.message = false;
             angular.copy($scope.schedules, $scope.confirmation);
-        }).catch(function() {
-            $scope.message = "Unauthorized";
+        }).catch(function(data) {
+            $scope.message = data.statusText;
         });
     };
 

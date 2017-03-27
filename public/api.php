@@ -19,7 +19,10 @@ if($data = json_decode($request, true)) {
     }
 
     if(isset($data['schedule'])) {
-        file_put_contents('data/schedule.json', json_encode($data['schedule']));
+        if(!file_put_contents('data/schedule.json', json_encode($data['schedule']))) {
+            header('HTTP/1.0 500 Internal Server Error');
+            exit;
+        }
     }
 
     exit;
