@@ -30,12 +30,19 @@
 
       .slot {
         height: 150px;
+        .hour {
+          display: block;
+        }
       }
       .day {
         font-size: 1.4em;
       }
+
       .slot-large {
         height: 150px * 4;
+        .hour {
+          display: none;
+        }
       }
     }
   }
@@ -60,7 +67,6 @@
       .placeholder {
         border-left: 3px solid $border-color;
         border-right: 3px solid $border-color;
-
         padding: 10px 0;
         text-align: center;
       }
@@ -86,6 +92,7 @@
         display: table-row;
         .table-cell {
           display: table-cell;
+          padding: 5px;
           text-align: center;
           vertical-align: middle;
         }
@@ -94,6 +101,7 @@
       .title {
         font-size: 1.2em;
         line-height: 1.3em;
+        white-space: pre-line;
       }
 
       .hour,
@@ -125,6 +133,9 @@
       height: 600px;
       .placeholder {
         height: 596px;
+      }
+      .hour {
+        display: none;
       }
     }
   }
@@ -186,7 +197,7 @@
         .streamer,
         .hour,
         .show {
-          font-size: .7em;
+          font-size: .8em;
         }
         .hour,
         .show {
@@ -199,6 +210,11 @@
           .hour,
           .streamer {
             display: block;
+          }
+        }
+        .slot-large {
+          .hour {
+            display: none;
           }
         }
       }
@@ -218,7 +234,7 @@
         .streamer,
         .hour,
         .show {
-          font-size: .7em;
+          font-size: .8em;
         }
       }
     }

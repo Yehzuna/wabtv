@@ -4,7 +4,6 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, api) {
 
     $scope.submit = function () {
         var hash = CryptoJS.MD5(CryptoJS.MD5($scope.login) + ':WabTvHash:' + CryptoJS.MD5($scope.password));
-        console.log(hash.toString());
 
         api.admin({
             hash: hash.toString()
@@ -112,4 +111,16 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         }
     };
 
+    $scope.export = function () {
+        var div = document.getElementById('schedule').cloneNode(true);
+        div.classList.add('export');
+
+        document.body.appendChild(div);
+
+        domtoimage.toJpeg(div, { quality: 0.95 })
+            .then(function (dataUrl) {
+                window.open(dataUrl);
+                div.remove();
+            });
+    }
 });
