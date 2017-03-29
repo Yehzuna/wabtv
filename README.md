@@ -1,5 +1,11 @@
 # WAB TV
 ## TODO
-- Admin
-- Exemple recette du gamer
+- Nouvelle couleur
+- Studio
+- Recette du gamer
 - Playlists Homepage & Replay
+- HTML MIN
+- Refacto public
+- Admin dédié
+- ~~Title~~
+- ~~Event Analytics~~
