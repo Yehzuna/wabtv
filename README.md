@@ -1,4 +1,7 @@
 # WAB TV
+
+Site public http://wearebobtv.com/
+
 ## TODO
 - Nouvelle couleur
 - Studio
@@ -7,5 +10,12 @@
 - HTML MIN
 - Refacto public
 - Admin dédié
+- Meta description
+- Versionning automatique
 - ~~Title~~
 - ~~Event Analytics~~
+
+## Changelog
+
+### V1.0.0
+Mise en ligne.
