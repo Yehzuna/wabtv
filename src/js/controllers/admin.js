@@ -1,6 +1,21 @@
+function loadJs(src) {
+    var script = document.createElement('script');
+    script.src = src;
+    document.head.appendChild(script);
+}
+
+function loadCss(href) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+}
+
 app.controller('loginCtrl', function ($rootScope, $scope, $location, api) {
     $rootScope.night = false;
     $scope.message = false;
+
+    loadJs("bower_components/cryptojslib/rollups/md5.js");
 
     $scope.submit = function () {
         var hash = CryptoJS.MD5(CryptoJS.MD5($scope.login) + ':WabTvHash:' + CryptoJS.MD5($scope.password));
@@ -19,6 +34,7 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, api) {
 app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
     $rootScope.night = false;
 
+    // common
     var hash = sessionStorage.getItem('WabTvHash');
     if(!hash) {
         $location.path('login');
@@ -27,12 +43,24 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
 
     $scope.message = false;
 
+    $scope.tab = "gamer";
+    $scope.tabs = function (tab) {
+        $scope.tab = tab;
+    };
+
+    $scope.logout = function () {
+        sessionStorage.removeItem('WabTvHash');
+        $location.path('login');
+    };
+
+
+
+    // schedule
     $scope.shows = {
         'default': "Autre",
         'omega': "Omega",
         'brico': "Bob le Bricoleur"
     };
-
     $scope.hours = [];
     for(var h = 0; h< 24; h++) {
         if (h < 10) {
@@ -41,68 +69,62 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         $scope.hours.push(h + ":00");
     }
 
-    $scope.current = [];
+    $scope.currentSchedule = [];
+    $scope.schedulesCopy = [];
     $scope.schedules = [];
-    $scope.confirmation = [];
+    api.schedule().then(function (response) {
+        angular.forEach(response.data, function(data) {
 
-    window.onbeforeunload = function () {
-        if (!angular.equals($scope.schedules, $scope.confirmation)) {
-            return true;
-        }
-    };
+            data.date = new Date(data.date);
+
+            if($scope.currentSchedule.length == 0) {
+                $scope.currentSchedule = data;
+            }
+
+            $scope.schedules.push(data);
+        });
+        angular.copy($scope.schedules, $scope.schedulesCopy);
+    }).catch(function() {
+        $scope.message = "Unauthorized";
+    });
 
     $scope.$watch('schedules', function (newValue, oldValue, scope){
-        if (!angular.equals(scope.schedules, scope.confirmation)) {
+        if (!angular.equals(scope.schedules, scope.schedulesCopy)) {
             scope.message = "Modification non sauvegardé.";
         } else {
             scope.message = false;
         }
     }, true);
 
-    api.schedule().then(function (response) {
-        angular.forEach(response.data, function(data) {
-
-            data.date = new Date(data.date);
-
-            if($scope.current.length == 0) {
-                $scope.current = data;
-            }
-
-            $scope.schedules.push(data);
-        });
-        angular.copy($scope.schedules, $scope.confirmation);
-    }).catch(function() {
-        $scope.message = "Unauthorized";
-    });
-
-    $scope.logout = function () {
-        sessionStorage.removeItem('WabTvHash');
-        $location.path('login');
+    window.onbeforeunload = function () {
+        if (!angular.equals($scope.schedules, $scope.schedulesCopy)) {
+            return true;
+        }
     };
 
-    $scope.submit = function () {
+    $scope.submitSchedule = function () {
         api.admin({
             hash: hash,
             schedule: $scope.schedules
         }).then(function() {
             $scope.message = false;
-            angular.copy($scope.schedules, $scope.confirmation);
+            angular.copy($scope.schedules, $scope.schedulesCopy);
         }).catch(function(data) {
             $scope.message = data.statusText;
         });
     };
 
     $scope.slot = function () {
-        $scope.current.slots = [];
+        $scope.currentSchedule.slots = [];
 
         var nb = 1;
-        if(!$scope.current.allDay) {
+        if(!$scope.currentSchedule.allDay) {
             nb = 4;
         }
 
         var hours = ["14:00", "20:00", "22:00", "00:00"]
         for (var i = 0; i < nb; i++) {
-            $scope.current.slots.push({
+            $scope.currentSchedule.slots.push({
                 "streamer": "",
                 "show": "default",
                 "title": "",
@@ -123,4 +145,41 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
                 div.remove();
             });
     }
+
+
+    // gamer
+    $scope.currentGamer = [];
+    $scope.gamersCopy = [];
+    $scope.gamers = [];
+    api.gamer().then(function (response) {
+        angular.forEach(response.data, function(data) {
+            if($scope.currentGamer.length == 0) {
+                $scope.currentGamer = data;
+            }
+
+            $scope.gamers.push(data);
+        });
+        angular.copy($scope.gamers, $scope.gamersCopy);
+    }).catch(function() {
+        $scope.message = "Unauthorized";
+    });
+
+    loadJs("bower_components/trix/dist/trix.js");
+    loadCss("bower_components/trix/dist/trix.css");
+
+    var trix = document.createElement('trix-editor');
+    document.body.appendChild(trix)
+
+    $scope.select = function () {
+        trix.editor.setSelectedRange([0, 0])
+        trix.editor.insertHTML($scope.currentGamer.txt)
+    };
+
+    $scope.submitGamer = function () {
+        var html = trix.editor.element.innerHTML;
+        console.log(trix.editor);
+        console.log(html);
+    };
+
+
 });

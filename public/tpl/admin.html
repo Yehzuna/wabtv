@@ -1,55 +1,75 @@
 <div class="admin">
+
+    <h1>Administration</h1>
     <div class="buttons">
+        <input type="button" value="Programme" class="button" ng-click="tabs('schedule')" />
+        <input type="button" value="Les recettes du gamer" class="button" ng-click="tabs('gamer')" />
         <input type="button" value="Déconnexion" class="button" ng-click="logout()" />
     </div>
 
-    <h1>Administration</h1>
-    <h2>Programme</h2>
     <div class="message" ng-show="message">{{ message }}</div>
-    <div class="form">
-        <select ng-model="current">
-            <option ng-repeat="schedule in schedules" ng-value="schedule">{{ schedule.day }}</option>
-        </select>
-        <div class="datepicker">
-            <datepicker><input type="date" placeholder="Date" ng-model="current.date" /></datepicker>
+
+    <div ng-show="tab == 'schedule'">
+        <h2>Programme</h2>
+
+        <div class="form">
+            <select ng-model="currentSchedule">
+                <option ng-repeat="schedule in schedules" ng-value="schedule">{{ schedule.day }}</option>
+            </select>
+            <div class="datepicker">
+                <datepicker><input type="date" placeholder="Date" ng-model="currentSchedule.date" /></datepicker>
+            </div>
+            <div class="allDay">
+                <label>Toute la journée ?</label>
+                <input type="checkbox" ng-model="currentSchedule.allDay" ng-change="slot()" />
+            </div>
         </div>
-        <div class="allDay">
-            <label>Toute la journée ?</label>
-            <input type="checkbox" ng-model="current.allDay" ng-change="slot()" />
+        <table>
+            <tr ng-hide="currentSchedule.allDay">
+                <th>Heure</th>
+                <th>Emission</th>
+                <th>Titre</th>
+                <th>Streamer</th>
+            </tr>
+            <tr ng-repeat="slot in currentSchedule.slots">
+                <td ng-hide="currentSchedule.allDay">
+                    <select ng-model="slot.hour">
+                        <option ng-repeat="hour in hours" ng-value="hour">{{ hour }}</option>
+                    </select>
+                </td>
+                <td ng-hide="currentSchedule.allDay">
+                    <select ng-model="slot.show">
+                        <option ng-repeat="(slug, show) in shows" ng-value="slug">{{ show }}</option>
+                    </select>
+                </td>
+                <td>
+                    <textarea placeholder="Titre" ng-model="slot.title"></textarea>
+                </td>
+                <td ng-hide="currentSchedule.allDay">
+                    <input type="text" placeholder="Streamer" ng-model="slot.streamer" />
+                </td>
+            </tr>
+        </table>
+
+        <div class="buttons">
+            <input type="button" value="Valider" class="button" ng-click="submitSchedule()" />
+        </div>
+
+        <h2>Aperçu</h2>
+        <div ng-include="'tpl/schedule.html'"></div>
+    </div>
+    
+    <div ng-show="tab == 'gamer'">
+        <h2>Les recettes du gamer</h2>
+        <div class="form">
+            <select ng-model="currentGamer" ng-change="select()">
+                <option ng-repeat="gamer in gamers" ng-value="gamer">{{ gamer.title }}</option>
+            </select>
+            <input type="button" value="Nouvelle recette" class="button" ng-click="new()" />
+        </div>
+
+        <div class="buttons">
+            <input type="button" value="Valider" class="button" ng-click="submitGamer()" />
         </div>
     </div>
-
-    <table>
-        <tr ng-hide="current.allDay">
-            <th>Heure</th>
-            <th>Emission</th>
-            <th>Titre</th>
-            <th>Streamer</th>
-        </tr>
-        <tr ng-repeat="slot in current.slots">
-            <td ng-hide="current.allDay">
-                <select ng-model="slot.hour">
-                    <option ng-repeat="hour in hours" ng-value="hour">{{ hour }}</option>
-                </select>
-            </td>
-            <td ng-hide="current.allDay">
-                <select ng-model="slot.show">
-                    <option ng-repeat="(slug,show) in shows" ng-value="slug">{{ show }}</option>
-                </select>
-            </td>
-            <td>
-                <textarea placeholder="Titre" ng-model="slot.title"></textarea>
-            </td>
-            <td ng-hide="current.allDay">
-                <input type="text" placeholder="Streamer" ng-model="slot.streamer" />
-            </td>
-        </tr>
-    </table>
-
-    <div class="buttons">
-        <input type="button" value="Valider" class="button" ng-click="submit()" />
-    </div>
-
-    <h2>Aperçu</h2>
-    <div ng-include="'tpl/schedule.html'"></div>
 </div>
