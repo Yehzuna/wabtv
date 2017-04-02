@@ -73,20 +73,14 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch, dailymotion, ap
         });
     };
 
-    $scope.play = function () {
-        if (!$rootScope.theater) {
-            $rootScope.theater = true;
-        } else {
-            $rootScope.theater = false;
-        }
-    };
-
     $scope.fullScreen = function () {
         if (!$rootScope.theater) {
             $rootScope.theater = true;
         } else {
             $rootScope.theater = false;
         }
+
+        ga('send', 'event', 'WabTV', 'Player', 'Full Screen', $rootScope.theater);
     };
 
     $scope.nightMode = function () {
@@ -95,5 +89,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch, dailymotion, ap
         } else {
             $rootScope.night = false;
         }
+
+        ga('send', 'event', 'WabTV', 'Player', 'Night Mode', $rootScope.night);
     };
 });

@@ -15,6 +15,8 @@ app.controller('scheduleCtrl', function ($rootScope, $scope, api) {
     });
     
     $scope.export = function () {
+        ga('send', 'event', 'WabTV', 'Schedule', 'Export');
+
         var div = document.getElementById('schedule').cloneNode(true);
         div.classList.add('export');
 

@@ -4,14 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title ng-bind="titlePage"></title>
-    <meta name="description" content="BobLeGob, Shoutcaster de Saveurs et Attiseur de Haine">
+    <title ng-bind="titlePage">We Are Bob Television</title>
+    <meta name="description" content="{{ descPage }}">
     <base href="/">
+
+    <meta property="og:url" content="http://wearebobtv.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="We Are Bob Television">
+    <meta property="og:description" content="BobLeGob, Shoutcaster de Saveurs et Attiseur de Haine">
+    <meta property="og:image" content="http://wearebobtv.com/img/share.jpg">
 
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="bower_components/angularjs-datepicker/dist/angular-datepicker.min.css">
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v1.0.1">
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -32,16 +38,16 @@
     <footer></footer>
 </div>
 
-<script src="js/app.js"></script>
+<script src="js/app.js?v1.0.1"></script>
 
 <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-9852988-7', 'auto');
-ga('send', 'pageview');
+    ga('create', 'UA-9852988-7', 'auto');
+    ga('send', 'pageview');
 </script>
 </body>
 </html>

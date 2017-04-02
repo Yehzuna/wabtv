@@ -1,6 +1,7 @@
 app.config(function ($routeProvider, $locationProvider) {
 
     var title = "We Are Bob Television";
+    var desc = "BobLeGob, Shoutcaster de Saveurs et Attiseur de Haine";
 
     $routeProvider
         .when('/', {
@@ -8,6 +9,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'homeCtrl',
             data: {
                 title: title,
+                desc: desc,
                 slug: "home"
             }
         })
@@ -16,6 +18,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'scheduleCtrl',
             data: {
                 title: "Programme - " + title,
+                desc: "Programme de la semaine de la WABTV",
                 slug: "schedule"
             }
         })
@@ -24,6 +27,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'replayCtrl',
             data: {
                 title: "Replay - " + title,
+                desc: "Revoir les dernières emissions de la WABTV",
                 slug: "replay"
             }
         })
@@ -32,6 +36,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'shopCtrl',
             data: {
                 title: "Boutique - " + title,
+                desc: "Boutique officiel de la WABTV",
                 slug: "shop"
             }
         })
@@ -40,6 +45,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'gamerCtrl',
             data: {
                 title: "Les Recettes du Gamer - " + title,
+                desc: "Liste des recettes de l'emission Recette du Gamer",
                 slug: "gamer"
             }
         })
@@ -48,6 +54,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'highlightCtrl',
             data: {
                 title: "Highlight - " + title,
+                desc: "Les meilleurs moments de la WABTV",
                 slug: "highlight"
             }
         })
@@ -56,6 +63,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'loginCtrl',
             data: {
                 title: "Admin - " + title,
+                desc: desc,
                 slug: "login"
             }
         })
@@ -64,6 +72,7 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'adminCtrl',
             data: {
                 title: "Admin - " + title,
+                desc: desc,
                 slug: "admin"
             }
         })
