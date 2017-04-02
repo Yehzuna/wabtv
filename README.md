@@ -16,9 +16,9 @@ Site public http://wearebobtv.com/
 
 ### V1.0.1
 - Meta description dynamiques
+- Meta Facebook
 - Versionning par tag
 - Nouvelle couleur
-- Ajout meta facebook
 - Correction des heures du programme
 ### V1.0.0
 - Mise en ligne.
