@@ -58,6 +58,15 @@ app.config(function ($routeProvider, $locationProvider) {
                 slug: "highlight"
             }
         })
+        .when('/studio', {
+            templateUrl: 'tpl/studio.html',
+            controller: 'studioCtrl',
+            data: {
+                title: "Studio - " + title,
+                desc: "Présentation du studio de la WABTV",
+                slug: "studio"
+            }
+        })
         .when('/login', {
             templateUrl: 'tpl/login.html',
             controller: 'loginCtrl',

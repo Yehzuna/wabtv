@@ -3,14 +3,11 @@
 Site public http://wearebobtv.com/
 
 ## TODO
-- Nouvelle couleur
 - Studio
 - Recette du gamer
 - Playlists Homepage & Replay
 - HTML MIN
 - Refacto public
-- Admin dédié
-- Versionning automatique
 
 ## Changelog
 

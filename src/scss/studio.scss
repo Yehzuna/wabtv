@@ -1,0 +1,55 @@
+.studio {
+  margin-bottom: 20px;
+}
+
+
+
+.gallery {
+  @extend %clearfix;
+  box-sizing: border-box;
+  .item {
+    width: 33.333%;
+    padding: 5px;
+    box-sizing: border-box;
+    float: left;
+
+    .img {
+      position: relative;
+      height: 0;
+      padding-bottom: 65%;
+      box-sizing: border-box;
+      overflow: hidden;
+      transition: all .3s;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 100%;
+        display: inline-block;
+      }
+
+      &.open {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        padding: 20px;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, .5);
+        text-align: center;
+        img {
+          top: 50%;
+          left: 50%;
+          margin-left: -50%;
+          margin-top: -40%;
+          max-height: 100%;
+
+        }
+      }
+    }
+  }
+}
