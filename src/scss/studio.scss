@@ -2,16 +2,14 @@
   margin-bottom: 20px;
 }
 
-
-
 .gallery {
   @extend %clearfix;
   box-sizing: border-box;
   .item {
-    width: 33.333%;
-    padding: 5px;
+    width: 100%;
     box-sizing: border-box;
     float: left;
+    margin-bottom: 20px;
 
     .img {
       position: relative;
@@ -19,13 +17,17 @@
       padding-bottom: 65%;
       box-sizing: border-box;
       overflow: hidden;
-      transition: all .3s;
       img {
         position: absolute;
         top: 0;
         left: 0;
         max-width: 100%;
         display: inline-block;
+        box-sizing: border-box;
+        cursor: pointer;
+        &.large {
+          top: -40%;
+        }
       }
 
       &.open {
@@ -35,21 +37,45 @@
         left: 0;
         right: 0;
         z-index: 10;
-        padding: 20px;
+        padding: 0;
         margin: 0;
         height: 100%;
         width: 100%;
+        border: none;
         background: rgba(0, 0, 0, .5);
-        text-align: center;
         img {
           top: 50%;
           left: 50%;
-          margin-left: -50%;
-          margin-top: -40%;
+          transform: translate(-50%, -50%);
           max-height: 100%;
-
+          max-width: 100%;
         }
       }
+    }
+  }
+
+  @media #{$small-up} {
+    padding: 0 5px;
+    .item {
+      padding: 5px;
+      width: 50%;
+      margin: 0;
+      .img {
+        border: 1px solid $primary-color;
+        &.open img {
+          border: 1px solid $primary-color;
+          max-height: 95%;
+          max-width: 95%;
+        }
+      }
+    }
+  }
+  @media #{$medium-up} {
+    padding: 0;
+  }
+  @media #{$large-up} {
+    .item {
+      width: 33.333%;
     }
   }
 }

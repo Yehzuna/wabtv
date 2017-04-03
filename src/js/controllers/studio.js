@@ -6,4 +6,5 @@ app.controller('studioCtrl', function ($rootScope, $scope) {
         $scope.gallery.push(i);
     }
 
+    $scope.large = [10, 11];
 });
