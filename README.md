@@ -3,11 +3,9 @@
 Site public http://wearebobtv.com/
 
 ## TODO
-- Studio
-- Recette du gamer
 - Playlists Homepage & Replay
+- Recette du gamer
 - HTML MIN
-- Refacto public
 
 ## Changelog
 
