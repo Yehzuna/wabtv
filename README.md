@@ -14,6 +14,9 @@ Site public http://wearebobtv.com/
 
 ## Changelog
 
+### V1.0.2
+- Taille de l'export du programme
+- Json passé en ignore
 ### V1.0.1
 - Meta description dynamiques
 - Meta Facebook
