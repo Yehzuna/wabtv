@@ -6,6 +6,7 @@ node_modules/
 
 tmp
 
+public/data/
 public/css/
 public/img/
 public/js/
