@@ -86,6 +86,8 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
             schedule: $scope.schedules
         }).then(function() {
             $scope.message = false;
+
+            api.schedule();
             angular.copy($scope.schedules, $scope.confirmation);
         }).catch(function(data) {
             $scope.message = data.statusText;
