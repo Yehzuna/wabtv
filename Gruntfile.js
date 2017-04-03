@@ -5,6 +5,7 @@ module.exports = function(grunt) {
         clean: {
             dist:[
                 'public/data/',
+                'public/fonts/',
                 'public/js/',
                 'public/css/',
                 'public/img/'
@@ -50,6 +51,11 @@ module.exports = function(grunt) {
                     cwd: 'src/data/',
                     src: ['**'],
                     dest: 'public/data/'
+                }, {
+                    expand: true,
+                    cwd: 'src/fonts/',
+                    src: ['**'],
+                    dest: 'public/fonts/'
                 }]
             }
         },

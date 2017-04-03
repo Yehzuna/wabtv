@@ -13,7 +13,9 @@ Site public http://wearebobtv.com/
 
 ### V1.0.2
 - Taille de l'export du programme
-- Json passé en ignore
+- Fix refresh du json
+- data et fonts du public passé en ignore
+- Ajout de la page studio
 ### V1.0.1
 - Meta description dynamiques
 - Meta Facebook
