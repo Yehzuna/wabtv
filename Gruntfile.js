@@ -4,18 +4,20 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         clean: {
             dist:[
-                'public/js',
-                'public/css',
-                'public/img'
+                'public/data/',
+                'public/fonts/',
+                'public/js/',
+                'public/css/',
+                'public/img/'
             ]
         },
         compass: {
             dev: {
                 options: {
-                    sassDir: 'src/scss',
-                    cssDir: 'public/css',
-                    imagesDir: 'public/img',
-                    fontsDir: 'public/fonts',
+                    sassDir: 'src/scss/',
+                    cssDir: 'public/css/',
+                    imagesDir: 'public/img/',
+                    fontsDir: 'public/fonts/',
                     spriteLoadPath: 'src/img/',
                     httpGeneratedImagesPath: "../img/",
                     httpFontsPath: "../fonts/",
@@ -24,10 +26,10 @@ module.exports = function(grunt) {
             },
             prod: {
                 options: {
-                    sassDir: 'src/scss',
-                    cssDir: 'public/css',
-                    imagesDir: 'public/img',
-                    fontsDir: 'public/fonts',
+                    sassDir: 'src/scss/',
+                    cssDir: 'public/css/',
+                    imagesDir: 'public/img/',
+                    fontsDir: 'public/fonts/',
                     spriteLoadPath: 'src/img/',
                     httpGeneratedImagesPath: "../img/",
                     httpFontsPath: "../fonts/",
@@ -42,8 +44,18 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src/img/',
                     src: ['**', '!sprite/**'],
-                    dest: 'public/img',
+                    dest: 'public/img/',
                     filter: 'isFile'
+                }, {
+                    expand: true,
+                    cwd: 'src/data/',
+                    src: ['**'],
+                    dest: 'public/data/'
+                }, {
+                    expand: true,
+                    cwd: 'src/fonts/',
+                    src: ['**'],
+                    dest: 'public/fonts/'
                 }]
             }
         },
@@ -56,7 +68,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src/js/',
                     src: ['**'],
-                    dest: 'tmp/js',
+                    dest: 'tmp/js/',
                     filter: 'isFile'
                 }]
             }

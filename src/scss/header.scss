@@ -70,6 +70,14 @@
       margin: 20px 0 20px 170px;
       background: none;
       border-left: none;
+
+      .table {
+        display: table;
+        width: 92%;
+        .table-row {
+          display: table-row;
+        }
+      }
     }
 
     &.open {
@@ -89,19 +97,22 @@
         color: $primary-color;
       }
       @media #{$medium-up} {
-        padding: 5px 8px;
-        float: left;
+        padding: 2px 8px;
         font-size: .9em;
         border-left: 2px solid $border-color;
         color: $font-color;
+        display: table-cell;
+        max-width: 140px;
+        vertical-align: middle;
+        text-align: center;
       }
       @media #{$large-up} {
-        padding: 5px 18px;
+        padding: 2px 15px;
         font-size: 1em;
       }
       @media #{$xlarge-up} {
-        padding: 5px 26px;
-        font-size: 1.2em;
+        padding: 2px 15px;
+        font-size: 1.1em;
       }
     }
   }

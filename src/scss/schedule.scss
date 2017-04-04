@@ -6,6 +6,7 @@
 
   &.export {
     width: 1260px;
+    height: 840px;
     margin: 0;
     .column {
       width: 180px;
@@ -27,9 +28,14 @@
           border-left: 0;
         }
       }
-
+      .day {
+        height: 76px;
+      }
       .slot {
-        height: 150px;
+        height: 190px;
+        .placeholder {
+          height: 186px;
+        }
         .hour {
           display: block;
         }
@@ -39,7 +45,10 @@
       }
 
       .slot-large {
-        height: 150px * 4;
+        height: 760px;
+        .placeholder {
+          height: 756px;
+        }
         .hour {
           display: none;
         }
@@ -59,6 +68,7 @@
       text-transform: uppercase;
       color: $schedule-header-font;
       font-size: 2em;
+      box-sizing: border-box;
       .date {
         display: block;
         font-size: 0.5em;
@@ -114,7 +124,6 @@
       .hour {
         top: 5px;
         left: 8px;
-        font-family: 'gothamlight', sans-serif;
       }
       .streamer {
         bottom: 5px;
@@ -160,7 +169,7 @@
         .streamer,
         .hour,
         .show {
-          font-size: .7em;
+          font-size: .8em;
         }
       }
     }
@@ -197,25 +206,10 @@
         .streamer,
         .hour,
         .show {
-          font-size: .8em;
+          font-size: .7em;
         }
-        .hour,
         .show {
           display: none;
-        }
-      }
-
-      &:hover {
-        .slot {
-          .hour,
-          .streamer {
-            display: block;
-          }
-        }
-        .slot-large {
-          .hour {
-            display: none;
-          }
         }
       }
     }

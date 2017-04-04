@@ -1,0 +1,10 @@
+<div class="studio">
+    <h1>Présentation du studio</h1>
+    <div class="gallery">
+        <div class="item" ng-repeat="item in gallery">
+            <div class="img" toggle-class="open">
+                <img src="img/studio/{{ item }}.jpg" alt="Studio image {{ item }}" ng-class="{large: (large.indexOf(item) > -1)}" />
+            </div>
+        </div>
+    </div>
+</div>

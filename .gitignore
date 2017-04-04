@@ -6,6 +6,8 @@ node_modules/
 
 tmp
 
+public/data/
+public/fonts/
 public/css/
 public/img/
 public/js/
