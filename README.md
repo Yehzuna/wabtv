@@ -9,6 +9,8 @@ Site public http://wearebobtv.com/
 
 ## Changelog
 
+### V1.0.3
+- Recette du gamer temporaire
 ### V1.0.2
 - Taille de l'export du programme
 - Fix refresh du json
