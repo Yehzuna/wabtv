@@ -6,7 +6,8 @@ Site public http://wearebobtv.com/
 - Playlists Homepage & Replay
 - Recette du gamer
 - HTML MIN
-
+- https://www.froala.com/wysiwyg-editor/download 
+ 
 ## Changelog
 
 ### V1.0.2
