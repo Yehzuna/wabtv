@@ -1,17 +1,100 @@
-.gamer {
-  margin-bottom: 20px;
-}
+.gamer {}
 
 .articles {
   .row {
     @extend %clearfix;
-  }
-  .article {
-    margin: 0 10px 20px 10px;
-    @media #{$medium-up} {
-      width: 50%;
-      margin: 0 0 20px 0;
-      float: left;
+
+    .article {
+      position: relative;
+      margin: 0 10px 20px 10px;
+      box-sizing: border-box;
+      cursor: pointer;
+      @media #{$medium-up} {
+        width: 50%;
+        float: left;
+        margin: 0 0 20px 0;
+        padding-left: 10px;
+        padding-right: 0;
+        &:first-child {
+          padding-left: 0;
+          padding-right: 10px;
+        }
+      }
+
+      .miniature {
+        position: relative;
+        display: block;
+        //height: 200px;
+        background: #fff;
+        border: 1px solid $primary-color;
+        border-radius: 10px;
+        box-sizing: border-box;
+        img {
+          float: left;
+          width: 180px;
+          height: 180px;
+          margin: 10px;
+          border-radius: 100%;
+          border: 1px solid $primary-color;
+        }
+        .title {
+          margin-left: 200px;
+          font-size: 2em;
+          text-align: center;
+        }
+        &:after,
+        &:before {
+          content: "";
+          position: absolute;
+          background: $primary-color;
+        }
+        &:before {
+          right: 20px;
+          bottom: 8px;
+          height: 24px;
+          width: 4px;
+        }
+        &:after {
+          right: 10px;
+          bottom: 18px;
+          height: 4px;
+          width: 24px;
+        }
+      }
+      .carte {
+        display: none;
+      }
+
+
+      &.open {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        border: none;
+        background: rgba(0, 0, 0, .5);
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-height: 95%;
+          max-width: 95%;
+        }
+
+        .item-miniature {
+          display: none;
+        }
+        .item-content {
+          display: block;
+        }
+      }
     }
   }
 }
