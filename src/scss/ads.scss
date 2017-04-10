@@ -10,13 +10,12 @@
 
 @media #{$large-up} {
   body {
+    background: url('#{$img-path}ope/albion.jpg') $background-color top center no-repeat fixed;
     &.night .ads .placeholder {
       background: $background-color-night;
     }
 
     .ads {
-      width: 100%;
-      background: url('#{$img-path}ads/albion.jpg') $background-color top center no-repeat fixed;
       .link {
         position: absolute;
         top: 0;
@@ -27,7 +26,6 @@
       }
       .container {
         position: relative;
-        z-index: 1;
       }
       .placeholder {
         background: $background-color;
