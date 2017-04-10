@@ -29,40 +29,94 @@
         border: 1px solid $primary-color;
         border-radius: 10px;
         box-sizing: border-box;
-        img {
+        @extend %clearfix;
+        .img {
           float: left;
-          width: 180px;
-          height: 180px;
-          margin: 10px;
-          border-radius: 100%;
-          border: 1px solid $primary-color;
+          padding: 10px;
+          img {
+            width: 180px;
+            height: 180px;
+            border-radius: 100%;
+            border: 1px solid $primary-color;
+          }
         }
         .title {
           margin-left: 200px;
+          padding: 10px;
           font-size: 2em;
           text-align: center;
-        }
-        &:after,
-        &:before {
-          content: "";
-          position: absolute;
-          background: $primary-color;
-        }
-        &:before {
-          right: 20px;
-          bottom: 8px;
-          height: 24px;
-          width: 4px;
-        }
-        &:after {
-          right: 10px;
-          bottom: 18px;
-          height: 4px;
-          width: 24px;
+          &:after,
+          &:before {
+            content: "";
+            position: absolute;
+            background: $primary-color;
+            border-radius: 2px;
+          }
+          &:before {
+            right: 22px;
+            bottom: 8px;
+            height: 30px;
+            width: 4px;
+          }
+          &:after {
+            right: 10px;
+            bottom: 21px;
+            height: 4px;
+            width: 30px;
+          }
         }
       }
+
       .carte {
         display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 95%;
+        max-width: 95%;
+        min-width: 1200px;
+        background: #fff;
+        border: 1px solid $primary-color;
+        border-radius: 50px;
+        box-sizing: border-box;
+        padding: 30px;
+
+        .left {
+          float: left;
+          width: 300px;
+        }
+
+        .right {
+          margin-left: 300px;
+        }
+
+        .img {
+
+          padding: 10px;
+          img {
+            width: 250px;
+            height: 250px;
+            border-radius: 100%;
+            border: 1px solid $primary-color;
+          }
+        }
+
+        .ingredients {
+
+        }
+
+        .recipe,
+        .title {
+          text-align: right;
+          font-size: 2em;
+          background-image: linear-gradient(transparent 23px, $primary-color 24px, transparent 24px);
+          background-size: 100% 24px;
+        }
+
+        .title {
+          font-size: 3em;
+        }
       }
 
 
@@ -79,19 +133,11 @@
         width: 100%;
         border: none;
         background: rgba(0, 0, 0, .5);
-        img {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          max-height: 95%;
-          max-width: 95%;
-        }
 
-        .item-miniature {
+        .miniature {
           display: none;
         }
-        .item-content {
+        .carte {
           display: block;
         }
       }
