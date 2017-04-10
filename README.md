@@ -9,6 +9,9 @@ Site public http://wearebobtv.com/
 
 ## Changelog
 
+### V1.0.4
+- Opé Albion
+- Padding des titres
 ### V1.0.3
 - Recette du gamer temporaire
 ### V1.0.2

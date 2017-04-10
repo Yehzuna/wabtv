@@ -1,4 +1,17 @@
-.gamer {}
+.gamer {
+  @media #{$large-up} {
+    margin-bottom: 20px
+  }
+
+  h1 {
+    margin: 0 10px 20px 10px;
+    font-size: 1.2em;
+    @media #{$large-up} {
+      margin: 0 0 15px 0;
+      font-size: 2em;
+    }
+  }
+}
 
 .articles {
   .row {

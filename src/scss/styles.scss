@@ -1,7 +1,7 @@
 @import "compass";
 
-@import "_settings";
-@import "_mixins";
+@import "settings";
+@import "mixins";
 
 @import "home";
 @import "schedule";
@@ -14,3 +14,4 @@
 @import "header";
 @import "footer";
 @import "page";
+@import "ads";
