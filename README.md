@@ -3,6 +3,7 @@
 Site public http://wearebobtv.com/
 
 ## TODO
+- Remettre l'animation de la page recette du gamer
 - Margin bottom des pages
 - Animation page shop
 - Playlists Homepage & Replay
