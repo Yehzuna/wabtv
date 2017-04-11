@@ -1,6 +1,6 @@
 .studio {
-  @media #{$large-up} {
-    margin-bottom: 20px
+  @media #{$small-up} {
+    margin-bottom: 15px;
   }
 
   h1 {

@@ -5,7 +5,6 @@ Site public http://wearebobtv.com/
 ## TODO
 - Remettre l'animation de la page recette du gamer
 - Margin bottom des pages
-- Animation page shop
 - Playlists Homepage & Replay
 - Recette du gamer
 
@@ -15,6 +14,7 @@ Site public http://wearebobtv.com/
 - Ajout des titres h1
 - Armonisation des paddings
 - Fix de padding du programme suite à l'opé
+- Animation page shop
 ### V1.0.4
 - Opé Albion
 - Padding des titres
