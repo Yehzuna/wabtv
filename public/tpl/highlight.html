@@ -1,5 +1,4 @@
 <div class="playlist-container">
-
     <h1 ng-show="title">{{ title }}</h1>
 
     <div class="embed-placeholder">
@@ -21,7 +20,7 @@
 
     <h2>
         {{ periods[period] }}
-        <div class="filters">Voir <span ng-repeat="(key, value) in periods" ng-click="setPeriod(key)"> {{ value }}</span></div>
+        <span class="filters">Voir <span ng-repeat="(key, value) in periods" ng-click="setPeriod(key)"> {{ value }}</span></span>
     </h2>
 
     <div class="message" ng-show="message">

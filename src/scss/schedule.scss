@@ -1,3 +1,13 @@
+.schedule-header {
+  .buttons {
+    float: right;
+    margin-right: 10px;
+    @media #{$medium-up} {
+      margin: 0;
+    }
+  }
+}
+
 .schedule {
   width: 100%;
   color: $schedule-font;
@@ -78,6 +88,7 @@
         border-left: 3px solid $border-color;
         border-right: 3px solid $border-color;
         padding: 10px 0;
+        box-sizing: border-box;
         text-align: center;
       }
     }
@@ -95,6 +106,7 @@
         height: 146px;
         width: 100%;
         border-radius: 10px;
+        box-sizing: border-box;
         background: $schedule-slot-background;
       }
 

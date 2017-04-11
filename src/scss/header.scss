@@ -1,14 +1,10 @@
 .header {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border-top: 2px solid $border-color;
   border-bottom: 2px solid $border-color;
   background: linear-gradient(to right, $background-color 0%, #dadada 20%, #dadada 80%, $background-color 100%);
   @extend %clearfix;
-
-  @media #{$medium-up} {
-    margin-bottom: 20px;
-  }
 
   .btn-menu {
     position: absolute;
@@ -61,7 +57,7 @@
     bottom: 0;
     background: rgba(0, 0, 0, .9);
     border-left: 2px solid $border-color;
-    z-index: 1;
+    z-index: 10;
     overflow-x: auto;
 
     @media #{$medium-up} {

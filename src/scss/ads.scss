@@ -1,0 +1,49 @@
+.banner {
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+  img {
+    display: inline-block;
+    max-width: 100%;
+  }
+}
+
+@media #{$large-up} {
+  body {
+    background: url('#{$img-path}ope/albion.jpg') $background-color top center no-repeat fixed;
+    &.night .ads .container-placeholder {
+      background: $background-color-night;
+    }
+
+    .ads {
+      .link {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 0;
+      }
+      .container {
+        position: relative;
+        padding: 0;
+      }
+      .container-placeholder {
+        background: $background-color;
+        padding: 20px;
+      }
+      .partners {
+        padding: 10px 0;
+        margin: 0;
+      }
+      .footer {
+        margin: 0;
+      }
+    }
+
+    .banner {
+      display: none;
+    }
+  }
+}
+
