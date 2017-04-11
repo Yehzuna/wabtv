@@ -19,6 +19,7 @@
       margin: 0 10px 20px 10px;
       box-sizing: border-box;
       cursor: pointer;
+      font-family: 'scriptbl', sans-serif;
       @media #{$medium-up} {
         width: 50%;
         float: left;
@@ -79,18 +80,17 @@
 
       .carte {
         display: none;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-height: 95%;
         max-width: 95%;
-        min-width: 1200px;
         background: #fff;
         border: 1px solid $primary-color;
         border-radius: 50px;
         box-sizing: border-box;
         padding: 30px;
+        margin: 20px auto;
+
+        p {
+          margin: 0;
+        }
 
         .left {
           float: left;
@@ -119,13 +119,13 @@
         .recipe,
         .title {
           text-align: right;
-          font-size: 2em;
+          font-size: 1.5em;
           background-image: linear-gradient(transparent 23px, $primary-color 24px, transparent 24px);
           background-size: 100% 24px;
         }
 
         .title {
-          font-size: 3em;
+          font-size: 2em;
         }
       }
 
@@ -141,6 +141,7 @@
         margin: 0;
         height: 100%;
         width: 100%;
+        overflow: auto;
         border: none;
         background: rgba(0, 0, 0, .5);
 

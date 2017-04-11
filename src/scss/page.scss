@@ -10,6 +10,12 @@
   "gothamlight.woff"
 ));
 
+@include font-face("scriptbl", font-files(
+  "scriptbl.eot",
+  "scriptbl.ttf",
+  "scriptbl.woff"
+));
+
 body {
   background: $background-color;
   color: $font-color;
