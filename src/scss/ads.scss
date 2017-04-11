@@ -11,7 +11,7 @@
 @media #{$large-up} {
   body {
     background: url('#{$img-path}ope/albion.jpg') $background-color top center no-repeat fixed;
-    &.night .ads .placeholder {
+    &.night .ads .container-placeholder {
       background: $background-color-night;
     }
 
@@ -26,10 +26,11 @@
       }
       .container {
         position: relative;
+        padding: 0;
       }
-      .placeholder {
+      .container-placeholder {
         background: $background-color;
-        padding: 10px;
+        padding: 20px;
       }
       .partners {
         padding: 10px 0;
@@ -37,7 +38,6 @@
       }
       .footer {
         margin: 0;
-        padding-bottom: 10px;
       }
     }
 

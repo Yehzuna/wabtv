@@ -1,3 +1,13 @@
+.schedule-header {
+  .buttons {
+    float: right;
+    margin-right: 10px;
+    @media #{$medium-up} {
+      margin: 0;
+    }
+  }
+}
+
 .schedule {
   width: 100%;
   color: $schedule-font;

@@ -3,12 +3,17 @@
 Site public http://wearebobtv.com/
 
 ## TODO
+- Margin bottom des pages
+- Animation page shop
 - Playlists Homepage & Replay
 - Recette du gamer
-- HTML MIN
 
 ## Changelog
 
+### V1.0.5
+- Ajout des titres h1
+- Armonisation des paddings
+- Fix de padding du programme suite à l'opé
 ### V1.0.4
 - Opé Albion
 - Padding des titres
