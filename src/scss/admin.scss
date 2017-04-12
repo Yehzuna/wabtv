@@ -44,5 +44,8 @@
 
   .recipe {
     display: block;
+    .ingredients {
+      min-height: 50px;
+    }
   }
 }

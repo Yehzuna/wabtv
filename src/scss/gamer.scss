@@ -128,31 +128,52 @@
   }
 
   .img {
-
     padding: 10px;
     img {
-      width: 250px;
-      height: 250px;
+      width: 260px;
+      height: 260px;
       border-radius: 100%;
       border: 1px solid $primary-color;
     }
   }
 
   .ingredients {
+    border-left: 2px solid $primary-color;
+    padding-left: 20px;
+    font-size: 1.1em;
 
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        margin-bottom: 20px;
+      }
+    }
   }
 
-  .txt,
-  .title {
+  $height-title: 58px;
+  .title-container {
+    height: 240px;
+    .title {
+      text-align: right;
+      font-size: 4em;
+      line-height: $height-title;
+      background-image: linear-gradient(transparent $height-title - 4, $primary-color $height-title, transparent $height-title);
+      background-size: 100% $height-title;
+    }
+  }
+
+  $height-txt: 30px;
+  .txt {
     text-align: right;
     font-size: 1.5em;
-    background-image: linear-gradient(transparent 23px, $primary-color 24px, transparent 24px);
-    background-size: 100% 24px;
+    line-height: $height-txt;
+    background-image: linear-gradient(transparent $height-txt - 2, $primary-color $height-txt, transparent $height-txt);
+    background-size: 100% $height-txt;
   }
 
-  .title {
-    font-size: 2em;
-  }
+
 }
 
 
