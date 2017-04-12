@@ -144,7 +144,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
                 window.open(dataUrl);
                 div.remove();
             });
-    }
+    };
 
 
     // gamer
@@ -164,22 +164,24 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         $scope.message = "Unauthorized";
     });
 
-    loadJs("bower_components/trix/dist/trix.js");
-    loadCss("bower_components/trix/dist/trix.css");
-
-    var trix = document.createElement('trix-editor');
-    document.body.appendChild(trix)
 
     $scope.select = function () {
-        trix.editor.setSelectedRange([0, 0])
-        trix.editor.insertHTML($scope.currentGamer.txt)
+       console.log($scope.currentGamer);
     };
 
     $scope.submitGamer = function () {
-        var html = trix.editor.element.innerHTML;
-        console.log(trix.editor);
-        console.log(html);
+        api.admin({
+            hash: hash,
+            gamer: $scope.gamers
+        }).then(function() {
+            $scope.message = false;
+            angular.copy($scope.gamers, $scope.gamersCopy);
+        }).catch(function(data) {
+            $scope.message = data.statusText;
+        });
     };
 
+    $scope.new = function () {
 
+    };
 });

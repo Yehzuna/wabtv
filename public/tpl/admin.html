@@ -56,7 +56,7 @@
         </div>
 
         <h2>Aperçu</h2>
-        <div ng-include="'tpl/schedule.html'"></div>
+        <ng-include src="'tpl/schedule.html'"></ng-include>
     </div>
     
     <div ng-show="tab == 'gamer'">
@@ -67,6 +67,9 @@
             </select>
             <input type="button" value="Nouvelle recette" class="button" ng-click="new()" />
         </div>
+
+        <h2>Edition</h2>
+        <ng-include src="'tpl/partials/recipe.html'"></ng-include>
 
         <div class="buttons">
             <input type="button" value="Valider" class="button" ng-click="submitGamer()" />

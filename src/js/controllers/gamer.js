@@ -1,12 +1,12 @@
 app.controller('gamerCtrl', function ($rootScope, $scope, $sce, api) {
     $rootScope.night = false;
 
-    /*
     $scope.data = [];
     api.gamer().then(function (response) {
         var rows = [];
         angular.forEach(response.data, function(data) {
             data.txt = $sce.trustAsHtml(data.txt);
+            data.ingredients = $sce.trustAsHtml(data.ingredients);
 
             rows.push(data);
             if(rows.length == 2) {
@@ -19,5 +19,4 @@ app.controller('gamerCtrl', function ($rootScope, $scope, $sce, api) {
             $scope.data.push(rows);
         }
     });
-    */
 });
