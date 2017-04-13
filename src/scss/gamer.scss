@@ -105,8 +105,9 @@
 
 .recipe {
   display: none;
+  position: relative;
   max-width: 95%;
-  background: #fff;
+  background: linear-gradient(to right, transparent 0px, transparent 80px, #fff 80px, #fff 100%);
   border: 1px solid $primary-color;
   border-radius: 50px;
   box-sizing: border-box;
@@ -114,17 +115,32 @@
   margin: 20px auto;
   font-family: 'scriptbl', sans-serif;
 
+  .circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, $primary-color 40%, $primary-color 42%, #fff 42%, #fff 100%);
+    background-size: 80px 80px;
+    background-repeat: repeat-y;
+    background-position: 0 0;
+  }
+
   p {
     margin: 0;
   }
 
   .left {
     float: left;
-    width: 300px;
+    width: 350px;
+    padding-left: 50px;
   }
 
   .right {
-    margin-left: 300px;
+    margin-left: 350px;
   }
 
   .img {
@@ -138,7 +154,7 @@
   }
 
   .ingredients {
-    border-left: 2px solid $primary-color;
+    border-left: 3px solid $primary-color;
     padding-left: 20px;
     font-size: 1.1em;
 
