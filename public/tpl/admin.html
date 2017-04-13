@@ -69,10 +69,15 @@
         </div>
 
         <h2>Edition</h2>
-        <ng-include src="'tpl/partials/recipe.html'"></ng-include>
 
         <div class="buttons">
             <input type="button" value="Valider" class="button" ng-click="submitGamer()" />
+            <input type="button" value="Bold" class="button" unselectable="on" ng-click="bold()" />
         </div>
+        <ng-include src="'tpl/partials/recipe.html'"></ng-include>
+        <div class="buttons">
+            <input type="button" value="Valider" class="button" ng-click="submitGamer()" />
+        </div>
+
     </div>
 </div>

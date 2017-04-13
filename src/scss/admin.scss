@@ -44,6 +44,8 @@
 
   .recipe {
     display: block;
+    .txt,
+    .title,
     .ingredients {
       min-height: 50px;
     }

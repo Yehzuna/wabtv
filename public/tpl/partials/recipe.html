@@ -1,4 +1,5 @@
 <div class="recipe">
+    <div class="circle"></div>
     <div class="left">
         <div class="img"><img src="img/gamer/buns.jpeg" alt="{{ article.title }}" /></div>
         <div class="ingredients" contenteditable ng-model="currentGamer.ingredients">
@@ -16,7 +17,9 @@
         </div>
     </div>
     <div class="right">
-        <div class="title" contenteditable ditable ng-model="currentGamer.title">{{ article.title }}Buns - pains à burger</div>
+        <div class="title-container">
+            <div class="title" contenteditable ditable ng-model="currentGamer.title">{{ article.title }}Buns - pains à burger</div>
+        </div>
         <div class="txt" contenteditable ng-model="currentGamer.txt">
             <b>Pour 10 buns :</b>
             <b>Pétrissage à la main :</b>

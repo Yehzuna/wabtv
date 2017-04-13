@@ -169,7 +169,20 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
        console.log($scope.currentGamer);
     };
 
+    $scope.bold = function (event) {
+        document.execCommand('bold');
+
+        event.preventDefault();
+    };
+
     $scope.submitGamer = function () {
+
+        angular.forEach($scope.gamers, function(data) {
+            data.title = data.title.replace(/<(?:.|\n)*?>/gm, '');
+
+            console.log(data.ingredients);
+        });
+
         api.admin({
             hash: hash,
             gamer: $scope.gamers
