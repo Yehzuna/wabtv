@@ -21,7 +21,8 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, api) {
         var hash = CryptoJS.MD5(CryptoJS.MD5($scope.login) + ':WabTvHash:' + CryptoJS.MD5($scope.password));
 
         api.admin({
-            hash: hash.toString()
+            hash: hash.toString(),
+            login: true
         }).then(function () {
             sessionStorage.setItem('WabTvHash', hash);
             $location.path('admin');
@@ -169,10 +170,17 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
        console.log($scope.currentGamer);
     };
 
-    $scope.bold = function (event) {
+    $scope.bold = function () {
         document.execCommand('bold');
 
-        event.preventDefault();
+        var element = document.getSelection().anchorNode;
+        while (element.parentNode) {
+            element = element.parentNode;
+            if(element.classList.contains('editor')) {
+                element.focus();
+                return false;
+            }
+        }
     };
 
     $scope.submitGamer = function () {

@@ -2,7 +2,7 @@
     <div class="circle"></div>
     <div class="left">
         <div class="img"><img src="img/gamer/buns.jpeg" alt="{{ article.title }}" /></div>
-        <div class="ingredients" contenteditable ng-model="currentGamer.ingredients">
+        <div class="ingredients editor" contenteditable ng-model="currentGamer.ingredients">
             <ul>
                 <li>600 g de farine de blé T55 (et 50g pour le plan de travail)</li>
                 <li>6 g de sel</li>
@@ -18,9 +18,9 @@
     </div>
     <div class="right">
         <div class="title-container">
-            <div class="title" contenteditable ditable ng-model="currentGamer.title">{{ article.title }}Buns - pains à burger</div>
+            <div class="title editor" contenteditable ditable ng-model="currentGamer.title">{{ article.title }}Buns - pains à burger</div>
         </div>
-        <div class="txt" contenteditable ng-model="currentGamer.txt">
+        <div class="txt editor" contenteditable ng-model="currentGamer.txt">
             <b>Pour 10 buns :</b>
             <b>Pétrissage à la main :</b>
             <p>Mélangez la farine, le sel et le sucre dans un grand saladier. Faîtes un puit au centre et ajoutez le lait écréme, l’eau, l’oeuf entier, le beurre, et la levure.</p>

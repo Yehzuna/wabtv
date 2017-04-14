@@ -72,7 +72,7 @@
 
         <div class="buttons">
             <input type="button" value="Valider" class="button" ng-click="submitGamer()" />
-            <input type="button" value="Bold" class="button" unselectable="on" ng-click="bold()" />
+            <input type="button" value="Bold" class="button" unselectable="on" ng-click="bold($event)" />
         </div>
         <ng-include src="'tpl/partials/recipe.html'"></ng-include>
         <div class="buttons">
