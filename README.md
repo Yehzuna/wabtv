@@ -3,6 +3,11 @@
 Site public http://wearebobtv.com/
 
 ## TODO
+- delete recette 
+- delete image
+- delete special carac. html (&nbsb;) des titres
+- refacto api.php to class
+
 - Remettre l'animation de la page recette du gamer
 - Playlists Homepage & Replay
 - Recette du gamer

@@ -68,16 +68,37 @@
             <input type="button" value="Nouvelle recette" class="button" ng-click="new()" />
         </div>
 
+        <div class="image">
+            <input type="file" name="file" id="file"  />
+            <input type="button" value="Envoyer" class="button" ng-click="add()" />
+            <ul ng-repeat="image in images">
+                <li><img ng-src="{{ image }}" ng-click="addImage(image)" /></li>
+            </ul>
+        </div>
+
         <h2>Edition</h2>
 
         <div class="buttons">
             <input type="button" value="Valider" class="button" ng-click="submitGamer()" />
-            <input type="button" value="Bold" class="button" unselectable="on" ng-click="bold($event)" />
+            <input type="button" value="Bold" class="button" ng-click="bold($event)" />
         </div>
-        <ng-include src="'tpl/partials/recipe.html'"></ng-include>
+
+        <div class="recipe">
+            <div class="circle"></div>
+            <div class="left">
+                <div class="img"><img src="{{ currentGamer.img }}" /></div>
+                <div class="ingredients editor" contenteditable ng-model="currentGamer.ingredients"></div>
+            </div>
+            <div class="right">
+                <div class="title-container">
+                    <div class="title editor" contenteditable ng-model="currentGamer.title"></div>
+                </div>
+                <div class="txt editor" contenteditable ng-model="currentGamer.txt"></div>
+            </div>
+        </div>
+
         <div class="buttons">
             <input type="button" value="Valider" class="button" ng-click="submitGamer()" />
         </div>
-
     </div>
 </div>
