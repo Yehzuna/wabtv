@@ -174,10 +174,6 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         $scope.message = "Unauthorized";
     });
 
-    $scope.select = function () {
-        console.log($scope.currentGamer);
-    };
-
     $scope.bold = function () {
         document.execCommand('bold');
 
@@ -193,7 +189,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
 
     $scope.submitGamer = function () {
         angular.forEach($scope.gamers, function (data) {
-            data.title = data.title.replace(/<(?:.|\n)*?>/gm, '');
+            data.title = data.title.replace(/<(?:.|\n)*?>/gm, '').trim();
         });
 
         api.admin({
@@ -218,21 +214,24 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
     };
 
     $scope.delete = function () {
-        $scope.gamers.push({
-            "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
-            "img": "",
-            "ingredients": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
-            "txt": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit"
+        if(!confirm("Supprimer définitivement la recette" + $scope.currentGamer.title + " ?")) {
+            return false;
+        }
+
+        angular.forEach($scope.gamers, function (data, index) {
+            if(data.title == $scope.currentGamer.title) {
+                $scope.gamers.splice(index, 1);
+            }
         });
         $scope.submitGamer();
     };
 
-    $scope.addImage = function (img) {
+    $scope.setImage = function (img) {
         $scope.currentGamer.img = img;
     };
 
-    $scope.add = function () {
-        var file = document.getElementById('file').files[0];
+    $scope.addImage = function () {
+        var file = document.getElementById('file');
         var reader = new FileReader();
         reader.onloadend = function (e) {
             api.admin({
@@ -241,10 +240,28 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
             }).then(function (response) {
                 $scope.message = false;
                 $scope.images = response.data;
+                file.value = "";
             }).catch(function (data) {
                 $scope.message = data.statusText;
+                file.value = "";
             });
         };
-        reader.readAsDataURL(file);
-    }
+        reader.readAsDataURL(file.files[0]);
+    };
+
+    $scope.removeImage = function (img) {
+        if(!confirm("Supprimer définitivement l'image ?")) {
+            return false;
+        }
+
+        api.admin({
+            hash: hash,
+            remove: img
+        }).then(function (response) {
+            $scope.message = false;
+            $scope.images = response.data;
+        }).catch(function (data) {
+            $scope.message = data.statusText;
+        });
+    };
 });

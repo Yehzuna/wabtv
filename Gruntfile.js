@@ -4,7 +4,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         clean: {
             dist:[
-                'public/data/',
+                //'public/data/',
                 'public/fonts/',
                 'public/js/',
                 'public/css/',
@@ -46,12 +46,12 @@ module.exports = function(grunt) {
                     src: ['**', '!sprite/**'],
                     dest: 'public/img/',
                     filter: 'isFile'
-                }, {
+                }, /*{
                     expand: true,
                     cwd: 'src/data/',
                     src: ['**'],
                     dest: 'public/data/'
-                }, {
+                }, */{
                     expand: true,
                     cwd: 'src/fonts/',
                     src: ['**'],

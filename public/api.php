@@ -1,5 +1,17 @@
 <?php
 
+/*
+class Api {
+    const hashs = [
+        "1d6d8e73586dd01799515673e1c0ff0f",
+        "5b27a498ffbed9a31dff1dc1701e3eff",
+    ];
+
+
+}
+*/
+
+
 $hashs = [
     "1d6d8e73586dd01799515673e1c0ff0f",
     "5b27a498ffbed9a31dff1dc1701e3eff",
@@ -25,10 +37,10 @@ function resize_image($source_file, $max_width, $max_height)
 
     $width_new = $height * $max_width / $max_height;
     $height_new = $width * $max_height / $max_width;
-    if($width_new > $width){
+    if ($width_new > $width) {
         $h_point = (($height - $height_new) / 2);
         imagecopyresampled($dst_img, $src_img, 0, 0, 0, $h_point, $max_width, $max_height, $width, $height_new);
-    }else{
+    } else {
         $w_point = (($width - $width_new) / 2);
         imagecopyresampled($dst_img, $src_img, 0, 0, $w_point, 0, $max_width, $max_height, $width_new, $height);
     }
@@ -36,11 +48,12 @@ function resize_image($source_file, $max_width, $max_height)
     return imagejpeg($dst_img, $source_file, 100);
 }
 
-function scan_image($dir) {
-    $dh  = opendir($dir);
+function scan_image($dir)
+{
+    $dh = opendir($dir);
     $files = [];
     while (false !== ($filename = readdir($dh))) {
-        if(strpos($filename, ".jpg") !== false) {
+        if (strpos($filename, ".jpg") !== false) {
             $files[] = $dir . $filename;
         }
     }
@@ -87,6 +100,17 @@ if ($data = json_decode($request, true)) {
 
         echo scan_image("data/");
         header("HTTP/1.0 200 Ok");
+        exit;
+    }
+
+    if (isset($data["remove"])) {
+        if (@unlink($data["remove"])) {
+            echo scan_image("data/");
+            header("HTTP/1.0 200 Ok");
+            exit;
+        }
+
+        header("HTTP/1.0 500 Internal Server Error");
         exit;
     }
 

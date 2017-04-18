@@ -62,17 +62,21 @@
     <div ng-show="tab == 'gamer'">
         <h2>Les recettes du gamer</h2>
         <div class="form">
-            <select ng-model="currentGamer" ng-change="select()">
+            <select ng-model="currentGamer">
                 <option ng-repeat="gamer in gamers" ng-value="gamer">{{ gamer.title }}</option>
             </select>
             <input type="button" value="Nouvelle recette" class="button" ng-click="new()" />
+            <input type="button" value="Supprimer la recette" class="button" ng-click="delete()" />
         </div>
 
         <div class="image">
+            <span>Image JPG 400x400</span>
             <input type="file" name="file" id="file"  />
-            <input type="button" value="Envoyer" class="button" ng-click="add()" />
-            <ul ng-repeat="image in images">
-                <li><img ng-src="{{ image }}" ng-click="addImage(image)" /></li>
+            <input type="button" value="Envoyer" class="button" ng-click="addImage()" />
+            <ul>
+                <li ng-repeat="image in images">
+                    <img ng-src="{{ image }}"  ng-click="setImage(image)" ng-right-click="removeImage(image)" />
+                </li>
             </ul>
         </div>
 
