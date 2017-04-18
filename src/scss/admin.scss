@@ -69,10 +69,11 @@
 
   .recipe {
     display: block;
+    max-width: none;
     .txt,
     .title,
     .ingredients {
-      min-height: 50px;
+      min-height: 100px;
     }
   }
 }
