@@ -1,5 +1,5 @@
 <div class="gamer">
-    <h1>Les recettes du Gamer</h1>
+    <h1>Les Recettes du Gamer</h1>
 
     <div class="articles">
         <div class="row" ng-repeat="articles in data">
@@ -10,14 +10,18 @@
                 </div>
                 <div class="recipe">
                     <div class="circle"></div>
+                    <div class="row">
+                        <div class="left">
+                            <div class="img"><img src="{{ article.img }}" alt="{{ article.title }}" /></div>
+                        </div>
+                        <div class="right">
+                            <div class="title">{{ article.title }}</div>
+                        </div>
+                    </div>
                     <div class="left">
-                        <div class="img"><img src="{{ article.img }}" alt="{{ article.title }}" /></div>
                         <div class="ingredients" ng-bind-html="article.ingredients"></div>
                     </div>
                     <div class="right">
-                        <div class="title-container">
-                            <div class="title">{{ article.title }}</div>
-                        </div>
                         <div class="txt" ng-bind-html="article.txt"></div>
                     </div>
                 </div>

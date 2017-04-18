@@ -107,7 +107,7 @@
   display: none;
   position: relative;
   max-width: 95%;
-  background: linear-gradient(to right, transparent 0px, transparent 80px, #fff 80px, #fff 100%);
+  background: #fff;
   border: 1px solid $primary-color;
   border-radius: 50px;
   box-sizing: border-box;
@@ -116,7 +116,12 @@
   font-family: 'scriptbl', sans-serif;
   @extend %clearfix;
 
+  @media #{$medium-up} {
+    background: linear-gradient(to right, transparent 0px, transparent 80px, #fff 80px, #fff 100%);
+  }
+
   .circle {
+    display: none;
     position: absolute;
     left: 0;
     top: 0;
@@ -126,24 +131,38 @@
     border-bottom-left-radius: 50px;
     background: radial-gradient(ellipse at center, transparent 0%, transparent 32%, $primary-color 32%, $primary-color 34%, #fff 34%, #fff 100%) 0 0 repeat-y;
     background-size: 100px 100px;
+    @media #{$medium-up} {
+      display: block;
+    }
   }
 
   p {
     margin: 0;
   }
 
-  .left {
-    float: left;
-    width: 300px;
-    padding-left: 70px;
+  .row {
+    @extend %clearfix;
   }
 
-  .right {
-    margin-left: 390px;
+  @media #{$medium-up} {
+    .left {
+      float: left;
+      width: 300px;
+      padding-left: 70px;
+    }
+
+    .right {
+      margin-left: 390px;
+    }
   }
 
   .img {
     padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    @media #{$medium-up} {
+      margin-bottom: 0;
+    }
     img {
       width: 270px;
       height: 270px;
@@ -156,7 +175,10 @@
     border-left: 3px solid $primary-color;
     padding-left: 20px;
     font-size: 1.1em;
-
+    margin-bottom: 40px;
+    @media #{$medium-up} {
+      margin-bottom: 0;
+    }
     ul {
       list-style: none;
       margin: 0;
@@ -168,15 +190,15 @@
   }
 
   $height-title: 58px;
-  .title-container {
-    min-height: 240px;
-    .title {
-      padding-bottom: 50px;
-      text-align: right;
-      font-size: 4em;
-      line-height: $height-title;
-      background-image: linear-gradient(transparent $height-title - 4, $primary-color $height-title, transparent $height-title);
-      background-size: 100% $height-title;
+  .title {
+    text-align: right;
+    font-size: 4em;
+    line-height: $height-title;
+    background-image: linear-gradient(transparent $height-title - 4, $primary-color $height-title, transparent $height-title);
+    background-size: 100% $height-title;
+    margin-bottom: 40px;
+    @media #{$medium-up} {
+      margin-bottom: 80px;
     }
   }
 
@@ -187,6 +209,9 @@
     line-height: $height-txt;
     background-image: linear-gradient(transparent $height-txt - 2, $primary-color $height-txt, transparent $height-txt);
     background-size: 100% $height-txt;
+    @media #{$medium-up} {
+      margin-top: -50px;
+    }
   }
 }
 

@@ -44,7 +44,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
 
     $scope.message = false;
 
-    $scope.tab = "gamer";
+    $scope.tab = "schedule";
     $scope.tabs = function (tab) {
         $scope.tab = tab;
     };
@@ -87,20 +87,6 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
     }).catch(function () {
         $scope.message = "Unauthorized";
     });
-
-    $scope.$watch('schedules', function (newValue, oldValue, scope) {
-        if (!angular.equals(scope.schedules, scope.schedulesCopy)) {
-            scope.message = "Modification non sauvegardé.";
-        } else {
-            scope.message = false;
-        }
-    }, true);
-
-    window.onbeforeunload = function () {
-        if (!angular.equals($scope.schedules, $scope.schedulesCopy)) {
-            return true;
-        }
-    };
 
     $scope.submitSchedule = function () {
         api.admin({
@@ -263,5 +249,31 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         }).catch(function (data) {
             $scope.message = data.statusText;
         });
+    };
+
+    // watcher
+    $scope.$watch('schedules', function (newValue, oldValue, scope) {
+        if (!angular.equals(scope.schedules, scope.schedulesCopy)) {
+            scope.message = "Modification non sauvegardé.";
+        } else {
+            scope.message = false;
+        }
+    }, true);
+
+    $scope.$watch('gamers', function (newValue, oldValue, scope) {
+        if (!angular.equals(scope.gamers, scope.gamersCopy)) {
+            scope.message = "Modification non sauvegardé.";
+        } else {
+            scope.message = false;
+        }
+    }, true);
+
+    window.onbeforeunload = function () {
+        if (!angular.equals($scope.schedules, $scope.schedulesCopy)) {
+            return true;
+        }
+        if (!angular.equals($scope.gamers, $scope.gamersCopy)) {
+            return true;
+        }
     };
 });

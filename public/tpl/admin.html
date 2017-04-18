@@ -3,7 +3,7 @@
     <h1>Administration</h1>
     <div class="buttons">
         <input type="button" value="Programme" class="button" ng-click="tabs('schedule')" />
-        <input type="button" value="Les recettes du gamer" class="button" ng-click="tabs('gamer')" />
+        <input type="button" value="Les Recettes du Gamer" class="button" ng-click="tabs('gamer')" />
         <input type="button" value="Déconnexion" class="button" ng-click="logout()" />
     </div>
 
@@ -60,7 +60,7 @@
     </div>
     
     <div ng-show="tab == 'gamer'">
-        <h2>Les recettes du gamer</h2>
+        <h2>Les Recettes du Gamer</h2>
         <div class="form">
             <select ng-model="currentGamer">
                 <option ng-repeat="gamer in gamers" ng-value="gamer">{{ gamer.title }}</option>
@@ -70,14 +70,21 @@
         </div>
 
         <div class="image">
-            <span>Image JPG 400x400</span>
-            <input type="file" name="file" id="file"  />
-            <input type="button" value="Envoyer" class="button" ng-click="addImage()" />
+            <div>Liste des images disponibles : </div>
             <ul>
                 <li ng-repeat="image in images">
-                    <img ng-src="{{ image }}"  ng-click="setImage(image)" ng-right-click="removeImage(image)" />
+                    <img ng-src="{{ image }}" ng-click="setImage(image)" ng-right-click="removeImage(image)" />
                 </li>
             </ul>
+            <span>Ajouter une image :</span>
+            <input type="file" name="file" id="file"  />
+            <input type="button" value="Envoyer" class="button" ng-click="addImage()" />
+            <div class="legend">
+                L'image envoyée doit être un JPG.
+                L'image sera automatiquement redimensionné en 400x400 si la taille est différente.<br/>
+                Click gauche pour attribuer une image à la recette.
+                Click droit pour supprimer une image de la liste.
+            </div>
         </div>
 
         <h2>Edition</h2>
@@ -89,14 +96,18 @@
 
         <div class="recipe">
             <div class="circle"></div>
+            <div class="row">
+                <div class="left">
+                    <div class="img"><img src="{{ currentGamer.img }}" /></div>
+                </div>
+                <div class="right">
+                    <div class="title editor" contenteditable ng-model="currentGamer.title"></div>
+                </div>
+            </div>
             <div class="left">
-                <div class="img"><img src="{{ currentGamer.img }}" /></div>
                 <div class="ingredients editor" contenteditable ng-model="currentGamer.ingredients"></div>
             </div>
             <div class="right">
-                <div class="title-container">
-                    <div class="title editor" contenteditable ng-model="currentGamer.title"></div>
-                </div>
                 <div class="txt editor" contenteditable ng-model="currentGamer.txt"></div>
             </div>
         </div>

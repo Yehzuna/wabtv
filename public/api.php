@@ -15,6 +15,7 @@ class Api {
 $hashs = [
     "1d6d8e73586dd01799515673e1c0ff0f",
     "5b27a498ffbed9a31dff1dc1701e3eff",
+    "399bf504c45049550b551d903487abe6",
 ];
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {

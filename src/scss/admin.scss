@@ -44,17 +44,21 @@
 
   .image {
     @extend %clearfix;
-    span {
-      display: block;
+    .legend {
+      font-family: 'gothamlight', sans-serif;
+      margin-top: 10px;
     }
     img {
       display: block;
       width: 50px;
+      cursor: pointer;
     }
     ul {
       list-style: none;
-      margin: 0;
+      margin: 10px 0;
       padding: 0;
+      background-color: #ccc;
+      @extend %clearfix;
       li {
         display: block;
         margin: 5px;
