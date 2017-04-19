@@ -3,102 +3,155 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
+/**
+ * Class Api
+ */
 class Api
 {
+    /**
+     *
+     */
     const HASH = [
         "1d6d8e73586dd01799515673e1c0ff0f",
         "5b27a498ffbed9a31dff1dc1701e3eff",
         "399bf504c45049550b551d903487abe6",
     ];
 
+    /**
+     *
+     */
+    const PATH = "data/";
+
+    /**
+     * Api constructor.
+     */
     public function __construct()
     {
         if ($_SERVER["REQUEST_METHOD"] != "POST") {
-            $this->response("HTTP/1.0 401 Unauthorized");
+            $this->response(401, "Unauthorized");
         }
 
         $request = file_get_contents("php://input");
         if ($json = json_decode($request, true)) {
             if (!isset($json["hash"]) || !in_array($json["hash"], self::HASH)) {
-                $this->response("HTTP/1.0 401 Unauthorized");
+                $this->response(401, "Unauthorized");
             }
 
-            if (method_exists("Api", $json["action"])) {
-                $this->$json["action"]($json["data"]);
+            $action = $json["action"];
+            if (method_exists("Api", $action)) {
+                if(isset($json["data"])) {
+                    $this->$action($json["data"]);
+                } else {
+                    $this->$action();
+                }
             } else {
-                $this->response("HTTP/1.0 400 Bad Request");
+                $this->response(400, "Bad Request");
             }
         }
 
-        $this->response("HTTP/1.0 401 Unauthorized");
+        $this->response(401, "Unauthorized");
     }
 
+    /**
+     *
+     */
     private function login()
     {
-        $this->response("HTTP/1.0 200 Ok");
+        $this->response(200, "Ok");
     }
 
+    /**
+     *
+     */
     private function images()
     {
-        echo $this->scanImage("data/");
+        echo $this->scanImage(self::PATH);
 
-        $this->response("HTTP/1.0 200 Ok");
+        $this->response(200, "Ok");
     }
 
+    /**
+     * @param $data
+     */
     private function file($data)
     {
-        $imgPath = "data/" . time() . ".jpg";
+        $imgPath = self::PATH . time() . ".jpg";
+
         $imgData = str_replace(" ", "+", $data);
         $imgData = substr($imgData, strpos($imgData, ",") + 1);
         $imgData = base64_decode($imgData);
 
         if (!file_put_contents($imgPath, $imgData)) {
-            $this->response("HTTP/1.0 500 Internal Server Error");
+            $this->response(500, "Internal Server Error");
         }
 
         if (exif_imagetype($imgPath) != IMAGETYPE_JPEG) {
-            $this->response("HTTP/1.0 400 Invalid image type");
+            unlink($imgPath);
+
+            $this->response(400, "Invalid image type");
         }
 
-        $this->resizeImage($imgPath, 400, 400);
+        if ($this->resizeImage($imgPath, 400, 400)) {
+            unlink($imgPath);
+
+            $this->response(400, "Invalid image");
+        }
 
         $this->images();
     }
 
+    /**
+     * @param $data
+     */
     private function remove($data)
     {
         if (!unlink($data)) {
-            $this->response("HTTP/1.0 500 Internal Server Error");
+            $this->response(500, "Internal Server Error");
         }
 
         $this->images();
     }
 
+    /**
+     * @param $data
+     */
     private function schedule($data)
     {
-        if (!file_put_contents("data/schedule.json", json_encode($data))) {
-            $this->response("HTTP/1.0 500 Internal Server Error");
+        if (!file_put_contents(self::PATH . "schedule.json", json_encode($data))) {
+            $this->response(500, "Internal Server Error");
         }
 
-        $this->response("HTTP/1.0 204 No Content");
+        $this->response(204, "No Content");
     }
 
+    /**
+     * @param $data
+     */
     private function gamer($data)
     {
-        if (!file_put_contents("data/gamer.json", json_encode($data))) {
-            $this->response("HTTP/1.0 500 Internal Server Error");
+        if (!file_put_contents(self::PATH . "gamer.json", json_encode($data))) {
+            $this->response(500, "Internal Server Error");
         }
 
-        $this->response("HTTP/1.0 204 No Content");
+        $this->response(204, "No Content");
     }
 
-
-    private function response($header)
+    /**
+     * @param $code
+     * @param $status
+     */
+    private function response($code, $status)
     {
-        header($header);
+        header("HTTP/1.0 $code $status");
         exit;
     }
 
+    /**
+     * @param $source_file
+     * @param $max_width
+     * @param $max_height
+     * @return bool
+     */
     private function resizeImage($source_file, $max_width, $max_height)
     {
         list($width, $height) = getimagesize($source_file);
@@ -122,6 +175,10 @@ class Api
         return imagejpeg($dst_img, $source_file, 100);
     }
 
+    /**
+     * @param $dir
+     * @return string
+     */
     private function scanImage($dir)
     {
         $dh = opendir($dir);
@@ -136,79 +193,4 @@ class Api
     }
 }
 
-
-$request = file_get_contents("php://input");
-if ($data = json_decode($request, true)) {
-
-
-    if (isset($data["login"])) {
-        header("HTTP/1.0 200 Ok");
-        exit;
-    }
-
-    if (isset($data["images"])) {
-        echo scan_image("data/");
-        header("HTTP/1.0 200 Ok");
-        exit;
-    }
-
-    if (isset($data["file"])) {
-        $imgPath = "data/" . time() . ".jpg";
-        $imgData = str_replace(" ", "+", $data["file"]);
-        $imgData = substr($imgData, strpos($imgData, ",") + 1);
-        $imgData = base64_decode($imgData);
-
-        if (!file_put_contents($imgPath, $imgData)) {
-            header("HTTP/1.0 500 Internal Server Error");
-            exit;
-        }
-
-        if (exif_imagetype($imgPath) != IMAGETYPE_JPEG) {
-            header("HTTP/1.0 400 Invalid image type");
-            exit;
-        }
-
-        resize_image($imgPath, 400, 400);
-
-        echo scan_image("data/");
-        header("HTTP/1.0 200 Ok");
-        exit;
-    }
-
-    if (isset($data["remove"])) {
-        if (@unlink($data["remove"])) {
-            echo scan_image("data/");
-            header("HTTP/1.0 200 Ok");
-            exit;
-        }
-
-        header("HTTP/1.0 500 Internal Server Error");
-        exit;
-    }
-
-    if (isset($data["schedule"])) {
-        if (!file_put_contents("data/schedule.json", json_encode($data["schedule"]))) {
-            header("HTTP/1.0 500 Internal Server Error");
-            exit;
-        }
-
-        header("HTTP/1.0 204 No Content");
-        exit;
-    }
-
-    if (isset($data["gamer"])) {
-        if (!file_put_contents("data/gamer.json", json_encode($data["gamer"]))) {
-            header("HTTP/1.0 500 Internal Server Error");
-            exit;
-        }
-
-        header("HTTP/1.0 204 No Content");
-        exit;
-    }
-
-    header("HTTP/1.0 400 Bad Request");
-    exit;
-}
-
-header("HTTP/1.0 401 Unauthorized");
-exit;
+$api = new Api();

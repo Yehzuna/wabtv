@@ -92,6 +92,11 @@
         <div class="buttons">
             <input type="button" value="Valider" class="button" ng-click="submitGamer()" />
             <input type="button" value="Bold" class="button" ng-click="bold($event)" />
+
+            <div class="active">
+                <input type="checkbox" id="active" ng-model="currentGamer.active">
+                <label for="active">Rendre la recette public ?</label>
+            </div>
         </div>
 
         <div class="recipe">

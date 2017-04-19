@@ -4,10 +4,7 @@ Site public http://wearebobtv.com/
 
 ## TODO
 - delete special carac. html (&nbsb;) des titres
-- refacto api.php to class
-- Remettre l'animation de la page recette du gamer
 - Playlists Homepage & Replay
-- Recette du gamer
  
 ## Changelog
 ### V1.1.0

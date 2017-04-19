@@ -8,10 +8,12 @@ app.controller('gamerCtrl', function ($rootScope, $scope, $sce, api) {
             data.txt = $sce.trustAsHtml(data.txt);
             data.ingredients = $sce.trustAsHtml(data.ingredients);
 
-            rows.push(data);
-            if(rows.length == 2) {
-                $scope.data.push(rows);
-                rows = [];
+            if (data.active) {
+                rows.push(data);
+                if (rows.length == 2) {
+                    $scope.data.push(rows);
+                    rows = [];
+                }
             }
         });
 

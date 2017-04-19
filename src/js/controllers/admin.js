@@ -22,7 +22,7 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, api) {
 
         api.admin({
             hash: hash.toString(),
-            login: true
+            action: 'login'
         }).then(function () {
             sessionStorage.setItem('WabTvHash', hash);
             $location.path('admin');
@@ -91,7 +91,8 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
     $scope.submitSchedule = function () {
         api.admin({
             hash: hash,
-            schedule: $scope.schedules
+            action: 'schedule',
+            data: $scope.schedules
         }).then(function () {
             $scope.message = false;
             angular.copy($scope.schedules, $scope.schedulesCopy);
@@ -153,7 +154,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
     $scope.images = [];
     api.admin({
         hash: hash,
-        images: true
+        action: 'images'
     }).then(function (response) {
         $scope.images = response.data;
     }).catch(function () {
@@ -180,7 +181,8 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
 
         api.admin({
             hash: hash,
-            gamer: $scope.gamers
+            action: 'gamer',
+            data: $scope.gamers
         }).then(function () {
             $scope.message = false;
             angular.copy($scope.gamers, $scope.gamersCopy);
@@ -191,24 +193,28 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
 
     $scope.new = function () {
         $scope.gamers.push({
-            "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+            "id": Date.now(),
+            "active": false,
+            "title": "Lorem ipsum dolor sit amet",
             "img": "",
             "ingredients": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
             "txt": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit"
         });
+
         $scope.submitGamer();
     };
 
     $scope.delete = function () {
-        if(!confirm("Supprimer définitivement la recette" + $scope.currentGamer.title + " ?")) {
+        if (!confirm("Supprimer définitivement la recette" + $scope.currentGamer.title + " ?")) {
             return false;
         }
 
         angular.forEach($scope.gamers, function (data, index) {
-            if(data.title == $scope.currentGamer.title) {
+            if (data.id === $scope.currentGamer.id) {
                 $scope.gamers.splice(index, 1);
             }
         });
+
         $scope.submitGamer();
     };
 
@@ -219,10 +225,12 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
     $scope.addImage = function () {
         var file = document.getElementById('file');
         var reader = new FileReader();
+
         reader.onloadend = function (e) {
             api.admin({
                 hash: hash,
-                file: e.target.result
+                action: 'file',
+                data: e.target.result
             }).then(function (response) {
                 $scope.message = false;
                 $scope.images = response.data;
@@ -232,17 +240,19 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
                 file.value = "";
             });
         };
+
         reader.readAsDataURL(file.files[0]);
     };
 
     $scope.removeImage = function (img) {
-        if(!confirm("Supprimer définitivement l'image ?")) {
+        if (!confirm("Supprimer définitivement l'image ?")) {
             return false;
         }
 
         api.admin({
             hash: hash,
-            remove: img
+            action: 'remove',
+            data: img
         }).then(function (response) {
             $scope.message = false;
             $scope.images = response.data;

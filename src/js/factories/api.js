@@ -3,7 +3,6 @@ app.factory('api', function ($http) {
     var time = Date.now();
 
     api.schedule = function () {
-
         return $http.get("data/schedule.json?" + time);
     };
 

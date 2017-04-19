@@ -67,6 +67,11 @@
     }
   }
 
+  .active {
+    float: right;
+    cursor: pointer;
+  }
+
   .recipe {
     display: block;
     max-width: none;
