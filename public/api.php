@@ -1,15 +1,12 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-
 /**
  * Class Api
  */
 class Api
 {
     /**
-     *
+     * List of valid hash.
      */
     const HASH = [
         "1d6d8e73586dd01799515673e1c0ff0f",
@@ -18,7 +15,7 @@ class Api
     ];
 
     /**
-     *
+     * Data path.
      */
     const PATH = "data/";
 
@@ -39,7 +36,7 @@ class Api
 
             $action = $json["action"];
             if (method_exists("Api", $action)) {
-                if(isset($json["data"])) {
+                if (isset($json["data"])) {
                     $this->$action($json["data"]);
                 } else {
                     $this->$action();
@@ -53,7 +50,7 @@ class Api
     }
 
     /**
-     *
+     * Login confirmation.
      */
     private function login()
     {
@@ -61,7 +58,7 @@ class Api
     }
 
     /**
-     *
+     * List all data images.
      */
     private function images()
     {
@@ -71,7 +68,8 @@ class Api
     }
 
     /**
-     * @param $data
+     * Upload an image.
+     * @param string $data
      */
     private function file($data)
     {
@@ -101,7 +99,8 @@ class Api
     }
 
     /**
-     * @param $data
+     * Delete an image.
+     * @param string $data
      */
     private function remove($data)
     {
@@ -113,7 +112,8 @@ class Api
     }
 
     /**
-     * @param $data
+     * Update the schedule json.
+     * @param array $data
      */
     private function schedule($data)
     {
@@ -125,7 +125,8 @@ class Api
     }
 
     /**
-     * @param $data
+     * Update the gamer json.
+     * @param array $data
      */
     private function gamer($data)
     {
@@ -137,8 +138,9 @@ class Api
     }
 
     /**
-     * @param $code
-     * @param $status
+     * Send the response.
+     * @param int $code
+     * @param string $status
      */
     private function response($code, $status)
     {
@@ -147,9 +149,10 @@ class Api
     }
 
     /**
-     * @param $source_file
-     * @param $max_width
-     * @param $max_height
+     * Resize an image.
+     * @param string $source_file
+     * @param int $max_width
+     * @param int $max_height
      * @return bool
      */
     private function resizeImage($source_file, $max_width, $max_height)
@@ -176,7 +179,8 @@ class Api
     }
 
     /**
-     * @param $dir
+     * List all data images.
+     * @param string $dir
      * @return string
      */
     private function scanImage($dir)
