@@ -113,16 +113,16 @@ module.exports = function(grunt) {
 
     grunt.registerTask('dev', [
         'clean',
-        'compass:dev',
         'copy',
+        'compass:dev',
         'ngAnnotate',
         'concat'
     ]);
 
     grunt.registerTask('prod', [
         'clean',
-        'compass:prod',
         'copy',
+        'compass:prod',
         'ngAnnotate',
         'concat',
         'uglify'
