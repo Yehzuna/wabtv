@@ -108,7 +108,7 @@ h1 {
   }
   .body {
     @media #{$medium-up} {
-      min-height: 600px;
+      min-height: 400px;
     }
   }
 }

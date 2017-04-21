@@ -160,18 +160,10 @@
     }
     @media #{$medium-up} {
       height: 36px;
-      width: 50%;
-      margin: 0;
-      float: left;
+      margin: 0 300px 0 0;
       &.large .title {
         line-height: 36px;
       }
-    }
-    @media #{$large-up} {
-      width: 60%;
-    }
-    @media #{$xlarge-up} {
-      width: 70%;
     }
     .title {
       font-size: 1em;
@@ -196,14 +188,8 @@
     display: none;
     @media #{$medium-up} {
       display: block;
-      width: 50%;
-      float: left;
-    }
-    @media #{$large-up} {
-      width: 40%;
-    }
-    @media #{$xlarge-up} {
-      width: 30%;
+      width: 300px;
+      float: right;
     }
     .button {
       float: right;
