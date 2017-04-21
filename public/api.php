@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 /**
  * Class Api
  */
@@ -89,10 +92,10 @@ class Api
             $this->response(400, "Invalid image type");
         }
 
-        if ($this->resizeImage($imgPath, 400, 400)) {
+        if (!$this->resizeImage($imgPath, 400, 400)) {
             unlink($imgPath);
 
-            $this->response(400, "Invalid image");
+            $this->response(400, "Invalid image resize");
         }
 
         $this->images();
