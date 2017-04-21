@@ -3,8 +3,9 @@
 Site public http://wearebobtv.com/
 
 ## TODO
-- delete special carac. html (&nbsb;) des titres
 - Playlists Homepage & Replay
+- Hi-res Studio page
+- Programme par heure
  
 ## Changelog
 ### V1.1.0
