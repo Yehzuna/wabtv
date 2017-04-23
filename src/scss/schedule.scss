@@ -15,8 +15,8 @@
   @extend %clearfix;
 
   &.export {
-    width: 1260px;
-    height: 840px;
+    width: 1280px;
+    height: 1024px;
     margin: 0;
     .column {
       width: 180px;
@@ -93,18 +93,21 @@
       }
     }
 
+    .day-column {
+      height: 720px;
+      position: relative;
+    }
+
     .slot {
       border-left: 3px solid $border-color;
       border-right: 3px solid $border-color;
-
-      position: relative;
-      height: 150px;
+      width: 100%;
       padding: 2px 4px;
       box-sizing: border-box;
       .placeholder {
         display: table;
-        height: 146px;
         width: 100%;
+        height: 100%;
         border-radius: 10px;
         box-sizing: border-box;
         background: $schedule-slot-background;
@@ -147,16 +150,6 @@
         left: 5px;
         display: none;
         font-family: 'gothamlight', sans-serif;
-      }
-    }
-
-    .slot-large {
-      height: 600px;
-      .placeholder {
-        height: 596px;
-      }
-      .hour {
-        display: none;
       }
     }
   }

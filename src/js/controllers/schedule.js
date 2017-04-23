@@ -4,15 +4,19 @@ app.controller('scheduleCtrl', function ($rootScope, $scope, api) {
     var dt = new Date();
     $scope.currentDay = dt.getDate();
 
+
     $scope.schedules = [];
     api.schedule().then(function (response) {
         angular.forEach(response.data, function(data) {
             data.date = new Date(data.date);
             data.currentDay = data.date.getDate();
 
+
             $scope.schedules.push(data);
         });
     });
+    console.log($scope.schedules);
+
     
     $scope.export = function () {
         ga('send', 'event', 'WabTV', 'Schedule', 'Export');

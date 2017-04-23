@@ -1,1 +1,135 @@
-[{"day":"Lundi","allDay":false,"date":"2017-04-02T23:00:00.000Z","slots":[{"streamer":"","show":"default","title":"","hour":"14:00"},{"streamer":"","show":"default","title":"LE JEU AU TITRE MOISI\n\nplayerunknown's battlegrounds","hour":"20:00"},{"streamer":"","show":"default","title":"LE JEU AU TITRE MOISI\n\nplayerunknown's battlegrounds","hour":"22:00"},{"streamer":"","show":"default","title":"TRAINING IN LOL:\nobjectif \/MASTER","hour":"00:00"}]},{"day":"Mardi","allDay":false,"date":"2017-04-03T23:00:00.000Z","slots":[{"streamer":"","show":"default","title":"","hour":"14:00"},{"streamer":"BOBLEGOB","show":"default","title":"PREPARE TO DIE :\nDARK SOUL III","hour":"20:00"},{"streamer":"BOBLEGOB","show":"default","title":"PREPARE TO DIE :\nDARK SOUL III","hour":"22:00"},{"streamer":"BOBLEGOB","show":"default","title":"TRAINING IN LOL \nobjectif \/MASTER","hour":"00:00"}]},{"day":"Mercredi","allDay":false,"date":"2017-04-03T23:00:00.000Z","slots":[{"streamer":"","show":"default","title":"","hour":"14:00"},{"streamer":"BOBLEGOB","show":"default","title":"LES BREVES DU CAPTAIN DRAMA","hour":"20:00"},{"streamer":"BOBLEGOB","show":"default","title":"BOB LE BRICOLEUR\n VS\nL'AEROGRAPHE\n(le new du  set up)","hour":"22:00"},{"streamer":"BOBLEGOB","show":"default","title":"TRAINING IN LOL :\nobjectif \/MASTER","hour":"00:00"}]},{"day":"Jeudi","allDay":false,"date":"2017-04-05T23:00:00.000Z","slots":[{"streamer":"","show":"default","title":"","hour":"14:00"},{"streamer":"BOBLEGOB","show":"default","title":"O'MEGA BOB SHOW \nSPARADRA\nTONTON ARTHEON","hour":"20:00"},{"streamer":"BOBLEGOB","show":"default","title":"O'MEGA BOB SHOW \nSPARADRA\nTONTON ARTHEON","hour":"22:00"},{"streamer":"BOBLEGOB","show":"default","title":"O'MEGA BOB SHOW \nSPARADRA\nTONTON ARTHEON","hour":"00:00"}]},{"day":"Vendredi","allDay":true,"date":"2017-04-06T23:00:00.000Z","slots":[{"streamer":"","show":"default","title":"INSTALLATION  NOUVEAU \nSET-UP SON\n&\nTEST EN LIVE","hour":"14:00"}]},{"day":"Samedi","allDay":true,"date":"2017-04-07T23:00:00.000Z","slots":[{"streamer":"","show":"default","title":"TV OFF \nPAS DE LIVE","hour":"14:00"}]},{"day":"Dimanche","allDay":false,"date":"2017-04-01T23:00:00.000Z","slots":[{"streamer":"","show":"default","title":"","hour":"14:00"},{"streamer":"BOBLEGOB","show":"default","title":"TEST.EXE \nAVEC\nNOTDJEY","hour":"20:00"},{"streamer":"BOBLEGOB","show":"default","title":"TEST.EXE \nAVEC\nNOTDJEY","hour":"22:00"},{"streamer":"BOBLEGOB","show":"default","title":"TRAINING IN LOL \nobjectif \/MASTER","hour":"00:00"}]}]
+[
+  {
+    "day": "Lundi",
+    "allDay": false,
+    "date": "2017-04-02T23:00:00.000Z",
+    "slots": [
+      {
+        "streamer": "",
+        "show": "default",
+        "title": "LE JEU AU TITRE MOISI\n\nplayerunknown's battlegrounds",
+        "start": "20:00",
+        "end": "00:00"
+      },
+      {
+        "streamer": "",
+        "show": "default",
+        "title": "TRAINING IN LOL:\nobjectif \/MASTER",
+        "start": "00:00",
+        "end": "02:00"
+      }
+    ]
+  },
+  {
+    "day": "Mardi",
+    "allDay": false,
+    "date": "2017-04-03T23:00:00.000Z",
+    "slots": [
+      {
+        "streamer": "BOBLEGOB",
+        "show": "default",
+        "title": "PREPARE TO DIE :\nDARK SOUL III",
+        "start": "20:00",
+        "end": "00:00"
+      },
+      {
+        "streamer": "BOBLEGOB",
+        "show": "default",
+        "title": "TRAINING IN LOL \nobjectif \/MASTER",
+        "start": "00:00",
+        "end": "02:00"
+      }
+    ]
+  },
+  {
+    "day": "Mercredi",
+    "allDay": false,
+    "date": "2017-04-03T23:00:00.000Z",
+    "slots": [
+      {
+        "streamer": "BOBLEGOB",
+        "show": "default",
+        "title": "LES BREVES DU CAPTAIN DRAMA",
+        "start": "20:00",
+        "end": "22:00"
+      },
+      {
+        "streamer": "BOBLEGOB",
+        "show": "default",
+        "title": "BOB LE BRICOLEUR\n VS\nL'AEROGRAPHE\n(le new du  set up)",
+        "start": "22:00",
+        "end": "00:00"
+      },
+      {
+        "streamer": "BOBLEGOB",
+        "show": "default",
+        "title": "TRAINING IN LOL :\nobjectif \/MASTER",
+        "start": "00:00",
+        "end": "02:00"
+      }
+    ]
+  },
+  {
+    "day": "Jeudi",
+    "allDay": false,
+    "date": "2017-04-05T23:00:00.000Z",
+    "slots": [
+      {
+        "streamer": "BOBLEGOB",
+        "show": "default",
+        "title": "O'MEGA BOB SHOW \nSPARADRA\nTONTON ARTHEON",
+        "start": "20:00",
+        "end": "02:00"
+      }
+    ]
+  },
+  {
+    "day": "Vendredi",
+    "allDay": true,
+    "date": "2017-04-06T23:00:00.000Z",
+    "slots": [
+      {
+        "streamer": "",
+        "show": "default",
+        "title": "INSTALLATION  NOUVEAU \nSET-UP SON\n&\nTEST EN LIVE",
+        "start": "00:00",
+        "end": "00:00"
+      }
+    ]
+  },
+  {
+    "day": "Samedi",
+    "allDay": true,
+    "date": "2017-04-07T23:00:00.000Z",
+    "slots": [
+      {
+        "streamer": "",
+        "show": "default",
+        "title": "TV OFF \nPAS DE LIVE",
+        "start": "00:00",
+        "end": "00:00"
+      }
+    ]
+  },
+  {
+    "day": "Dimanche",
+    "allDay": false,
+    "date": "2017-04-01T23:00:00.000Z",
+    "slots": [
+      {
+        "streamer": "BOBLEGOB",
+        "show": "default",
+        "title": "TEST.EXE \nAVEC\nNOTDJEY",
+        "start": "20:00",
+        "end": "00:00"
+      },
+      {
+        "streamer": "BOBLEGOB",
+        "show": "default",
+        "title": "TRAINING IN LOL \nobjectif \/MASTER",
+        "start": "00:00",
+        "end": "02:00"
+      }
+    ]
+  }
+]
