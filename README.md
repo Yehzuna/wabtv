@@ -3,6 +3,13 @@
 Site public http://wearebobtv.com/
 
 ## TODO
+- Admin player
+- Server access
+- Vérifier le scroll
+
+- BOT Twitch
+- Publicité
+
 - Playlists Homepage & Replay
 - Hi-res Studio page
 - Programme par heure
