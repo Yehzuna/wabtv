@@ -54,6 +54,83 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         $location.path('login');
     };
 
+    // config
+    $scope.playerType = [
+        "twitch",
+        "youtube"
+    ];
+    $scope.config = {
+        'players': []
+    };
+    $scope.configCopy = {
+        'players': []
+    };
+
+    api.config().then(function (response) {
+        $scope.config = response.data;
+
+        angular.copy($scope.config, $scope.configCopy);
+    }).catch(function () {
+        $scope.message = "Unauthorized";
+    });
+
+    $scope.deletePlayer = function (player) {
+        if (!confirm("Supprimer définitivement le player " + player.alias + " ?")) {
+            return false;
+        }
+
+        angular.forEach($scope.config.players, function (data, index) {
+            if (data.id === player.id && data.alias === player.alias) {
+                $scope.config.players.splice(index, 1);
+            }
+        });
+    };
+
+    $scope.addPlayer = function () {
+        $scope.config.players.push({
+            "alias": "LOREM",
+            "type": "twirch",
+            "id": "",
+            "title": "",
+            "active": false
+        });
+    };
+
+    $scope.submitConfig = function () {
+        console.log($scope.config);
+
+        if ($scope.config.players.length === 0) {
+            $scope.message = "Le site doit avoir au moins un player actif.";
+            return false;
+        }
+
+        var active = 0;
+        angular.forEach($scope.config.players, function (player) {
+            if (player.active) {
+                active++;
+            }
+        });
+
+        if (active !== 1) {
+            $scope.message = "Le site doit avoir un player actif.";
+            return false;
+        }
+
+        /*
+        api.admin({
+            hash: hash,
+            action: 'config',
+            data: $scope.config
+        }).then(function () {
+            $scope.message = false;
+            angular.copy($scope.config, $scope.configCopy);
+        }).catch(function (data) {
+            $scope.message = data.statusText;
+        });*/
+    };
+
+
+
 
     // schedule
     $scope.shows = {
@@ -191,7 +268,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         });
     };
 
-    $scope.new = function () {
+    $scope.newGamer = function () {
         $scope.gamers.push({
             "id": Date.now(),
             "active": false,
@@ -204,7 +281,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         $scope.submitGamer();
     };
 
-    $scope.delete = function () {
+    $scope.deleteGamer = function () {
         if (!confirm("Supprimer définitivement la recette" + $scope.currentGamer.title + " ?")) {
             return false;
         }

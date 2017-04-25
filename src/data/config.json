@@ -1,7 +1,18 @@
 {
-  "player": {
-    "type": "youtube",
-    "title": "Live Youtube",
-    "id": "youtube"
-  }
+  "players": [
+    {
+      "alias": "WABTV",
+      "type": "twitch",
+      "id": "weareb0b",
+      "title": "WABTV",
+      "active": true
+    },
+    {
+      "alias": "COMMIS",
+      "type": "youtube",
+      "id": "wI5OaYbWRZo",
+      "title": "COMMIS",
+      "active": false
+    }
+  ]
 }

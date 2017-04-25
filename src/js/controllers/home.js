@@ -14,7 +14,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
         var config = response.data;
         $scope.data.title = config.player.title;
 
-        if (config.player.type == "youtube") {
+        if (config.player.type === "youtube") {
             $scope.loadYoutube("wI5OaYbWRZo");
         } else {
             $scope.initTwitch("weareb0b");
@@ -50,7 +50,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
         api.highlight().then(function (response) {
             angular.forEach(response.data, function (id, index) {
                 dailymotion.video(id).then(function (response) {
-                    if (index == 0) {
+                    if (index === 0) {
                         $scope.loadDailymotion(response.data.id, false);
                     }
 
