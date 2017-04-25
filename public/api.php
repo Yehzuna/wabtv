@@ -115,6 +115,19 @@ class Api
     }
 
     /**
+     * Update the config json.
+     * @param array $data
+     */
+    private function config($data)
+    {
+        if (!file_put_contents(self::PATH . "config.json", json_encode($data))) {
+            $this->response(500, "Internal Server Error");
+        }
+
+        $this->response(204, "No Content");
+    }
+
+    /**
      * Update the schedule json.
      * @param array $data
      */

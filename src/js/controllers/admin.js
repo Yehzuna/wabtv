@@ -88,8 +88,8 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
 
     $scope.addPlayer = function () {
         $scope.config.players.push({
-            "alias": "LOREM",
-            "type": "twirch",
+            "alias": "Lorem",
+            "type": "twitch",
             "id": "",
             "title": "",
             "active": false
@@ -116,7 +116,6 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
             return false;
         }
 
-        /*
         api.admin({
             hash: hash,
             action: 'config',
@@ -126,7 +125,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
             angular.copy($scope.config, $scope.configCopy);
         }).catch(function (data) {
             $scope.message = data.statusText;
-        });*/
+        });
     };
 
 
@@ -355,11 +354,22 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         }
     }, true);
 
+    $scope.$watch('config', function (newValue, oldValue, scope) {
+        if (!angular.equals(scope.config, scope.configCopy)) {
+            scope.message = "Modification non sauvegardé.";
+        } else {
+            scope.message = false;
+        }
+    }, true);
+
     window.onbeforeunload = function () {
         if (!angular.equals($scope.schedules, $scope.schedulesCopy)) {
             return true;
         }
         if (!angular.equals($scope.gamers, $scope.gamersCopy)) {
+            return true;
+        }
+        if (!angular.equals($scope.config, $scope.configCopy)) {
             return true;
         }
     };

@@ -1,10 +1,10 @@
 app.factory('twitch', function ($http) {
     var data = {};
 
-    data.online = function () {
+    data.online = function (key) {
         return $http({
             method: "GET",
-            url: "https://api.twitch.tv/kraken/streams/89890241",
+            url: "https://api.twitch.tv/kraken/streams/" + key,
             headers: {
                 'Accept': 'application/vnd.twitchtv.v5+json',
                 'Client-ID': '197bhr3oauxte1y5titkaq8ggq8ih9h'

@@ -6,6 +6,7 @@ Site public http://wearebobtv.com/
 - Admin player
 - Server access
 - Vérifier le scroll
+- client_id user_id ?
 
 - BOT Twitch
 - Publicité

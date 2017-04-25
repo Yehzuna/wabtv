@@ -17,19 +17,17 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
                 config = data;
             }
         });
-        console.log(config);
-
         $scope.data.title = config.title;
 
         if (config.type === "youtube") {
-            $scope.loadYoutube(config.id);
+            $scope.loadYoutube(config.key);
         } else {
-            $scope.initTwitch(config.id);
+            $scope.initTwitch(config.key, config.id);
         }
     });
 
-    $scope.initTwitch = function (id) {
-        twitch.online().then(function (response) {
+    $scope.initTwitch = function (key, id) {
+        twitch.online(id).then(function (response) {
             $scope.loading = false;
 
             if (response.data.stream) {
@@ -37,7 +35,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
                 $scope.data.title = response.data.stream.channel.status;
 
                 $scope.player = true;
-                $scope.loadTwitch(id);
+                $scope.loadTwitch(key);
             } else {
                 $scope.highlight = true;
                 $scope.initHighlight();
@@ -70,16 +68,16 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
         });
     };
 
-    $scope.loadYoutube = function (id) {
-        document.getElementById('player_iframe').src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
-        document.getElementById('chat').src = "https://www.youtube.com/live_chat?v=" + id + "&embed_domain=wab.local";
+    $scope.loadYoutube = function (key) {
+        document.getElementById('player_iframe').src = "https://www.youtube.com/embed/" + key + "?autoplay=1";
+        document.getElementById('chat').src = "https://www.youtube.com/live_chat?v=" + key + "&embed_domain=wab.local";
 
         $scope.player = true;
         $scope.loading = false;
     };
 
-    $scope.loadTwitch = function (id) {
-        document.getElementById('chat').src = "http://www.twitch.tv/" + id + "/chat";
+    $scope.loadTwitch = function (key) {
+        document.getElementById('chat').src = "http://www.twitch.tv/" + key + "/chat";
 
         var player = new Twitch.Player("player", {
             channel: id

@@ -3,16 +3,18 @@
     {
       "alias": "WABTV",
       "type": "twitch",
-      "id": "weareb0b",
-      "title": "WABTV",
-      "active": true
+      "key": "weareb0b",
+      "id": "89890241",
+      "title": "We Are Bob Television",
+      "active": false
     },
     {
       "alias": "COMMIS",
       "type": "youtube",
+      "key": "wI5OaYbWRZo",
       "id": "wI5OaYbWRZo",
-      "title": "COMMIS",
-      "active": false
+      "title": "Le Commis Des Comics",
+      "active": true
     }
   ]
 }
