@@ -11,16 +11,22 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
     };
 
     api.config().then(function (response) {
-        var config = response.data;
-        $scope.data.title = config.player.title;
+        var config = {};
+        angular.forEach(response.data.players, function (data) {
+            if (data.active) {
+                config = data;
+            }
+        });
+        console.log(config);
 
-        if (config.player.type === "youtube") {
-            $scope.loadYoutube("wI5OaYbWRZo");
+        $scope.data.title = config.title;
+
+        if (config.type === "youtube") {
+            $scope.loadYoutube(config.id);
         } else {
-            $scope.initTwitch("weareb0b");
+            $scope.initTwitch(config.id);
         }
     });
-
 
     $scope.initTwitch = function (id) {
         twitch.online().then(function (response) {
