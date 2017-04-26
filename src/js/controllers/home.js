@@ -51,26 +51,24 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
     $scope.initHighlight = function () {
         $scope.data.title = "La vidéo du jour";
 
-        api.highlight().then(function (response) {
-            angular.forEach(response.data, function (id, index) {
-                dailymotion.video(id).then(function (response) {
-                    if (index === 0) {
-                        $scope.loadDailymotion(response.data.id, false);
-                    }
+        dailymotion.highlight().then(function (response) {
+            angular.forEach(response.data.list, function (data, index) {
+                if (index == 0) {
+                    $scope.loadDailymotion(data.id, false);
+                }
 
-                    $scope.data.playlist.push({
-                        id: response.data.id,
-                        title: response.data.title,
-                        img: response.data.thumbnail_180_url
-                    })
-                });
+                $scope.data.playlist.push({
+                    id: data.id,
+                    title: data.title,
+                    img: data.thumbnail_180_url
+                })
             });
         });
     };
 
     $scope.loadYoutube = function (key) {
         document.getElementById('player_iframe').src = "https://www.youtube.com/embed/" + key + "?autoplay=1";
-        document.getElementById('chat').src = "https://www.youtube.com/live_chat?v=" + key + "&embed_domain=wab.local";
+        document.getElementById('chat').src = "https://www.youtube.com/live_chat?v=" + key + "&embed_domain=wearebobtv.com";
 
         $scope.player = true;
         $scope.loading = false;
@@ -80,7 +78,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
         document.getElementById('chat').src = "http://www.twitch.tv/" + key + "/chat";
 
         var player = new Twitch.Player("player", {
-            channel: id
+            channel: key
         });
         player.setVolume(0.5);
     };

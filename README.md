@@ -3,19 +3,17 @@
 Site public http://wearebobtv.com/
 
 ## TODO
-- Admin player
 - Server access
 - Vérifier le scroll
-- client_id user_id ?
-
 - BOT Twitch
-- Publicité
-
-- Playlists Homepage & Replay
 - Hi-res Studio page
 - Programme par heure
  
 ## Changelog
+### V1.2.0
+- Multi-player
+- Replay en Homepage
+- Mode théatre resize
 ### V1.1.0
 - Ajout page et admin recette du gamer
 ### V1.0.5

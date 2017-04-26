@@ -6,15 +6,23 @@
       "key": "weareb0b",
       "id": "89890241",
       "title": "We Are Bob Television",
-      "active": false
+      "active": true
     },
     {
       "alias": "COMMIS",
       "type": "youtube",
-      "key": "wI5OaYbWRZo",
-      "id": "wI5OaYbWRZo",
+      "key": "bkppkFSVU7o",
+      "id": false,
       "title": "Le Commis Des Comics",
-      "active": true
+      "active": false
+    },
+    {
+      "alias": "yehzuna",
+      "type": "twitch",
+      "key": "yehzuna",
+      "id": "93920692",
+      "title": "yehzuna",
+      "active": false
     }
   ]
 }
