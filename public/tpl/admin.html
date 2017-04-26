@@ -24,7 +24,6 @@
                 <th>Actif</th>
                 <th>Type</th>
                 <th>Alias</th>
-                <th>Clé</th>
                 <th>Identifiant</th>
                 <th>Titre</th>
                 <th></th>
@@ -42,16 +41,14 @@
                     <input type="text" placeholder="Alias" ng-model="player.alias" />
                 </td>
                 <td>
-                    <input type="text" placeholder="Clé" ng-model="player.key" />
-                </td>
-                <td>
-                    <input type="text" placeholder="Identifiant" ng-model="player.id" />
+                    <input type="text" placeholder="Identifiant" ng-model="player.key" ng-change="twitchReset(player)" />
                 </td>
                 <td>
                     <input type="text" placeholder="Titre" ng-model="player.title" />
                 </td>
                 <td>
                     <input type="button" value="Supprimer" ng-click="deletePlayer(player)" />
+                    <input type="button" value="Vérifier" ng-click="twitchVerify(player)" ng-show="player.type === 'twitch' && !player.id" />
                 </td>
             </tr>
         </table>

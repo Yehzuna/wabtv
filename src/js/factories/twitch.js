@@ -12,6 +12,17 @@ app.factory('twitch', function ($http) {
         });
     };
 
+    data.id = function (key) {
+        return $http({
+            method: "GET",
+            url: "https://api.twitch.tv/kraken/users?login=" + key,
+            headers: {
+                'Accept': 'application/vnd.twitchtv.v5+json',
+                'Client-ID': '197bhr3oauxte1y5titkaq8ggq8ih9h'
+            }
+        });
+    };
+
     data.clip = function (period) {
         return $http({
             method: "GET",

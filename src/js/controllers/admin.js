@@ -32,7 +32,7 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, api) {
     };
 });
 
-app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
+app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch) {
     $rootScope.night = false;
 
     // common
@@ -53,6 +53,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         sessionStorage.removeItem('WabTvHash');
         $location.path('login');
     };
+
 
     // config
     $scope.playerType = [
@@ -90,18 +91,37 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         $scope.config.players.push({
             "alias": "Lorem",
             "type": "twitch",
-            "id": "",
+            "key": "",
+            "id": false,
             "title": "",
             "active": false
         });
     };
 
+    $scope.twitchVerify = function (player) {
+        twitch.id(player.key).then(function (response) {
+            if (response.data._total === 1) {
+                player.id = response.data.users[0]._id;
+            } else {
+                $scope.message = "Le player twitch " + player.key + " n'est pas valide.";
+            }
+        }).catch(function () {
+            $scope.message = "Le player twitch " + player.key + " n'est pas valide.";
+        });
+    };
+
+    $scope.twitchReset = function (player) {
+        if (player.type === 'twitch') {
+            player.id = false;
+        }
+    };
+
     $scope.submitConfig = function () {
-        console.log($scope.config);
+        var error = false;
 
         if ($scope.config.players.length === 0) {
             $scope.message = "Le site doit avoir au moins un player actif.";
-            return false;
+            error = true;
         }
 
         var active = 0;
@@ -109,26 +129,33 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
             if (player.active) {
                 active++;
             }
+
+            if (player.type === 'twitch' && !player.id) {
+                $scope.message = "Le player twitch " + player.key + " n'est pas valide.";
+                error = true;
+
+                return false;
+            }
         });
 
         if (active !== 1) {
             $scope.message = "Le site doit avoir un player actif.";
-            return false;
+            error = true;
         }
 
-        api.admin({
-            hash: hash,
-            action: 'config',
-            data: $scope.config
-        }).then(function () {
-            $scope.message = false;
-            angular.copy($scope.config, $scope.configCopy);
-        }).catch(function (data) {
-            $scope.message = data.statusText;
-        });
+        if (!error) {
+            api.admin({
+                hash: hash,
+                action: 'config',
+                data: $scope.config
+            }).then(function () {
+                $scope.message = false;
+                angular.copy($scope.config, $scope.configCopy);
+            }).catch(function (data) {
+                $scope.message = data.statusText;
+            });
+        }
     };
-
-
 
 
     // schedule
