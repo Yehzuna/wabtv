@@ -68,7 +68,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
 
     $scope.loadYoutube = function (key) {
         document.getElementById('player_iframe').src = "https://www.youtube.com/embed/" + key + "?autoplay=1";
-        document.getElementById('chat').src = "https://www.youtube.com/live_chat?v=" + key + "&embed_domain=wearebobtv.com";
+        document.getElementById('chat').src = "https://www.youtube.com/live_chat?v=" + key + "&embed_domain=" + window.location.hostname;
 
         $scope.player = true;
         $scope.loading = false;
