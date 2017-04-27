@@ -18,7 +18,7 @@ Site public http://wearebobtv.com/
 - Ajout page et admin recette du gamer
 ### V1.0.5
 - Ajout des titres h1
-- Armonisation des paddings
+- Harmonisation des paddings
 - Fix de padding du programme suite à l'opé
 - Animation page shop
 ### V1.0.4
@@ -29,7 +29,7 @@ Site public http://wearebobtv.com/
 ### V1.0.2
 - Taille de l'export du programme
 - Fix refresh du json
-- data et fonts du public passé en ignore
+- Data et fonts du public passé en ignore
 - Ajout de la page studio
 ### V1.0.1
 - Meta description dynamiques
@@ -38,4 +38,4 @@ Site public http://wearebobtv.com/
 - Nouvelle couleur
 - Correction des heures du programme
 ### V1.0.0
-- Mise en ligne.
+- Mise en ligne
