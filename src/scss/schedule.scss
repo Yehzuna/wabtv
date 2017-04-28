@@ -15,11 +15,11 @@
   @extend %clearfix;
 
   &.export {
-    width: 1260px;
-    height: 840px;
+    width: 1400px;
+    height: 788px;
     margin: 0;
     .column {
-      width: 180px;
+      width: 200px;
       .slot,
       .day .placeholder {
         border-left: 3px solid $border-color;
@@ -39,12 +39,12 @@
         }
       }
       .day {
-        height: 76px;
+        height: 84px;
       }
       .slot {
-        height: 190px;
+        height: 175px;
         .placeholder {
-          height: 186px;
+          height: 171px;
         }
         .hour {
           display: block;
@@ -55,9 +55,9 @@
       }
 
       .slot-large {
-        height: 760px;
+        height: 700px;
         .placeholder {
-          height: 756px;
+          height: 696px;
         }
         .hour {
           display: none;
