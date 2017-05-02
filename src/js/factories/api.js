@@ -6,12 +6,12 @@ app.factory('api', function ($http) {
         return $http.get("data/schedule.json?" + time);
     };
 
-    api.highlight = function () {
-        return $http.get("data/highlight.json?" + time);
-    };
-
     api.gamer = function () {
         return $http.get("data/gamer.json?" + time);
+    };
+
+    api.config = function () {
+        return $http.get("data/config.json?" + time);
     };
 
     api.admin = function (data) {

@@ -17,7 +17,9 @@
         </div>
 
         <div class="embed-container" ng-class="{theater: theater, show: !loading}">
-            <div class="player" id="player"></div>
+            <div class="player" id="player">
+                <iframe frameborder="0" scrolling="no" id="player_iframe"></iframe>
+            </div>
             <div class="sidebar" ng-class="{show: player, hide: highlight}">
                 <iframe frameborder="0" scrolling="no" id="chat"></iframe>
             </div>

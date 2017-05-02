@@ -2,12 +2,62 @@
 
     <h1>Administration</h1>
     <div class="buttons">
+        <input type="button" value="Configuration" class="button" ng-click="tabs('config')" />
         <input type="button" value="Programme" class="button" ng-click="tabs('schedule')" />
         <input type="button" value="Les Recettes du Gamer" class="button" ng-click="tabs('gamer')" />
         <input type="button" value="Déconnexion" class="button" ng-click="logout()" />
     </div>
 
     <div class="message" ng-show="message">{{ message }}</div>
+
+    <div ng-show="tab == 'config'">
+        <h2>Configuration</h2>
+
+        <h3>Player</h3>
+
+        <div class="buttons">
+            <input type="button" value="Nouveau" class="button" ng-click="addPlayer()" />
+        </div>
+
+        <table>
+            <tr>
+                <th>Actif</th>
+                <th>Type</th>
+                <th>Alias</th>
+                <th>Identifiant</th>
+                <th>Titre</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="player in config.players">
+                <td>
+                    <input type="checkbox" ng-model="player.active" ng-change="activePlayer" />
+                </td>
+                <td>
+                    <select ng-model="player.type">
+                        <option ng-repeat="type in playerType" ng-value="type">{{ type }}</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" placeholder="Alias" ng-model="player.alias" />
+                </td>
+                <td>
+                    <input type="text" placeholder="Identifiant" ng-model="player.key" ng-change="twitchReset(player)" />
+                </td>
+                <td>
+                    <input type="text" placeholder="Titre" ng-model="player.title" />
+                </td>
+                <td>
+                    <input type="button" value="Supprimer" ng-click="deletePlayer(player)" />
+                    <input type="button" value="Vérifier" ng-click="twitchVerify(player)" ng-show="player.type === 'twitch' && !player.id" />
+                </td>
+            </tr>
+        </table>
+
+        <div class="buttons">
+            <input type="button" value="Valider" class="button" ng-click="submitConfig()" />
+        </div>
+
+    </div>
 
     <div ng-show="tab == 'schedule'">
         <h2>Programme</h2>
@@ -61,12 +111,12 @@
     
     <div ng-show="tab == 'gamer'">
         <h2>Les Recettes du Gamer</h2>
-        <div class="form">
-            <select ng-model="currentGamer">
+        <div class="buttons">
+            <select ng-model="currentGamer" class="button">
                 <option ng-repeat="gamer in gamers" ng-value="gamer">{{ gamer.title }}</option>
             </select>
-            <input type="button" value="Nouvelle recette" class="button" ng-click="new()" />
-            <input type="button" value="Supprimer la recette" class="button" ng-click="delete()" />
+            <input type="button" value="Nouvelle recette" class="button" ng-click="newGamer()" />
+            <input type="button" value="Supprimer la recette" class="button" ng-click="deleteGamer()" />
         </div>
 
         <div class="image">

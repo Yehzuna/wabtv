@@ -116,6 +116,10 @@ h1 {
 .buttons {
   @extend %clearfix;
 
+  select {
+    max-width: 200px;
+  }
+
   .button {
     cursor: pointer;
     position: relative;

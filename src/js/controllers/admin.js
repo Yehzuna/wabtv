@@ -32,7 +32,7 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, api) {
     };
 });
 
-app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
+app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch) {
     $rootScope.night = false;
 
     // common
@@ -52,6 +52,109 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
     $scope.logout = function () {
         sessionStorage.removeItem('WabTvHash');
         $location.path('login');
+    };
+
+
+    // config
+    $scope.playerType = [
+        "twitch",
+        "youtube"
+    ];
+    $scope.config = {
+        'players': []
+    };
+    $scope.configCopy = {
+        'players': []
+    };
+
+    api.config().then(function (response) {
+        $scope.config = response.data;
+
+        angular.copy($scope.config, $scope.configCopy);
+    }).catch(function () {
+        $scope.message = "Unauthorized";
+    });
+
+    $scope.deletePlayer = function (player) {
+        if (!confirm("Supprimer définitivement le player " + player.alias + " ?")) {
+            return false;
+        }
+
+        angular.forEach($scope.config.players, function (data, index) {
+            if (data.id === player.id && data.alias === player.alias) {
+                $scope.config.players.splice(index, 1);
+            }
+        });
+    };
+
+    $scope.addPlayer = function () {
+        $scope.config.players.push({
+            "alias": "Lorem",
+            "type": "twitch",
+            "key": "",
+            "id": false,
+            "title": "",
+            "active": false
+        });
+    };
+
+    $scope.twitchVerify = function (player) {
+        twitch.id(player.key).then(function (response) {
+            if (response.data._total === 1) {
+                player.id = response.data.users[0]._id;
+            } else {
+                $scope.message = "Le player twitch " + player.key + " n'est pas valide.";
+            }
+        }).catch(function () {
+            $scope.message = "Le player twitch " + player.key + " n'est pas valide.";
+        });
+    };
+
+    $scope.twitchReset = function (player) {
+        if (player.type === 'twitch') {
+            player.id = false;
+        }
+    };
+
+    $scope.submitConfig = function () {
+        var error = false;
+
+        if ($scope.config.players.length === 0) {
+            $scope.message = "Le site doit avoir au moins un player actif.";
+            error = true;
+        }
+
+        var active = 0;
+        angular.forEach($scope.config.players, function (player) {
+            if (player.active) {
+                active++;
+            }
+
+            if (player.type === 'twitch' && !player.id) {
+                $scope.message = "Le player twitch " + player.key + " n'est pas valide.";
+                error = true;
+
+                return false;
+            }
+        });
+
+        if (active !== 1) {
+            $scope.message = "Le site doit avoir un player actif.";
+            error = true;
+        }
+
+        if (!error) {
+            api.admin({
+                hash: hash,
+                action: 'config',
+                data: $scope.config
+            }).then(function () {
+                $scope.message = false;
+                angular.copy($scope.config, $scope.configCopy);
+            }).catch(function (data) {
+                $scope.message = data.statusText;
+            });
+        }
     };
 
 
@@ -191,7 +294,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         });
     };
 
-    $scope.new = function () {
+    $scope.newGamer = function () {
         $scope.gamers.push({
             "id": Date.now(),
             "active": false,
@@ -204,7 +307,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         $scope.submitGamer();
     };
 
-    $scope.delete = function () {
+    $scope.deleteGamer = function () {
         if (!confirm("Supprimer définitivement la recette" + $scope.currentGamer.title + " ?")) {
             return false;
         }
@@ -278,11 +381,22 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api) {
         }
     }, true);
 
+    $scope.$watch('config', function (newValue, oldValue, scope) {
+        if (!angular.equals(scope.config, scope.configCopy)) {
+            scope.message = "Modification non sauvegardé.";
+        } else {
+            scope.message = false;
+        }
+    }, true);
+
     window.onbeforeunload = function () {
         if (!angular.equals($scope.schedules, $scope.schedulesCopy)) {
             return true;
         }
         if (!angular.equals($scope.gamers, $scope.gamersCopy)) {
+            return true;
+        }
+        if (!angular.equals($scope.config, $scope.configCopy)) {
             return true;
         }
     };

@@ -1,0 +1,28 @@
+{
+  "players": [
+    {
+      "alias": "WABTV",
+      "type": "twitch",
+      "key": "weareb0b",
+      "id": "89890241",
+      "title": "We Are Bob Television",
+      "active": true
+    },
+    {
+      "alias": "COMMIS",
+      "type": "youtube",
+      "key": "bkppkFSVU7o",
+      "id": false,
+      "title": "Le Commis Des Comics",
+      "active": false
+    },
+    {
+      "alias": "yehzuna",
+      "type": "twitch",
+      "key": "yehzuna",
+      "id": "93920692",
+      "title": "yehzuna",
+      "active": false
+    }
+  ]
+}

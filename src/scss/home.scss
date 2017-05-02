@@ -34,6 +34,12 @@
     height: 100%;
     width: 100%;
     background: #000;
+    .player {
+      width: 78%;
+    }
+    .sidebar {
+      width: 22%;
+    }
   }
 
   .player {
@@ -93,7 +99,7 @@
       border: 2px solid transparent;
       border-left: 2px solid $primary-color;
       background: $sidebar-color;
-      padding: 3px 3px 3px 5px;
+      padding: 10px;
       overflow: auto;
       box-sizing: border-box;
       transition: all .3s;
@@ -103,7 +109,7 @@
       @extend %clearfix;
       clear: both;
       cursor: pointer;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       opacity: .8;
       transition: all .2s;
       color: $font-color;
@@ -173,7 +179,7 @@
         font-size: 1.1em;
       }
       @media #{$large-up} {
-        font-size: 1.3em;
+        font-size: 1.2em;
       }
     }
     .viewers {
@@ -196,8 +202,8 @@
       margin-left: 5px;
       &.theater {
         position: fixed;
-        bottom: 0;
-        left: 0;
+        top: 0;
+        right: 22%;
         margin: 0;
         z-index: 15;
       }

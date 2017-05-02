@@ -1,7 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+//error_reporting(E_ALL);
+//ini_set("display_errors", 1);
 
 /**
  * Class Api
@@ -112,6 +112,19 @@ class Api
         }
 
         $this->images();
+    }
+
+    /**
+     * Update the config json.
+     * @param array $data
+     */
+    private function config($data)
+    {
+        if (!file_put_contents(self::PATH . "config.json", json_encode($data))) {
+            $this->response(500, "Internal Server Error");
+        }
+
+        $this->response(204, "No Content");
     }
 
     /**

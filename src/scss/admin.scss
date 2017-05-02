@@ -9,6 +9,17 @@
 }
 
 .admin {
+  .buttons {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    border-bottom: 3px solid $primary-color;
+  }
+  h2 {
+    border-bottom: 1px solid $primary-color;
+  }
+
   .form {
     margin-bottom: 20px;
     @extend %clearfix;
@@ -30,9 +41,12 @@
   table {
     width: 100%;
     margin-bottom: 20px;
+    border-collapse: collapse;
+    border-spacing: 0;
     th, td {
-      padding: 2px;
-      border-collapse: collapse;
+      padding: 5px;
+      border-top: 1px solid #999;
+      border-bottom: 1px solid #999;
       select,
       textarea,
       input {

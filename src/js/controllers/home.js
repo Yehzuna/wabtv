@@ -1,36 +1,84 @@
-app.controller('homeCtrl', function ($rootScope, $scope, twitch, dailymotion, api) {
+app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dailymotion, api) {
     $scope.loading = true;
     $scope.player = false;
     $scope.highlight = false;
-    $scope.data = {};
 
-    twitch.online().then(function (response) {
-        $scope.loading = false;
-        if (response.data.stream) {
-            $scope.player = true;
-            $scope.data = {
-                viewers: response.data.stream.viewers + ' spectateur(s)',
-                title: response.data.stream.channel.status
-            };
+    $scope.data = {
+        viewers: false,
+        title: "La vidéo du jour",
+        id: false,
+        playlist: []
+    };
 
-            $scope.loadTwitch();
+    api.config().then(function (response) {
+        var config = {};
+        angular.forEach(response.data.players, function (data) {
+            if (data.active) {
+                config = data;
+            }
+        });
+        $scope.data.title = config.title;
+
+        if (config.type === "youtube") {
+            $scope.loadYoutube(config.key);
         } else {
-            $scope.highlight = true;
-
-            $scope.initDailymotion();
+            $scope.initTwitch(config.key, config.id);
         }
-    }).catch(function () {
-        $scope.loading = false;
-        $scope.highlight = true;
-
-        $scope.initDailymotion();
     });
 
-    $scope.loadTwitch = function () {
-        document.getElementById('chat').src = "http://www.twitch.tv/weareb0b/chat";
+    $scope.initTwitch = function (key, id) {
+        twitch.online(id).then(function (response) {
+            $scope.loading = false;
+
+            if (response.data.stream) {
+                $scope.data.viewers = response.data.stream.viewers + " spectateur(s)";
+                $scope.data.title = response.data.stream.channel.status;
+
+                $scope.player = true;
+                $scope.loadTwitch(key);
+            } else {
+                $scope.highlight = true;
+                $scope.initHighlight();
+            }
+        }).catch(function () {
+            $scope.loading = false;
+
+            $scope.highlight = true;
+            $scope.initHighlight();
+        });
+    };
+
+    $scope.initHighlight = function () {
+        $scope.data.title = "La vidéo du jour";
+
+        dailymotion.highlight().then(function (response) {
+            angular.forEach(response.data.list, function (data, index) {
+                if (index == 0) {
+                    $scope.loadDailymotion(data.id, false);
+                }
+
+                $scope.data.playlist.push({
+                    id: data.id,
+                    title: data.title,
+                    img: data.thumbnail_180_url
+                })
+            });
+        });
+    };
+
+    $scope.loadYoutube = function (key) {
+        document.getElementById('player_iframe').src = "https://www.youtube.com/embed/" + key + "?autoplay=1";
+        document.getElementById('chat').src = "https://www.youtube.com/live_chat?v=" + key + "&embed_domain=" + window.location.hostname;
+
+        $scope.player = true;
+        $scope.loading = false;
+    };
+
+    $scope.loadTwitch = function (key) {
+        document.getElementById('chat').src = "http://www.twitch.tv/" + key + "/chat";
 
         var player = new Twitch.Player("player", {
-            channel: "weareb0b"
+            channel: key
         });
         player.setVolume(0.5);
     };
@@ -43,34 +91,9 @@ app.controller('homeCtrl', function ($rootScope, $scope, twitch, dailymotion, ap
         });
 
         if(scroll) {
-            var element = angular.element(document.getElementById('replay'));
+            var element = angular.element(document.getElementById('player'));
             $document.scrollToElement(element, 10, 1000);
         }
-    };
-
-    $scope.initDailymotion = function () {
-        $scope.data = {
-            viewers: false,
-            title: "La vidéo du jour",
-            id: false,
-            playlist: []
-        };
-
-        api.highlight().then(function (response) {
-            angular.forEach(response.data, function(id, index) {
-                dailymotion.video(id).then(function (response) {
-                    if (index == 0) {
-                        $scope.loadDailymotion(response.data.id, false);
-                    }
-
-                    $scope.data.playlist.push({
-                        id: response.data.id,
-                        title: response.data.title,
-                        img: response.data.thumbnail_180_url
-                    })
-                });
-            });
-        });
     };
 
     $scope.fullScreen = function () {
