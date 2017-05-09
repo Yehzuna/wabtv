@@ -96,22 +96,37 @@
     .day-column {
       height: 720px;
       position: relative;
+      border-left: 3px solid $border-color;
+      border-right: 3px solid $border-color;
+
+      &.day-column-1 {
+        .table-cell {
+          height: 720px;
+        }
+      }
+      &.day-column-2 {
+        .table-cell {
+          height: (720px/2);
+        }
+      }
+      &.day-column-3 {
+        .table-cell {
+          height: (720px/3);
+        }
+      }
+      &.day-column-4 {
+        .table-cell {
+          height: (720px/4);
+        }
+      }
     }
 
     .slot {
-      border-left: 3px solid $border-color;
-      border-right: 3px solid $border-color;
-      width: 100%;
-      padding: 2px 4px;
       box-sizing: border-box;
-      .placeholder {
-        display: table;
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        box-sizing: border-box;
-        background: $schedule-slot-background;
-      }
+      display: table;
+      width: 100%;
+      border-radius: 10px;
+      background: $schedule-slot-background;
 
       .table-row {
         display: table-row;
@@ -120,6 +135,7 @@
           padding: 5px;
           text-align: center;
           vertical-align: middle;
+          box-sizing: border-box;
         }
       }
 
@@ -153,7 +169,7 @@
       }
     }
   }
-
+/*
   @media #{$small-up} {
     .column {
       width: 50%;
@@ -179,26 +195,25 @@
       }
     }
   }
+  */
 
   @media #{$large-up} {
     .column {
       width: 14.25%;
       &:first-child {
-        .slot,
-        .day .placeholder {
+        .day-column {
           border-left: none;
           border-right: none;
         }
       }
       &:nth-child(2n) {
-        .slot,
-        .day .placeholder {
+        .day-column {
           border-left: 3px solid $border-color;
         }
       }
       .day {
         font-size: 1em;
-        .placeholder {
+        .day-column {
           border-right: none;
         }
       }

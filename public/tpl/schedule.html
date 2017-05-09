@@ -13,14 +13,12 @@
                 <span class="date">{{ schedule.date | date:'dd/MM/yyyy' }}</span>
             </div>
         </div>
-        <div class="day-column">
+        <div class="slots slots-{{ schedule.slots.length }}">
             <div class="slot" ng-repeat="slot in schedule.slots" class="{{ schedule.class }}">
-                <div class="placeholder">
-                    <div class="table-row">
-                        <div class="table-cell">
-                            <span class="hour">{{ slot.hour }}</span>
-                            <span class="title">{{ slot.title }}</span>
-                        </div>
+                <div class="table-row">
+                    <div class="table-cell">
+                        <span class="hour">{{ slot.hour }}</span>
+                        <span class="title">{{ slot.title }}</span>
                     </div>
                 </div>
             </div>
