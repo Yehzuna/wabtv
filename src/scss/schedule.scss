@@ -92,8 +92,13 @@
         }
       }
 
-      &.allDay .hour {
-        display: none;
+      &.allDay {
+        .slot {
+          opacity: .5;
+        }
+        .hour {
+          display: none;
+        }
       }
     }
 
@@ -121,6 +126,7 @@
         font-size: 1.2em;
         line-height: 1.3em;
         white-space: pre-line;
+        text-shadow: 1px 1px $schedule-shadow;
       }
 
       .hour {

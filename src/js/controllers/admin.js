@@ -206,7 +206,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch
 
     $scope.addSlot = function () {
         if ($scope.currentSchedule.slots.length >= 4) {
-            $scope.message = "Maximun";
+            alert("4 créneaux maximum par jour");
             return false;
         }
 
@@ -219,13 +219,11 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch
 
     $scope.removeSlot = function (index) {
         if ($scope.currentSchedule.slots.length <= 1) {
-            $scope.message = "Minimum";
+            alert("Un jour doit avoir au moins un créneau.");
             return false;
         }
 
-        console.log(index);
-
-        $scope.currentSchedule.slots.slice(index, 1);
+        $scope.currentSchedule.slots.splice(index, 1);
     };
 
     $scope.allDay = function () {
