@@ -161,7 +161,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch
     // schedule
     $scope.shows = {
         'default': "Autre",
-        'omega': "Omega",
+        'omega': "O'Mega Bob Show",
         'brico': "Bob le Bricoleur"
     };
     $scope.hours = [];
@@ -204,23 +204,36 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch
         });
     };
 
-    $scope.slot = function () {
-        $scope.currentSchedule.slots = [];
-
-        var nb = 1;
-        if (!$scope.currentSchedule.allDay) {
-            nb = 4;
+    $scope.addSlot = function () {
+        if ($scope.currentSchedule.slots.length >= 4) {
+            $scope.message = "Maximun";
+            return false;
         }
 
-        var hours = ["14:00", "20:00", "22:00", "00:00"]
-        for (var i = 0; i < nb; i++) {
-            $scope.currentSchedule.slots.push({
-                "streamer": "",
-                "show": "default",
-                "title": "",
-                "hour": hours[i]
-            });
+        $scope.currentSchedule.slots.push({
+            "show": "default",
+            "title": "",
+            "hour": "00:00"
+        });
+    };
+
+    $scope.removeSlot = function (index) {
+        if ($scope.currentSchedule.slots.length <= 1) {
+            $scope.message = "Minimum";
+            return false;
         }
+
+        console.log(index);
+
+        $scope.currentSchedule.slots.slice(index, 1);
+    };
+
+    $scope.allDay = function () {
+        $scope.currentSchedule.slots = [{
+            "show": "default",
+            "title": "",
+            "hour": "00:00"
+        }];
     };
 
     $scope.export = function () {

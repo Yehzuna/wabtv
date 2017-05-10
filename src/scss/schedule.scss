@@ -1,4 +1,5 @@
 .schedule-header {
+  @extend %clearfix;
   .buttons {
     float: right;
     margin-right: 10px;
@@ -15,53 +16,39 @@
   @extend %clearfix;
 
   &.export {
+    background: $schedule-background;
     width: 1400px;
     height: 788px;
     margin: 0;
     .column {
       width: 200px;
-      .slot,
-      .day .placeholder {
-        border-left: 3px solid $border-color;
-        border-right: 0;
-      }
-      &:nth-child(2n) {
-        .slot,
-        .day .placeholder {
-          border-left: 3px solid $border-color;
-          border-right: 0;
-        }
-      }
+
       &:first-child {
-        .slot,
-        .day .placeholder {
-          border-left: 0;
+        .day,
+        .slots {
+          border-left: none;
+          border-right: none;
         }
-      }
-      .day {
-        height: 84px;
-      }
-      .slot {
-        height: 175px;
-        .placeholder {
-          height: 171px;
-        }
-        .hour {
-          display: block;
-        }
-      }
-      .day {
-        font-size: 1.4em;
       }
 
-      .slot-large {
-        height: 700px;
-        .placeholder {
-          height: 696px;
+      &:nth-child(2n) {
+        .slots,
+        .day {
+          border-left: 3px solid $border-color;
         }
-        .hour {
-          display: none;
-        }
+      }
+
+      .day {
+        border-right: none;
+      }
+
+      .slots {
+        border-left: 3px solid $border-color;
+        border-right: none;
+      }
+
+      .day {
+        font-size: 1.4em;
       }
     }
   }
@@ -75,57 +62,48 @@
 
     .day {
       padding: 10px 0;
+      margin: 10px 0;
+      box-sizing: border-box;
+      border-left: 3px solid $border-color;
+      border-right: 3px solid $border-color;
       text-transform: uppercase;
       color: $schedule-header-font;
       font-size: 2em;
-      box-sizing: border-box;
+      text-align: center;
+
       .date {
         display: block;
         font-size: 0.5em;
         font-family: 'gothamlight', sans-serif;
       }
-      .placeholder {
-        border-left: 3px solid $border-color;
-        border-right: 3px solid $border-color;
-        padding: 10px 0;
-        box-sizing: border-box;
-        text-align: center;
-      }
     }
 
-    .day-column {
-      height: 720px;
-      position: relative;
+    .slots {
+      height: 700px;
+      padding: 0 4px;
       border-left: 3px solid $border-color;
       border-right: 3px solid $border-color;
 
-      &.day-column-1 {
-        .table-cell {
-          height: 720px;
+      @for $i from 1 through 4 {
+        &.slots-#{$i} {
+          .table-cell {
+            height: (704px/$i) - 4;
+          }
         }
       }
-      &.day-column-2 {
-        .table-cell {
-          height: (720px/2);
-        }
-      }
-      &.day-column-3 {
-        .table-cell {
-          height: (720px/3);
-        }
-      }
-      &.day-column-4 {
-        .table-cell {
-          height: (720px/4);
-        }
+
+      &.allDay .hour {
+        display: none;
       }
     }
 
     .slot {
-      box-sizing: border-box;
+      position: relative;
       display: table;
       width: 100%;
       border-radius: 10px;
+      margin-bottom: 4px;
+      box-sizing: border-box;
       background: $schedule-slot-background;
 
       .table-row {
@@ -145,37 +123,22 @@
         white-space: pre-line;
       }
 
-      .hour,
-      .streamer,
-      .show {
-        position: absolute;
-        font-size: 0.8em;
-      }
-
       .hour {
+        position: absolute;
         top: 5px;
         left: 8px;
-      }
-      .streamer {
-        bottom: 5px;
-        right: 8px;
-        font-family: 'gothamlight', sans-serif;
-      }
-      .show {
-        top: 5px;
-        left: 5px;
-        display: none;
-        font-family: 'gothamlight', sans-serif;
+        font-size: 0.8em;
+
       }
     }
   }
-/*
+
   @media #{$small-up} {
     .column {
       width: 50%;
       &:nth-child(2n) {
-        .slot,
-        .day .placeholder {
+        .slots,
+        .day {
           border-left: none;
         }
       }
@@ -187,49 +150,49 @@
           font-size: 1em;
           line-height: 1.2em;
         }
-        .streamer,
-        .hour,
-        .show {
+        .hour {
           font-size: .8em;
         }
       }
     }
   }
-  */
 
   @media #{$large-up} {
     .column {
       width: 14.25%;
+
       &:first-child {
-        .day-column {
+        .day,
+        .slots {
           border-left: none;
           border-right: none;
         }
       }
+
       &:nth-child(2n) {
-        .day-column {
+        .slots,
+        .day {
           border-left: 3px solid $border-color;
         }
       }
+
+      .slots {
+        border-left: 3px solid $border-color;
+        border-right: none;
+      }
+
       .day {
         font-size: 1em;
-        .day-column {
-          border-right: none;
-        }
-      }
-      .slot {
         border-right: none;
+      }
+
+      .slot {
         .title {
           font-size: .9em;
           line-height: 1.1em;
         }
-        .streamer,
-        .hour,
-        .show {
+        .hour {
           font-size: .7em;
-        }
-        .show {
-          display: none;
         }
       }
     }
@@ -245,9 +208,7 @@
           font-size: 1em;
           line-height: 1.2em;
         }
-        .streamer,
-        .hour,
-        .show {
+        .hour {
           font-size: .8em;
         }
       }

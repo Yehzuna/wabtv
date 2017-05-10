@@ -81,6 +81,10 @@
     }
   }
 
+  .schedule-header h1 {
+    display: none;
+  }
+
   .active {
     float: right;
     cursor: pointer;

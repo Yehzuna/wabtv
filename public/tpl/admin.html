@@ -71,15 +71,20 @@
             </div>
             <div class="allDay">
                 <label>Toute la journée ?</label>
-                <input type="checkbox" ng-model="currentSchedule.allDay" ng-change="slot()" />
+                <input type="checkbox" ng-model="currentSchedule.allDay" ng-change="allDay()" />
             </div>
         </div>
+
+        <div class="buttons">
+            <input type="button" value="Ajouter un créneau" class="button" ng-click="addSlot()" />
+        </div>
+
         <table>
             <tr ng-hide="currentSchedule.allDay">
                 <th>Heure</th>
                 <th>Emission</th>
                 <th>Titre</th>
-                <th>Streamer</th>
+                <th></th>
             </tr>
             <tr ng-repeat="slot in currentSchedule.slots">
                 <td ng-hide="currentSchedule.allDay">
@@ -96,7 +101,7 @@
                     <textarea placeholder="Titre" ng-model="slot.title"></textarea>
                 </td>
                 <td ng-hide="currentSchedule.allDay">
-                    <input type="text" placeholder="Streamer" ng-model="slot.streamer" />
+                    <input type="button" value="Retirer" ng-click="removeSlot($index)" />
                 </td>
             </tr>
         </table>
