@@ -84,7 +84,7 @@
       border-left: 3px solid $border-color;
       border-right: 3px solid $border-color;
 
-      @for $i from 1 through 4 {
+      @for $i from 1 through 5 {
         &.slots-#{$i} {
           .table-cell {
             height: (704px/$i) - 4;
@@ -92,12 +92,9 @@
         }
       }
 
-      &.allDay {
+      &.offDay {
         .slot {
           opacity: .5;
-        }
-        .hour {
-          display: none;
         }
       }
     }
@@ -129,12 +126,17 @@
         text-shadow: 1px 1px $schedule-shadow;
       }
 
-      .hour {
+      .start,
+      .end {
         position: absolute;
-        top: 5px;
         left: 8px;
         font-size: 0.8em;
-
+      }
+      .start {
+        top: 5px;
+      }
+      .end {
+        bottom: 5px;
       }
     }
   }
@@ -156,7 +158,8 @@
           font-size: 1em;
           line-height: 1.2em;
         }
-        .hour {
+        .start,
+        .end {
           font-size: .8em;
         }
       }
@@ -197,7 +200,8 @@
           font-size: .9em;
           line-height: 1.1em;
         }
-        .hour {
+        .start,
+        .end {
           font-size: .7em;
         }
       }
@@ -214,7 +218,8 @@
           font-size: 1em;
           line-height: 1.2em;
         }
-        .hour {
+        .start,
+        .end {
           font-size: .8em;
         }
       }

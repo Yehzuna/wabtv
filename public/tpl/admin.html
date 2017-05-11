@@ -69,9 +69,9 @@
             <div class="datepicker">
                 <datepicker><input type="date" placeholder="Date" ng-model="currentSchedule.date" /></datepicker>
             </div>
-            <div class="allDay">
-                <label>Toute la journée ?</label>
-                <input type="checkbox" ng-model="currentSchedule.allDay" ng-change="allDay()" />
+            <div class="offDay">
+                <label>Journée off ?</label>
+                <input type="checkbox" ng-model="currentSchedule.offDay" ng-change="offDay()" />
             </div>
         </div>
 
@@ -80,19 +80,25 @@
         </div>
 
         <table>
-            <tr ng-hide="currentSchedule.allDay">
-                <th>Heure</th>
+            <tr ng-hide="currentSchedule.offDay">
+                <th>Début</th>
+                <th>Fin</th>
                 <th>Emission</th>
                 <th>Titre</th>
                 <th></th>
             </tr>
             <tr ng-repeat="slot in currentSchedule.slots">
-                <td ng-hide="currentSchedule.allDay">
-                    <select ng-model="slot.hour">
+                <td ng-hide="currentSchedule.offDay">
+                    <select ng-model="slot.start">
                         <option ng-repeat="hour in hours" ng-value="hour">{{ hour }}</option>
                     </select>
                 </td>
-                <td ng-hide="currentSchedule.allDay">
+                <td ng-hide="currentSchedule.offDay">
+                    <select ng-model="slot.end">
+                        <option ng-repeat="hour in hours" ng-value="hour">{{ hour }}</option>
+                    </select>
+                </td>
+                <td ng-hide="currentSchedule.offDay">
                     <select ng-model="slot.show">
                         <option ng-repeat="(slug, show) in shows" ng-value="slug">{{ show }}</option>
                     </select>
@@ -100,7 +106,7 @@
                 <td>
                     <textarea placeholder="Titre" ng-model="slot.title"></textarea>
                 </td>
-                <td ng-hide="currentSchedule.allDay">
+                <td ng-hide="currentSchedule.offDay">
                     <input type="button" value="Retirer" ng-click="removeSlot($index)" />
                 </td>
             </tr>

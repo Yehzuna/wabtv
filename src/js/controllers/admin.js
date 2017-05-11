@@ -164,7 +164,10 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch
         'omega': "O'Mega Bob Show",
         'brico': "Bob le Bricoleur"
     };
-    $scope.hours = [];
+
+    $scope.hours = [
+        "-"
+    ];
     for (var h = 0; h < 24; h++) {
         if (h < 10) {
             h = "0" + h;
@@ -205,15 +208,16 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch
     };
 
     $scope.addSlot = function () {
-        if ($scope.currentSchedule.slots.length >= 4) {
-            alert("4 créneaux maximum par jour");
+        if ($scope.currentSchedule.slots.length >= 5) {
+            alert("5 créneaux maximum par jour");
             return false;
         }
 
         $scope.currentSchedule.slots.push({
             "show": "default",
             "title": "",
-            "hour": "00:00"
+            "start": "-",
+            "end": "-"
         });
     };
 
@@ -226,11 +230,12 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch
         $scope.currentSchedule.slots.splice(index, 1);
     };
 
-    $scope.allDay = function () {
+    $scope.offDay = function () {
         $scope.currentSchedule.slots = [{
             "show": "default",
             "title": "",
-            "hour": "00:00"
+            "start": "-",
+            "end": "-"
         }];
     };
 

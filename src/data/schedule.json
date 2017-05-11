@@ -1,134 +1,160 @@
 [
   {
     "day": "Lundi",
-    "allDay": false,
-    "date": "2017-04-02T23:00:00.000Z",
+    "offDay": false,
+    "date": "2017-05-07T23:00:00.000Z",
     "slots": [
       {
-        "streamer": "",
+        "streamer": "milano",
         "show": "default",
-        "title": "LE JEU AU TITRE MOISI\n\nplayerunknown's battlegrounds",
-        "start": "20:00",
-        "end": "00:00"
+        "title": "MILANO HOPE FAIT SON SHOW",
+        "hour": "15:00",
+        "start": "15:00",
+        "end": "17:00"
       },
       {
         "streamer": "",
         "show": "default",
-        "title": "TRAINING IN LOL:\nobjectif \/MASTER",
-        "start": "00:00",
-        "end": "02:00"
+        "title": "8 MAI BOBLEGOB EST EN FAMILLE",
+        "hour": "20:00",
+        "start": "20:00",
+        "end": "-"
       }
     ]
   },
   {
     "day": "Mardi",
-    "allDay": false,
-    "date": "2017-04-03T23:00:00.000Z",
+    "offDay": false,
+    "date": "2017-05-08T23:00:00.000Z",
     "slots": [
       {
         "streamer": "BOBLEGOB",
         "show": "default",
-        "title": "PREPARE TO DIE :\nDARK SOUL III",
+        "title": "LE BOBLEGOB DISCOVERY\n\nPREY",
+        "hour": "20:00",
         "start": "20:00",
-        "end": "00:00"
+        "end": "-"
       },
       {
         "streamer": "BOBLEGOB",
         "show": "default",
-        "title": "TRAINING IN LOL \nobjectif \/MASTER",
-        "start": "00:00",
-        "end": "02:00"
+        "title": "ALBION ON LINE : FARMING DE BEBE PHOQUE\nAVEC NARKUSS",
+        "hour": "22:00",
+        "end": "-",
+        "start": "22:00"
+      },
+      {
+        "streamer": "BOBLEGOB",
+        "show": "default",
+        "title": "TRAINING IN LOL objectif \/MASTER",
+        "hour": "00:00",
+        "end": "-",
+        "start": "00:00"
       }
     ]
   },
   {
     "day": "Mercredi",
-    "allDay": false,
-    "date": "2017-04-03T23:00:00.000Z",
+    "offDay": false,
+    "date": "2017-05-09T23:00:00.000Z",
     "slots": [
       {
         "streamer": "BOBLEGOB",
         "show": "default",
-        "title": "LES BREVES DU CAPTAIN DRAMA",
+        "title": "BOBLEGOB TE CHOQUE A L'INFINI",
+        "hour": "20:00",
         "start": "20:00",
-        "end": "22:00"
-      },
-      {
-        "streamer": "BOBLEGOB",
-        "show": "default",
-        "title": "BOB LE BRICOLEUR\n VS\nL'AEROGRAPHE\n(le new du  set up)",
-        "start": "22:00",
-        "end": "00:00"
-      },
-      {
-        "streamer": "BOBLEGOB",
-        "show": "default",
-        "title": "TRAINING IN LOL :\nobjectif \/MASTER",
-        "start": "00:00",
-        "end": "02:00"
+        "end": "-"
       }
     ]
   },
   {
     "day": "Jeudi",
-    "allDay": false,
-    "date": "2017-04-05T23:00:00.000Z",
+    "offDay": false,
+    "date": "2017-05-10T23:00:00.000Z",
     "slots": [
       {
-        "streamer": "BOBLEGOB",
+        "streamer": "",
         "show": "default",
-        "title": "O'MEGA BOB SHOW \nSPARADRA\nTONTON ARTHEON",
+        "title": "LE BOBLEGOB DISCOVERY :\nDAWN OF WAR 3",
+        "hour": "20:00",
         "start": "20:00",
-        "end": "02:00"
+        "end": "-"
+      },
+      {
+        "streamer": "",
+        "show": "default",
+        "title": "ALBION ON LINE : FARMING DE BEBE PHOQUE\nAVEC NARKUS",
+        "hour": "22:00",
+        "start": "22:00",
+        "end": "-"
+      },
+      {
+        "streamer": "",
+        "show": "default",
+        "title": "TRAINING IN LOL objectif \/MASTER",
+        "hour": "00:00",
+        "start": "00:00",
+        "end": "-"
       }
     ]
   },
   {
     "day": "Vendredi",
-    "allDay": true,
-    "date": "2017-04-06T23:00:00.000Z",
+    "offDay": true,
+    "date": "2017-05-11T23:00:00.000Z",
     "slots": [
       {
-        "streamer": "",
         "show": "default",
-        "title": "INSTALLATION  NOUVEAU \nSET-UP SON\n&\nTEST EN LIVE",
-        "start": "00:00",
-        "end": "00:00"
+        "title": "BOBBEX SE REPOSE : PAS DE LIVE",
+        "start": "-",
+        "end": "-"
       }
     ]
   },
   {
     "day": "Samedi",
-    "allDay": true,
-    "date": "2017-04-07T23:00:00.000Z",
+    "offDay": false,
+    "date": "2017-05-12T23:00:00.000Z",
     "slots": [
       {
         "streamer": "",
         "show": "default",
-        "title": "TV OFF \nPAS DE LIVE",
-        "start": "00:00",
-        "end": "00:00"
+        "title": "BOB LE BRICOLEUR : \nMISE EN PEINTURE DU BLACK GOKU",
+        "hour": "20:00",
+        "start": "20:00",
+        "end": "-"
       }
     ]
   },
   {
     "day": "Dimanche",
-    "allDay": false,
-    "date": "2017-04-01T23:00:00.000Z",
+    "offDay": false,
+    "date": "2017-05-13T23:00:00.000Z",
     "slots": [
       {
-        "streamer": "BOBLEGOB",
+        "streamer": "LINYUU",
         "show": "default",
-        "title": "TEST.EXE \nAVEC\nNOTDJEY",
-        "start": "20:00",
-        "end": "00:00"
+        "title": "LE BON LINYUU FAIT SON RETOUR",
+        "hour": "17:00",
+        "start": "17:00",
+        "end": "19:00"
       },
       {
         "streamer": "BOBLEGOB",
         "show": "default",
-        "title": "TRAINING IN LOL \nobjectif \/MASTER",
+        "title": "TEST.EXE AVEC NOTDJEY",
+        "hour": "20:00",
+        "start": "20:00",
+        "end": "-"
+      },
+      {
+        "streamer": "BOBLEGOB",
+        "show": "default",
+        "title": "PLAYER UNKNOW'S OF THE BATTLEGROUND",
+        "hour": "00:00",
         "start": "00:00",
-        "end": "02:00"
+        "end": "-"
       }
     ]
   }
