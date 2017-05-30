@@ -3,9 +3,13 @@
 Site public http://wearebobtv.com/
 
 ## TODO
-- Hi-res Studio page
+...
  
 ## Changelog
+### V1.4.0
+- Programme par heure
+### V1.3.0
+- Hi-res Studio page
 ### V1.2.0
 - Multi-player
 - Replay en Homepage

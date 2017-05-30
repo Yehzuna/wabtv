@@ -2,9 +2,10 @@
     <h1>Présentation du studio</h1>
     <div class="gallery">
         <div class="item" ng-repeat="item in gallery">
-            <div class="img" toggle-class="open">
-                <img src="img/studio/{{ item }}.jpg" alt="Studio image {{ item }}" ng-class="{large: (large.indexOf(item) > -1)}" />
+            <div class="img" ng-click="open(item)">
+                <img src="img/studio/{{ item }}.jpg" alt="Studio image {{ item }}" ng-class="{large: (large.indexOf(item) > -1)}"  />
             </div>
         </div>
     </div>
+    <div class="popup" ng-class="{open: selected}" ng-click="open()"><img ng-src="{{ selected }}" /></div>
 </div>

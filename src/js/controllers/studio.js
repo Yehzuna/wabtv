@@ -7,4 +7,13 @@ app.controller('studioCtrl', function ($rootScope, $scope) {
     }
 
     $scope.large = [10, 11];
+
+    $scope.selected = false;
+    $scope.open = function (item) {
+        if (item) {
+            $scope.selected = "img/studio/" + item + "_large.jpg"
+        } else {
+            $scope.selected = false;
+        }
+    }
 });
