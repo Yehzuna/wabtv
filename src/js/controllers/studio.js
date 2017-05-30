@@ -10,6 +10,10 @@ app.controller('studioCtrl', function ($rootScope, $scope) {
 
     $scope.selected = false;
     $scope.open = function (item) {
-        $scope.selected = "img/studio/" + item + ".jpg"
+        if (item) {
+            $scope.selected = "img/studio/" + item + "_large.jpg"
+        } else {
+            $scope.selected = false;
+        }
     }
 });

@@ -3,13 +3,11 @@
 Site public http://wearebobtv.com/
 
 ## TODO
-- Server access
-- Vérifier le scroll
-- BOT Twitch
-- Hi-res Studio page
 - Programme par heure
  
 ## Changelog
+### V1.3.0
+- Hi-res Studio page
 ### V1.2.0
 - Multi-player
 - Replay en Homepage
