@@ -67,7 +67,7 @@
                 <option ng-repeat="schedule in schedules" ng-value="schedule">{{ schedule.day }}</option>
             </select>
             <div class="datepicker">
-                <datepicker><input type="date" placeholder="Date" ng-model="currentSchedule.date" /></datepicker>
+                <datepicker date-format="yyyy-MM-dd"><input type="date" placeholder="Date" ng-model="currentSchedule.date" /></datepicker>
             </div>
             <div class="offDay">
                 <label>Journée off ?</label>

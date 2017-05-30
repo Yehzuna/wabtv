@@ -2,22 +2,18 @@
   {
     "day": "Lundi",
     "offDay": false,
-    "date": "2017-05-07T23:00:00.000Z",
+    "date": "2017-05-28T22:00:00.000Z",
     "slots": [
       {
-        "streamer": "milano",
         "show": "default",
-        "title": "MILANO HOPE FAIT SON SHOW",
-        "hour": "15:00",
-        "start": "15:00",
-        "end": "17:00"
+        "title": "BRONZE COACH BY A CHALLENGER AVEC NARKUSS",
+        "start": "20:00",
+        "end": "-"
       },
       {
-        "streamer": "",
         "show": "default",
-        "title": "8 MAI BOBLEGOB EST EN FAMILLE",
-        "hour": "20:00",
-        "start": "20:00",
+        "title": "PLAYER UNKNOW OF THE BATTLEGROUND\nAVEC NARKUSS",
+        "start": "00:00",
         "end": "-"
       }
     ]
@@ -25,29 +21,17 @@
   {
     "day": "Mardi",
     "offDay": false,
-    "date": "2017-05-08T23:00:00.000Z",
+    "date": "2017-05-29T23:00:00.000Z",
     "slots": [
       {
-        "streamer": "BOBLEGOB",
         "show": "default",
-        "title": "LE BOBLEGOB DISCOVERY\n\nPREY",
-        "hour": "20:00",
+        "title": "HEROES OF THE PORN\nOMEGA ZELL \nMALGANYR \nIMSOFRESH",
         "start": "20:00",
         "end": "-"
       },
       {
-        "streamer": "BOBLEGOB",
         "show": "default",
-        "title": "ALBION ON LINE : FARMING DE BEBE PHOQUE\nAVEC NARKUSS",
-        "hour": "22:00",
-        "end": "-",
-        "start": "22:00"
-      },
-      {
-        "streamer": "BOBLEGOB",
-        "show": "default",
-        "title": "TRAINING IN LOL objectif \/MASTER",
-        "hour": "00:00",
+        "title": "LE TRAINING IN LOL !",
         "end": "-",
         "start": "00:00"
       }
@@ -56,14 +40,18 @@
   {
     "day": "Mercredi",
     "offDay": false,
-    "date": "2017-05-09T23:00:00.000Z",
+    "date": "2017-05-30T23:00:00.000Z",
     "slots": [
       {
-        "streamer": "BOBLEGOB",
         "show": "default",
-        "title": "BOBLEGOB TE CHOQUE A L'INFINI",
-        "hour": "20:00",
+        "title": "PERE BOBBY LIT NOUS UNE HISTOIRE :\nLE GUIDE DE L'ESPORT",
         "start": "20:00",
+        "end": "-"
+      },
+      {
+        "show": "default",
+        "title": "LE TRAINING IN LOL !",
+        "start": "00:00",
         "end": "-"
       }
     ]
@@ -71,30 +59,12 @@
   {
     "day": "Jeudi",
     "offDay": false,
-    "date": "2017-05-10T23:00:00.000Z",
+    "date": "2017-05-31T23:00:00.000Z",
     "slots": [
       {
-        "streamer": "",
         "show": "default",
-        "title": "LE BOBLEGOB DISCOVERY :\nDAWN OF WAR 3",
-        "hour": "20:00",
+        "title": "OMEGA BOB \nSHOW SPECIAL\nAVEC\nTENSHIROCK",
         "start": "20:00",
-        "end": "-"
-      },
-      {
-        "streamer": "",
-        "show": "default",
-        "title": "ALBION ON LINE : FARMING DE BEBE PHOQUE\nAVEC NARKUS",
-        "hour": "22:00",
-        "start": "22:00",
-        "end": "-"
-      },
-      {
-        "streamer": "",
-        "show": "default",
-        "title": "TRAINING IN LOL objectif \/MASTER",
-        "hour": "00:00",
-        "start": "00:00",
         "end": "-"
       }
     ]
@@ -102,11 +72,11 @@
   {
     "day": "Vendredi",
     "offDay": true,
-    "date": "2017-05-11T23:00:00.000Z",
+    "date": "2017-06-01T23:00:00.000Z",
     "slots": [
       {
         "show": "default",
-        "title": "BOBBEX SE REPOSE : PAS DE LIVE",
+        "title": "BOBBEX SE REPOSE \nPUFF LA VIE EST DURE !",
         "start": "-",
         "end": "-"
       }
@@ -115,13 +85,11 @@
   {
     "day": "Samedi",
     "offDay": false,
-    "date": "2017-05-12T23:00:00.000Z",
+    "date": "2017-06-02T23:00:00.000Z",
     "slots": [
       {
-        "streamer": "",
         "show": "default",
-        "title": "BOB LE BRICOLEUR : \nMISE EN PEINTURE DU BLACK GOKU",
-        "hour": "20:00",
+        "title": "BOB LE BRICOLEUR : \nPAINTING BLACK GOKU \/ MONTAGE QUERSUS",
         "start": "20:00",
         "end": "-"
       }
@@ -130,30 +98,18 @@
   {
     "day": "Dimanche",
     "offDay": false,
-    "date": "2017-05-13T23:00:00.000Z",
+    "date": "2017-06-03T23:00:00.000Z",
     "slots": [
       {
-        "streamer": "LINYUU",
         "show": "default",
-        "title": "LE BON LINYUU FAIT SON RETOUR",
-        "hour": "17:00",
-        "start": "17:00",
-        "end": "19:00"
-      },
-      {
-        "streamer": "BOBLEGOB",
-        "show": "default",
-        "title": "TEST.EXE AVEC NOTDJEY",
-        "hour": "20:00",
-        "start": "20:00",
+        "title": "LE RETOUR DU LINYUU",
+        "start": "14:00",
         "end": "-"
       },
       {
-        "streamer": "BOBLEGOB",
         "show": "default",
-        "title": "PLAYER UNKNOW'S OF THE BATTLEGROUND",
-        "hour": "00:00",
-        "start": "00:00",
+        "title": "LE SAINT BOBBY DOMINICAL",
+        "start": "20:00",
         "end": "-"
       }
     ]
