@@ -15,10 +15,10 @@ app.controller('loginCtrl', function ($rootScope, $scope, $location, api) {
     $rootScope.night = false;
     $scope.message = false;
 
-    loadJs("bower_components/cryptojslib/rollups/md5.js");
+    loadJs("bower_components/cryptojslib/rollups/sha256.js");
 
     $scope.submit = function () {
-        var hash = CryptoJS.MD5(CryptoJS.MD5($scope.login) + ':WabTvHash:' + CryptoJS.MD5($scope.password));
+        var hash = CryptoJS.SHA256(CryptoJS.SHA256($scope.login) + ':WabTvHash:' + CryptoJS.SHA256($scope.password));
 
         api.admin({
             hash: hash.toString(),

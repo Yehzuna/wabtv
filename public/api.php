@@ -9,15 +9,6 @@
 class Api
 {
     /**
-     * List of valid hash.
-     */
-    const HASH = [
-        "1d6d8e73586dd01799515673e1c0ff0f",
-        "5b27a498ffbed9a31dff1dc1701e3eff",
-        "399bf504c45049550b551d903487abe6",
-    ];
-
-    /**
      * Data path.
      */
     const PATH = "data/";
@@ -31,9 +22,11 @@ class Api
             $this->response(401, "Unauthorized");
         }
 
+        $hash = $this->hash();
+
         $request = file_get_contents("php://input");
         if ($json = json_decode($request, true)) {
-            if (!isset($json["hash"]) || !in_array($json["hash"], self::HASH)) {
+            if (!isset($json["hash"]) || !in_array($json["hash"], $hash)) {
                 $this->response(401, "Unauthorized");
             }
 
@@ -58,6 +51,16 @@ class Api
     private function login()
     {
         $this->response(200, "Ok");
+    }
+
+    /**
+     * Get list of valid hash.
+     */
+    private function hash()
+    {
+        require "./hash.php";
+
+        return $hash;
     }
 
     /**
