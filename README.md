@@ -6,6 +6,9 @@ Site public http://wearebobtv.com/
 ...
  
 ## Changelog
+### V1.4.1
+- Fix login
+- Partenaire Quersus
 ### V1.4.0
 - Programme par heure
 ### V1.3.0
