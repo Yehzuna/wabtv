@@ -1,15 +1,22 @@
 {
   "name": "wabtv",
   "description": "WAB TV Website",
-  "version": "1.4.0",
+  "version": "1.4.2",
+  "author": {
+    "name": "Thomas BORUSZEWSKI",
+    "email": "yehzuna@outlook.com"
+  },
+  "homepage": "http://wearebobtv.com",
   "repository": "https://github.com/Yehzuna/wabtv",
+  "license": "MIT",
+  "private": true,
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-compass": "^1.1.1",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-uglify": "^2.2.0",
+    "grunt-contrib-uglify": "^3.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-ng-annotate": "^3.0.0"
   }
