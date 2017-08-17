@@ -1,5 +1,9 @@
 # WAB TV
 
+## v1.5.0
+- Suppression des logo Dailymotion
+- Replacement de l'API Dailymotion par l'API Youtube pour les replays
+
 ## v1.4.2
 - Opé Albion 2
 - Suppression yarn
