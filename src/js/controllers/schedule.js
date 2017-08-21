@@ -7,7 +7,7 @@ app.controller('scheduleCtrl', function ($rootScope, $scope, api) {
 
     $scope.schedules = [];
     api.schedule().then(function (response) {
-        angular.forEach(response.data, function(data) {
+        angular.forEach(response.data, function (data) {
             data.date = new Date(data.date);
             data.currentDay = data.date.getDate();
 
@@ -15,9 +15,7 @@ app.controller('scheduleCtrl', function ($rootScope, $scope, api) {
             $scope.schedules.push(data);
         });
     });
-    console.log($scope.schedules);
 
-    
     $scope.export = function () {
         ga('send', 'event', 'WabTV', 'Schedule', 'Export');
 
@@ -26,9 +24,10 @@ app.controller('scheduleCtrl', function ($rootScope, $scope, api) {
 
         document.body.appendChild(div);
 
-        domtoimage.toJpeg(div, { quality: 0.95 })
+        domtoimage.toJpeg(div, {quality: 0.95})
             .then(function (dataUrl) {
-                window.open(dataUrl);
+                var popup = window.open('');
+                popup.document.body.innerHTML = '<img src="' + dataUrl + '" />';
                 div.remove();
             });
     }

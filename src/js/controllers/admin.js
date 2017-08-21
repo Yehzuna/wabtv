@@ -247,7 +247,8 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch
 
         domtoimage.toJpeg(div, {quality: 0.95})
             .then(function (dataUrl) {
-                window.open(dataUrl);
+                var popup = window.open('');
+                popup.document.body.innerHTML = '<img src="' + dataUrl + '" />';
                 div.remove();
             });
     };

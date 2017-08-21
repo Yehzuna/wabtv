@@ -18,7 +18,7 @@
     "angular": "^1.6.1",
     "angular-route": "^1.6.1",
     "normalize-css": "^5.0.0",
-    "dom-to-image": "^2.5.2",
+    "dom-to-image": "^2.6.0",
     "angular-scroll": "^1.0.0",
     "angularjs-datepicker": "^2.1.15",
     "cryptojslib": "^3.1.2"
