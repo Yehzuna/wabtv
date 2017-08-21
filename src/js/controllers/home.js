@@ -1,4 +1,4 @@
-app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dailymotion, api) {
+app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dailymotion, youtube, api) {
     $scope.loading = true;
     $scope.player = false;
     $scope.highlight = false;
@@ -19,11 +19,15 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
         });
         $scope.data.title = config.title;
 
+        $scope.initHighlight();
+        $scope.highlight = true;
+        /*
         if (config.type === "youtube") {
             $scope.loadYoutube(config.key);
         } else {
             $scope.initTwitch(config.key, config.id);
         }
+        */
     });
 
     $scope.initTwitch = function (key, id) {
@@ -49,9 +53,11 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
     };
 
     $scope.initHighlight = function () {
-        $scope.data.title = "La vidéo du jour";
 
-        dailymotion.highlight().then(function (response) {
+        youtube.highlight().then(function (response) {
+            console.log(response);
+
+            /*
             angular.forEach(response.data.list, function (data, index) {
                 if (index == 0) {
                     $scope.loadDailymotion(data.id, false);
@@ -63,6 +69,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
                     img: data.thumbnail_180_url
                 })
             });
+            */
         });
     };
 
