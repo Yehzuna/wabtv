@@ -17,18 +17,18 @@ app.controller('highlightCtrl', function ($rootScope, $scope, $document, $filter
     $scope.getData = function () {
         twitch.clip($scope.period).then(function (response) {
             angular.forEach(response.data.clips, function (data, index) {
-                 if (index == 0) {
+                if (index == 0) {
                     $scope.loadTwitch(data.embed_url, data.title, false);
-                 }
+                }
 
-                 $scope.data.push({
-                     url: data.embed_url,
-                     date: $filter('date')(data.created_at, 'dd/MM/yyyy HH:mm'),
-                     duration: $filter('duration')(data.duration * 1000),
-                     title: data.title,
-                     img: data.thumbnails.medium
-                 })
-             });
+                $scope.data.push({
+                    url: data.embed_url,
+                    date: $filter('date')(data.created_at, 'dd/MM/yyyy HH:mm'),
+                    duration: $filter('duration')(data.duration * 1000),
+                    title: data.title,
+                    img: data.thumbnails.medium
+                })
+            });
             $scope.loading = false;
         }).catch(function () {
             $scope.message = "Pas de résultats disponible.";
@@ -56,6 +56,5 @@ app.controller('highlightCtrl', function ($rootScope, $scope, $document, $filter
         }
     };
 
-    // init
     $scope.getData();
 });

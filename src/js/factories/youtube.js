@@ -1,6 +1,6 @@
 app.factory('youtube', function ($http) {
     var data = {};
-    var apiKey =  "AIzaSyAgcaNWhH7wccARqAMtF410IdvTYcD-6io";
+    var apiKey = "AIzaSyACLq5fZUrMRU2NlJ5h4qtAwvwpcRx4sWs";
 
     data.highlight = function () {
         return $http({

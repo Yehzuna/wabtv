@@ -69,6 +69,5 @@ app.controller('replayCtrl', function ($rootScope, $scope, $document, $filter, y
         }
     };
 
-    // init
     $scope.getData(true);
 });

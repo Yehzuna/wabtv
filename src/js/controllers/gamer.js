@@ -4,7 +4,7 @@ app.controller('gamerCtrl', function ($rootScope, $scope, $sce, api) {
     $scope.data = [];
     api.gamer().then(function (response) {
         var rows = [];
-        angular.forEach(response.data, function(data) {
+        angular.forEach(response.data, function (data) {
             data.txt = $sce.trustAsHtml(data.txt);
             data.ingredients = $sce.trustAsHtml(data.ingredients);
 
@@ -17,7 +17,7 @@ app.controller('gamerCtrl', function ($rootScope, $scope, $sce, api) {
             }
         });
 
-        if(rows.length > 0) {
+        if (rows.length > 0) {
             $scope.data.push(rows);
         }
     });

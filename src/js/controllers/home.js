@@ -5,7 +5,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, yout
 
     $scope.data = {
         viewers: false,
-        title: "La vidéo du jour",
+        title: "Les dernières vidéos",
         id: false,
         playlist: []
     };
@@ -17,7 +17,6 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, yout
                 config = data;
             }
         });
-        $scope.data.title = config.title;
 
         if (config.type === "youtube") {
             $scope.loadYoutubeLive(config.key);
@@ -31,13 +30,15 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, yout
             $scope.loading = false;
 
             if (response.data.stream) {
+                $scope.data.title = config.title;
                 $scope.data.viewers = response.data.stream.viewers + " spectateur(s)";
                 $scope.data.title = response.data.stream.channel.status;
-
                 $scope.player = true;
+
                 $scope.loadTwitch(key);
             } else {
                 $scope.highlight = true;
+
                 $scope.initHighlight();
             }
         }).catch(function () {
@@ -84,7 +85,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, yout
     $scope.loadYoutube = function (key, scroll) {
         document.getElementById('player_iframe').src = "https://www.youtube.com/embed/" + key + "?autoplay=1";
 
-        if(scroll) {
+        if (scroll) {
             var element = angular.element(document.getElementById('player'));
             $document.scrollToElement(element, 10, 1000);
         }

@@ -86,7 +86,7 @@ app.config(function ($routeProvider, $locationProvider) {
             }
         })
         .otherwise({
-            template:'<div class="notFound"><span>La page demandée n\'existe pas !</span><div class="character-highlight"> <div class="move"></div></div></div>'
+            template: '<div class="notFound"><span>La page demandée n\'existe pas !</span><div class="character-highlight"> <div class="move"></div></div></div>'
         })
     ;
 

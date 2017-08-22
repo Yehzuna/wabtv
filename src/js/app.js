@@ -9,7 +9,7 @@ app.run(function ($rootScope, $location) {
     $rootScope.slugPage = "";
 
     $rootScope.$on("$routeChangeStart", function (event, current, next) {
-        if(current.$$route) {
+        if (current.$$route) {
             $rootScope.titlePage = current.$$route.data.title;
             $rootScope.descPage = current.$$route.data.desc;
             $rootScope.slugPage = current.$$route.data.slug;
@@ -19,7 +19,7 @@ app.run(function ($rootScope, $location) {
         }
     });
 
-    $rootScope.$on('$routeChangeSuccess', function() {
+    $rootScope.$on('$routeChangeSuccess', function () {
         ga('send', 'pageview', $location.path());
     });
 });
