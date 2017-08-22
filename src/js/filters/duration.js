@@ -1,17 +1,32 @@
-app.filter('duration', function() {
-    return function(millseconds) {
-        var seconds = Math.floor(millseconds / 1000);
-        var h = 3600;
-        var m = 60;
-        var hours = Math.floor(seconds/h);
-        var minutes = Math.floor( (seconds % h)/m );
-        var scnds = Math.floor( (seconds % m) );
+app.filter('duration', function () {
+    return function (duration) {
+        var regex = duration.match(/PT(\d+H)?(\d+M)?(\d+S)/);
 
-        var timeString = '';
-        if(scnds < 10) scnds = "0"+scnds;
-        if(hours < 10) hours = "0"+hours;
-        if(minutes < 10) minutes = "0"+minutes;
-        timeString = hours +":"+ minutes +":"+scnds;
-        return timeString;
+        var hours = "00";
+        if (regex[1] !== undefined) {
+            hours = formatTime(regex[1]);
+        }
+
+        var minutes = "00";
+        if (regex[2] !== undefined) {
+            minutes = formatTime(regex[2]);
+        }
+
+        var seconds = "00";
+        if (regex[3] !== undefined) {
+            seconds = formatTime(regex[3]);
+        }
+
+        return hours + ":" + minutes + ":" + seconds;
     };
 });
+
+function formatTime(string) {
+    var time = parseInt(string.slice(0, -1));
+
+    if (time < 10) {
+        time = "0" + time;
+    }
+
+    return time;
+}

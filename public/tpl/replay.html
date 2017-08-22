@@ -7,7 +7,9 @@
         </div>
 
         <div class="embed-container" ng-class="{show: !loading}">
-            <div class="player" id="player"></div>
+            <div class="player" id="player">
+                <iframe frameborder="0" scrolling="no" id="player_iframe"></iframe>
+            </div>
             <div class="sidebar">
                 <div class="character-replay">
                     <img src="img/bob-replay.png" alt="Replay" />
@@ -23,7 +25,7 @@
     </div>
 
     <div class="items" ng-show="!message">
-        <div class="item" ng-repeat="video in data" ng-class="{active: active == video.id}" ng-click="loadDailymotion(video.id, video.title, true)">
+        <div class="item" ng-repeat="video in data" ng-class="{active: active == video.id}" ng-click="loadYoutube(video.id, video.title, true)">
             <div class="img">
                 <img src="{{ video.img }}" alt="{{ video.title }}" />
                 <div class="date">{{ video.date }}</div>

@@ -1,22 +1,47 @@
 app.factory('youtube', function ($http) {
     var data = {};
-    var fields = "?fields=id,title,duration,updated_time,thumbnail_180_url,thumbnail_360_url";
+    var apiKey =  "AIzaSyAgcaNWhH7wccARqAMtF410IdvTYcD-6io";
 
     data.highlight = function () {
         return $http({
             method: "GET",
-            url: "https://www.googleapis.com/youtube/v3/videos",
+            url: "https://www.googleapis.com/youtube/v3/playlistItems",
             params: {
-                id: "AIzaSyAgcaNWhH7wccARqAMtF410IdvTYcD-6io",
+                key: apiKey,
+                playlistId: "UUmNU-P7Aw671w9L6h1d1vxw",
                 part: "snippet"
             }
         });
     };
 
-    data.replay = function () {
+    data.replay = function (token) {
+        var params = {
+            key: apiKey,
+            playlistId: "UUmNU-P7Aw671w9L6h1d1vxw",
+            part: "contentDetails",
+            maxResults: 12
+        };
+
+        if (token) {
+            params.pageToken = token;
+        }
+
         return $http({
             method: "GET",
-            url: "https://www.googleapis.com/youtube/v3/videos" + fields + "&limit=5"
+            url: "https://www.googleapis.com/youtube/v3/playlistItems",
+            params: params
+        });
+    };
+
+    data.video = function (ids) {
+        return $http({
+            method: "GET",
+            url: "https://www.googleapis.com/youtube/v3/videos",
+            params: {
+                key: apiKey,
+                id: ids.join(','),
+                part: "snippet,contentDetails"
+            }
         });
     };
 

@@ -3,6 +3,7 @@
 ## v1.5.0
 - Suppression des logo Dailymotion
 - Replacement de l'API Dailymotion par l'API Youtube pour les replays
+- Correction de l'export du programme sous Chrome 
 
 ## v1.4.2
 - Opé Albion 2

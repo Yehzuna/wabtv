@@ -1,4 +1,4 @@
-app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dailymotion, youtube, api) {
+app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, youtube, api) {
     $scope.loading = true;
     $scope.player = false;
     $scope.highlight = false;
@@ -19,15 +19,11 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
         });
         $scope.data.title = config.title;
 
-        $scope.initHighlight();
-        $scope.highlight = true;
-        /*
         if (config.type === "youtube") {
-            $scope.loadYoutube(config.key);
+            $scope.loadYoutubeLive(config.key);
         } else {
             $scope.initTwitch(config.key, config.id);
         }
-        */
     });
 
     $scope.initTwitch = function (key, id) {
@@ -53,27 +49,22 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
     };
 
     $scope.initHighlight = function () {
-
         youtube.highlight().then(function (response) {
-            console.log(response);
-
-            /*
-            angular.forEach(response.data.list, function (data, index) {
-                if (index == 0) {
-                    $scope.loadDailymotion(data.id, false);
+            angular.forEach(response.data.items, function (data, index) {
+                if (index === 0) {
+                    $scope.loadYoutube(data.snippet.resourceId.videoId, false);
                 }
 
                 $scope.data.playlist.push({
-                    id: data.id,
-                    title: data.title,
-                    img: data.thumbnail_180_url
+                    id: data.snippet.resourceId.videoId,
+                    title: data.snippet.title,
+                    img: data.snippet.thumbnails.medium.url
                 })
             });
-            */
         });
     };
 
-    $scope.loadYoutube = function (key) {
+    $scope.loadYoutubeLive = function (key) {
         document.getElementById('player_iframe').src = "https://www.youtube.com/embed/" + key + "?autoplay=1";
         document.getElementById('chat').src = "https://www.youtube.com/live_chat?v=" + key + "&embed_domain=" + window.location.hostname;
 
@@ -90,12 +81,8 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, dail
         player.setVolume(0.5);
     };
 
-    $scope.loadDailymotion = function (id, scroll) {
-        $scope.data.id = id;
-
-        DM.player(document.getElementById("player"), {
-            video: id
-        });
+    $scope.loadYoutube = function (key, scroll) {
+        document.getElementById('player_iframe').src = "https://www.youtube.com/embed/" + key + "?autoplay=1";
 
         if(scroll) {
             var element = angular.element(document.getElementById('player'));

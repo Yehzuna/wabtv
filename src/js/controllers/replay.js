@@ -1,9 +1,9 @@
-app.controller('replayCtrl', function ($rootScope, $scope, $document, $filter, dailymotion) {
+app.controller('replayCtrl', function ($rootScope, $scope, $document, $filter, youtube) {
     $rootScope.night = false;
 
     $scope.data = [];
     $scope.nb = 0;
-    $scope.page = 1;
+    $scope.token = false;
     $scope.active = 0;
     $scope.more = false;
     $scope.message = false;
@@ -11,22 +11,35 @@ app.controller('replayCtrl', function ($rootScope, $scope, $document, $filter, d
     $scope.loading = true;
 
     $scope.getData = function (init) {
-        dailymotion.replay($scope.page).then(function (response) {
-            $scope.nb = response.data.total;
-            $scope.more = response.data.has_more;
+        youtube.replay($scope.token).then(function (response) {
+            $scope.nb = response.data.pageInfo.totalResults;
 
-            angular.forEach(response.data.list, function (data, index) {
-                if (index == 0 && init) {
-                    $scope.loadDailymotion(data.id, data.title, false);
-                }
+            if (response.data.nextPageToken) {
+                $scope.more = true;
+                $scope.token = response.data.nextPageToken;
+            } else {
+                $scope.more = false;
+            }
 
-                $scope.data.push({
-                    id: data.id,
-                    date: $filter('date')(data.updated_time*1000, 'dd/MM/yyyy'),
-                    duration: $filter('duration')(data.duration * 1000),
-                    title: data.title,
-                    img: data.thumbnail_360_url
-                })
+            var ids = [];
+            angular.forEach(response.data.items, function (data) {
+                ids.push(data.contentDetails.videoId);
+            });
+
+            youtube.video(ids).then(function (response) {
+                angular.forEach(response.data.items, function (data, index) {
+                    if (index === 0 && init) {
+                        $scope.loadYoutube(data.id, data.snippet.title, false);
+                    }
+
+                    $scope.data.push({
+                        id: data.id,
+                        title: data.snippet.title,
+                        img: data.snippet.thumbnails.medium.url,
+                        date: $filter('date')(data.snippet.publishedAt, 'dd/MM/yyyy'),
+                        duration: $filter('duration')(data.contentDetails.duration)
+                    });
+                });
             });
 
             $scope.loading = false;
@@ -37,19 +50,18 @@ app.controller('replayCtrl', function ($rootScope, $scope, $document, $filter, d
     };
 
     $scope.next = function () {
-        $scope.page = $scope.page + 1;
         $scope.loading = true;
+
+        ga('send', 'event', 'WabTV', 'Replay', 'Next page');
 
         $scope.getData(false);
     };
 
-    $scope.loadDailymotion = function (id, title, scroll) {
+    $scope.loadYoutube = function (id, title, scroll) {
         $scope.active = id;
         $scope.title = title;
 
-        DM.player(document.getElementById("player"), {
-            video: id
-        });
+        document.getElementById('player_iframe').src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
 
         if (scroll) {
             var element = angular.element(document.getElementById('player'));
