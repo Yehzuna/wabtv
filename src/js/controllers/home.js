@@ -3,9 +3,11 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, yout
     $scope.player = false;
     $scope.highlight = false;
 
+    var pageTitle = "Les dernières vidéos";
+
     $scope.data = {
         viewers: false,
-        title: "Les dernières vidéos",
+        title: pageTitle,
         id: false,
         playlist: []
     };
@@ -17,6 +19,8 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, yout
                 config = data;
             }
         });
+
+        pageTitle = config.title;
 
         if (config.type === "youtube") {
             $scope.loadYoutubeLive(config.key);
@@ -30,7 +34,7 @@ app.controller('homeCtrl', function ($rootScope, $scope, $document, twitch, yout
             $scope.loading = false;
 
             if (response.data.stream) {
-                $scope.data.title = config.title;
+                $scope.data.title = pageTitle;
                 $scope.data.viewers = response.data.stream.viewers + " spectateur(s)";
                 $scope.data.title = response.data.stream.channel.status;
                 $scope.player = true;
