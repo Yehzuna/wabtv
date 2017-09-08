@@ -1,5 +1,8 @@
 # WAB TV
 
+## v1.6.0
+- Ajout module de gestion de pub
+
 ## v1.5.0
 - Suppression des logo Dailymotion
 - Replacement de l'API Dailymotion par l'API Youtube pour les replays

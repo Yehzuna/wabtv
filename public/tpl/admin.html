@@ -13,6 +13,26 @@
     <div ng-show="tab == 'config'">
         <h2>Configuration</h2>
 
+        <h3>Publicité</h3>
+
+        <div class="form">
+            <label>Actif</label>
+            <input type="checkbox" ng-model="config.ads.active" />
+
+            <label>URL cible</label>
+            <input type="text" placeholder="URL cible" ng-model="config.ads.adsUrl" />
+
+            <label>URL banniére</label>
+            <input type="text" placeholder="URL banniére" ng-model="config.ads.bannerUrl" />
+
+            <label>URL habillage</label>
+            <input type="text" placeholder="URL habillage" ng-model="config.ads.wallpaperUrl" />
+        </div>
+
+        <div class="buttons">
+            <input type="button" value="Valider" class="button" ng-click="submitConfig()" />
+        </div>
+
         <h3>Player</h3>
 
         <div class="buttons">

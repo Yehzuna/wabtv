@@ -61,10 +61,24 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch
         "youtube"
     ];
     $scope.config = {
-        'players': []
+        players: [],
+        ads: {
+            active: false,
+            bannerUrl: false,
+            wallpaperUrl: false,
+            adsUrl: false,
+            backgroundColor: false
+        }
     };
     $scope.configCopy = {
-        'players': []
+        players: [],
+        ads: {
+            active: false,
+            bannerUrl: false,
+            wallpaperUrl: false,
+            adsUrl: false,
+            backgroundColor: false
+        }
     };
 
     api.config().then(function (response) {
