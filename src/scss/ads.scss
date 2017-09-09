@@ -10,7 +10,7 @@
 
 @media #{$large-up} {
   body {
-    background: url('#{$img-path}ope/albion2.jpg') $background-color top center no-repeat fixed;
+    background: url('#{$img-path}ope/l2p-tournoi.png') $background-color top center no-repeat fixed;
     &.night .ads .container-placeholder {
       background: $background-color-night;
     }
@@ -33,7 +33,8 @@
         padding: 20px;
       }
       .partners {
-        padding: 10px 0;
+        background: $background-color;
+        padding: 20px 0;
         margin: 0;
       }
       .footer {
