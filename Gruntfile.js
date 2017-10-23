@@ -1,9 +1,9 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         clean: {
-            dist:[
+            dist: [
                 'public/fonts/',
                 'public/js/',
                 'public/css/',
@@ -50,8 +50,21 @@ module.exports = function(grunt) {
                     cwd: 'src/fonts/',
                     src: ['**'],
                     dest: 'public/fonts/'
+                }/*, {
+                    expand: true,
+                    cwd: 'src/tpl/',
+                    src: ['**'],
+                    dest: 'public/tpl/'
+                }*/]
+            },
+            dev: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/data/',
+                    src: ['**'],
+                    dest: 'public/data/'
                 }]
-            }
+            },
         },
         ngAnnotate: {
             dist: {
@@ -114,6 +127,7 @@ module.exports = function(grunt) {
     grunt.registerTask('dev', [
         'clean',
         'copy',
+        'copy:dev',
         'compass:dev',
         'ngAnnotate',
         'concat'

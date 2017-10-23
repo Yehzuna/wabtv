@@ -1,6 +1,12 @@
 # WAB TV
-
 > Site public http://wearebobtv.com
+
+
+## Installation
+
+    npm install
+    bower install
+
 
 ## Commandes
 
