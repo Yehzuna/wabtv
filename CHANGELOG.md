@@ -1,10 +1,14 @@
 # WAB TV
 
+## v1.5.2
+- Supression habillage L2P Tournoi 
+- Supression partenaire flooz
+
 ## v1.5.1
 - Habillage L2P Tournoi 
 
 ## v1.5.0
-- Suppression des logo Dailymotion
+- Suppression des logos Dailymotion
 - Replacement de l'API Dailymotion par l'API Youtube pour les replays
 - Correction de l'export du programme sous Chrome 
 
