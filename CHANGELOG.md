@@ -1,5 +1,8 @@
 # WAB TV
 
+## v1.5.3
+- Ajout des demi-heures pour le planning
+
 ## v1.5.2
 - Supression habillage L2P Tournoi 
 - Supression partenaire flooz

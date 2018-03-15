@@ -173,6 +173,7 @@ app.controller('adminCtrl', function ($rootScope, $scope, $location, api, twitch
             h = "0" + h;
         }
         $scope.hours.push(h + ":00");
+        $scope.hours.push(h + ":30");
     }
 
     $scope.currentSchedule = [];
