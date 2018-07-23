@@ -2,7 +2,13 @@
 
 > Site public http://wearebobtv.com
 
-## Commandes
+## Install
+
+    npm install
+    bower install
+    cp public/hash.example.php public/hash.php
+
+## Commands
 
     grunt dev
     grunt prod

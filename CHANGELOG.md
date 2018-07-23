@@ -1,5 +1,10 @@
 # WAB TV
 
+## v1.5.3
+- Fix dom-to-image lib avec chrome
+- MAJ README
+- Ajout `hash.example.php`
+
 ## v1.5.2
 - Supression habillage L2P Tournoi 
 - Supression partenaire flooz

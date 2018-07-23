@@ -51,6 +51,10 @@ module.exports = function(grunt) {
                     src: ['**'],
                     dest: 'public/fonts/'
                 }]
+            },
+            domFix: {
+              src: 'node_modules/dom-to-image-chrome-fix/**',
+              dest: 'public/bower_components/'
             }
         },
         ngAnnotate: {
