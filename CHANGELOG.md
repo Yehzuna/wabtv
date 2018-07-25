@@ -4,6 +4,7 @@
 - Fix dom-to-image lib avec chrome
 - MAJ README
 - Ajout `hash.example.php`
+- npm audit
 
 ## v1.5.2
 - Supression habillage L2P Tournoi 
